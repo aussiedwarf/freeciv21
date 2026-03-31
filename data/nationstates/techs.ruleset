@@ -247,8 +247,8 @@ helptext = _("Reduces the effect of Cathedrals.")
 
 [advance_computers]
 name     = _("Computers")
-req1     = "Miniaturization"
-req2     = "Radio"
+req1     = "Transistors"
+req2     = "Cryptography"
 flags    = ""
 graphic     = "a.computers"
 graphic_alt = "-"
@@ -327,7 +327,7 @@ graphic_alt = "-"
 
 [advance_environmentalism]
 name     = _("Environmentalism")
-req1     = "Recycling"
+req1     = "Ecology"
 req2     = "Space Flight"
 flags    = ""
 graphic     = "a.environmentalism"
@@ -360,7 +360,7 @@ graphic_alt = "-"
 [advance_flight]
 name     = _("Flight")
 req1     = "Combustion"
-req2     = "Tactics"
+req2     = "Aerodynamics"
 flags    = "Build_Airborne"
 graphic     = "a.flight"
 graphic_alt = "-"
@@ -368,7 +368,7 @@ graphic_alt = "-"
 [advance_fusion_power]
 name     = _("Fusion Power")
 req1     = "Superconductors"
-req2     = "Labor Union"
+req2     = "Plasma Physics"
 flags    = ""
 graphic     = "a.fusion_power"
 graphic_alt = "-"
@@ -376,8 +376,8 @@ helptext = _("Makes it possible for Engineers to transform terrains.")
 
 [advance_genetic_engineering]
 name     = _("Genetic Engineering")
-req1     = "Refrigeration"
-req2     = "The Corporation"
+req1     = "Molecular Biology"
+req2     = "Computers"
 flags    = ""
 graphic     = "a.genetic_engineering"
 graphic_alt = "-"
@@ -431,16 +431,16 @@ graphic_alt = "-"
 
 [advance_labor_union]
 name     = _("Labor Union")
-req1     = "Communism"
-req2     = "Mobile Warfare"
+req1     = "Labor Movement"
+req2     = "Mass Production"
 flags    = ""
 graphic     = "a.labor_union"
 graphic_alt = "-"
 
 [advance_laser]
 name     = _("Laser")
-req1     = "Computers"
-req2     = "Nuclear Power"
+req1     = "Quantum Theory"
+req2     = "Semiconductor"
 flags    = ""
 graphic     = "a.laser"
 graphic_alt = "-"
@@ -532,8 +532,8 @@ graphic_alt = "-"
 
 [advance_miniaturization]
 name     = _("Miniaturization")
-req1     = "Combustion"
-req2     = "Electronics"
+req1     = "Electronics"
+req2     = "Precision Manufacturing"
 flags    = ""
 graphic     = "a.miniaturization"
 graphic_alt = "-"
@@ -586,8 +586,8 @@ graphic_alt = "-"
 
 [advance_nuclear_fission]
 name     = _("Nuclear Fission")
-req1     = "Mass Production"
-req2     = "Atomic Theory"
+req1     = "Quantum Theory"
+req2     = "Mass Production"
 flags    = ""
 graphic     = "a.nuclear_fission"
 graphic_alt = "-"
@@ -621,8 +621,8 @@ graphic_alt = "-"
 
 [advance_plastics]
 name     = _("Plastics")
-req1     = "Mass Production"
-req2     = "Robotics"
+req1     = "Petrochemicals"
+req2     = "Mass Production"
 flags    = ""
 graphic     = "a.plastics"
 graphic_alt = "-"
@@ -672,8 +672,8 @@ celebrating).\
 
 [advance_recycling]
 name     = _("Recycling")
-req1     = "Mass Production"
-req2     = "Sanitation"
+req1     = "Plastics"
+req2     = "Ecology"
 flags    = ""
 graphic     = "a.recycling"
 graphic_alt = "-"
@@ -705,16 +705,16 @@ irrigation systems to farmland.\
 
 [advance_robotics]
 name     = _("Robotics")
-req1     = "Mobile Warfare"
-req2     = "Computers"
+req1     = "Computers"
+req2     = "Automation"
 flags    = ""
 graphic     = "a.robotics"
 graphic_alt = "-"
 
 [advance_rocketry]
 name     = _("Rocketry")
-req1     = "Advanced Flight"
-req2     = "Miniaturization"
+req1     = "Jet Propulsion"
+req2     = "Guided Missiles"
 flags    = ""
 graphic     = "a.rocketry"
 graphic_alt = "-"
@@ -746,8 +746,8 @@ graphic_alt = "-"
 
 [advance_stealth]
 name     = _("Stealth")
-req1     = "Plastics"
-req2     = "Space Flight"
+req1     = "Advanced Composites"
+req2     = "Radar"
 flags    = ""
 graphic     = "a.stealth"
 graphic_alt = "-"
@@ -770,8 +770,8 @@ graphic_alt = "-"
 
 [advance_superconductors]
 name     = _("Superconductors")
-req1     = "Space Flight"
-req2     = "Laser"
+req1     = "Laser"
+req2     = "Cryogenics"
 flags    = ""
 graphic     = "a.superconductors"
 graphic_alt = "-"
@@ -866,4 +866,1253 @@ req1     = "Alphabet"
 req2     = "None"
 flags    = ""
 graphic     = "a.writing"
+graphic_alt = "-"
+
+; =======================================================================
+; New technologies for expanded 1800-2000 era
+; =======================================================================
+
+; 1799 - https://en.wikipedia.org/wiki/Aerodynamics
+[advance_aerodynamics]
+name     = _("Aerodynamics")
+req1     = "Physics"
+req2     = "Mathematics"
+flags    = ""
+graphic     = "a.aerodynamics"
+graphic_alt = "-"
+
+; 1840 - https://en.wikipedia.org/wiki/Agricultural_chemistry
+[advance_agricultural_chemistry]
+name     = _("Agricultural Chemistry")
+req1     = "Chemistry"
+req2     = "Trade"
+flags    = ""
+graphic     = "a.agricultural_chemistry"
+graphic_alt = "-"
+
+; 1940 - https://en.wikipedia.org/wiki/Naval_warfare
+[advance_advanced_naval_warfare]
+name     = _("Advanced Naval Warfare")
+req1     = "Naval Aviation"
+req2     = "Sonar"
+flags    = ""
+graphic     = "a.advanced_naval_warfare"
+graphic_alt = "-"
+
+; 1846 - https://en.wikipedia.org/wiki/Anesthesia
+[advance_anesthesia]
+name     = _("Anesthesia")
+req1     = "Medicine"
+req2     = "Organic Chemistry"
+flags    = ""
+graphic     = "a.anesthesia"
+graphic_alt = "-"
+
+; 1928 - https://en.wikipedia.org/wiki/Antibiotic
+[advance_antibiotics]
+name     = _("Antibiotics")
+req1     = "Epidemiology"
+req2     = "Organic Chemistry"
+flags    = ""
+graphic     = "a.antibiotics"
+graphic_alt = "-"
+
+; 1867 - https://en.wikipedia.org/wiki/Antiseptic
+[advance_antiseptics]
+name     = _("Antiseptics")
+req1     = "Microbiology"
+req2     = "Organic Chemistry"
+flags    = ""
+graphic     = "a.antiseptics"
+graphic_alt = "-"
+
+; 1860 - https://en.wikipedia.org/wiki/Armour#Naval_armour
+[advance_armor_plate]
+name     = _("Armor Plate")
+req1     = "Metallurgical Science"
+req2     = "Navigation"
+flags    = ""
+graphic     = "a.armor_plate"
+graphic_alt = "-"
+
+; 1913 - https://en.wikipedia.org/wiki/Assembly_line
+[advance_assembly_line]
+name     = _("Assembly Line")
+req1     = "Mass Production"
+req2     = "Electrical Engineering"
+flags    = ""
+graphic     = "a.assembly_line"
+graphic_alt = "-"
+
+; 1916 - https://en.wikipedia.org/wiki/Aviation_industry
+[advance_aviation_industry]
+name     = _("Aviation Industry")
+req1     = "Flight"
+req2     = "Mass Production"
+flags    = ""
+graphic     = "a.aviation_industry"
+graphic_alt = "-"
+
+; 1537 - https://en.wikipedia.org/wiki/Ballistics
+[advance_ballistics]
+name     = _("Ballistics")
+req1     = "Explosives"
+req2     = "Mathematics"
+flags    = ""
+graphic     = "a.ballistics"
+graphic_alt = "-"
+
+; 1915 - https://en.wikipedia.org/wiki/Chemical_warfare
+[advance_chemical_warfare]
+name     = _("Chemical Warfare")
+req1     = "Trench Warfare"
+req2     = "Organic Chemistry"
+flags    = ""
+graphic     = "a.chemical_warfare"
+graphic_alt = "-"
+
+; 1895 - https://en.wikipedia.org/wiki/History_of_film
+[advance_cinema]
+name     = _("Cinema")
+req1     = "Photography"
+req2     = "Electronics"
+flags    = ""
+graphic     = "a.cinema"
+graphic_alt = "-"
+
+; 1854 - https://en.wikipedia.org/wiki/Civil_service
+[advance_civil_service]
+name     = _("Civil Service")
+req1     = "Democracy"
+req2     = "Literacy"
+flags    = ""
+graphic     = "a.civil_service"
+graphic_alt = "-"
+
+; 1918 - https://en.wikipedia.org/wiki/Cryptography
+[advance_cryptography]
+name     = _("Cryptography")
+req1     = "Mathematics"
+req2     = "Radio"
+flags    = ""
+graphic     = "a.cryptography"
+graphic_alt = "-"
+
+; 1906 - https://en.wikipedia.org/wiki/Dreadnought
+[advance_dreadnought]
+name     = _("Dreadnought")
+req1     = "Armor Plate"
+req2     = "Steam Turbine"
+flags    = ""
+graphic     = "a.dreadnought"
+graphic_alt = "-"
+
+; 1882 - https://en.wikipedia.org/wiki/Electrical_engineering
+[advance_electrical_engineering]
+name     = _("Electrical Engineering")
+req1     = "Electromagnetism"
+req2     = "Engineering"
+flags    = ""
+graphic     = "a.electrical_engineering"
+graphic_alt = "-"
+
+; 1882 - https://en.wikipedia.org/wiki/Electrification
+[advance_electrification]
+name     = _("Electrification")
+req1     = "Electrical Engineering"
+req2     = "Industrialization"
+flags    = ""
+graphic     = "a.electrification"
+graphic_alt = "-"
+
+; 1865 - https://en.wikipedia.org/wiki/Electromagnetism
+[advance_electromagnetism]
+name     = _("Electromagnetism")
+req1     = "Electricity"
+req2     = "Theory of Gravity"
+flags    = ""
+graphic     = "a.electromagnetism"
+graphic_alt = "-"
+
+; 1854 - https://en.wikipedia.org/wiki/Epidemiology
+[advance_epidemiology]
+name     = _("Epidemiology")
+req1     = "Public Health"
+req2     = "Mathematics"
+flags    = ""
+graphic     = "a.epidemiology"
+graphic_alt = "-"
+
+; 1919 - https://en.wikipedia.org/wiki/Fascism
+[advance_fascism]
+name     = _("Fascism")
+req1     = "Nationalism"
+req2     = "Propaganda"
+flags    = ""
+graphic     = "a.fascism"
+graphic_alt = "-"
+
+; 1909 - https://en.wikipedia.org/wiki/Haber_process
+[advance_fertilizers]
+name     = _("Fertilizers")
+req1     = "Agricultural Chemistry"
+req2     = "Industrialization"
+flags    = ""
+graphic     = "a.fertilizers"
+graphic_alt = "-"
+
+; 1810 - https://en.wikipedia.org/wiki/Food_preservation
+[advance_food_preservation]
+name     = _("Food Preservation")
+req1     = "Chemistry"
+req2     = "Sanitation"
+flags    = ""
+graphic     = "a.food_preservation"
+graphic_alt = "-"
+
+; 1864 - https://en.wikipedia.org/wiki/International_law
+[advance_international_law]
+name     = _("International Law")
+req1     = "Democracy"
+req2     = "Telegraph"
+flags    = ""
+graphic     = "a.international_law"
+graphic_alt = "-"
+
+; 1835 - https://en.wikipedia.org/wiki/Journalism
+[advance_journalism]
+name     = _("Journalism")
+req1     = "Literacy"
+req2     = "Telegraph"
+flags    = ""
+graphic     = "a.journalism"
+graphic_alt = "-"
+
+; 1868 - https://en.wikipedia.org/wiki/Labour_movement
+[advance_labor_movement]
+name     = _("Labor Movement")
+req1     = "Socialism"
+req2     = "Industrialization"
+flags    = ""
+graphic     = "a.labor_movement"
+graphic_alt = "-"
+
+; 1838 - https://en.wikipedia.org/wiki/Military_logistics
+[advance_logistics]
+name     = _("Logistics")
+req1     = "Railroad"
+req2     = "Tactics"
+flags    = ""
+graphic     = "a.logistics"
+graphic_alt = "-"
+
+; 1920 - https://en.wikipedia.org/wiki/Materials_science
+[advance_materials_science]
+name     = _("Materials Science")
+req1     = "Organic Chemistry"
+req2     = "Steel"
+flags    = ""
+graphic     = "a.materials_science"
+graphic_alt = "-"
+
+; 1892 - https://en.wikipedia.org/wiki/Mechanised_agriculture
+[advance_mechanized_agriculture]
+name     = _("Mechanized Agriculture")
+req1     = "Combustion"
+req2     = "Agricultural Chemistry"
+flags    = ""
+graphic     = "a.mechanized_agriculture"
+graphic_alt = "-"
+
+; 1856 - https://en.wikipedia.org/wiki/Metallurgy#History
+[advance_metallurgical_science]
+name     = _("Metallurgical Science")
+req1     = "Metallurgy"
+req2     = "Thermodynamics"
+flags    = ""
+graphic     = "a.metallurgical_science"
+graphic_alt = "-"
+
+; 1857 - https://en.wikipedia.org/wiki/Microbiology
+[advance_microbiology]
+name     = _("Microbiology")
+req1     = "Optics"
+req2     = "Medicine"
+flags    = ""
+graphic     = "a.microbiology"
+graphic_alt = "-"
+
+; 1911 - https://en.wikipedia.org/wiki/Military_aviation
+[advance_military_aviation]
+name     = _("Military Aviation")
+req1     = "Flight"
+req2     = "Machine Tools"
+flags    = ""
+graphic     = "a.military_aviation"
+graphic_alt = "-"
+
+; 1855 - https://en.wikipedia.org/wiki/Naval_mine
+[advance_mine_warfare]
+name     = _("Mine Warfare")
+req1     = "Torpedo"
+req2     = "Explosives"
+flags    = ""
+graphic     = "a.mine_warfare"
+graphic_alt = "-"
+
+; 1855 - https://en.wikipedia.org/wiki/Artillery#Modern_artillery
+[advance_modern_artillery]
+name     = _("Modern Artillery")
+req1     = "Ballistics"
+req2     = "Steel"
+flags    = ""
+graphic     = "a.modern_artillery"
+graphic_alt = "-"
+
+; 1896 - https://en.wikipedia.org/wiki/Motorized_transport
+[advance_motorized_transport]
+name     = _("Motorized Transport")
+req1     = "Automobile"
+req2     = "Logistics"
+flags    = ""
+graphic     = "a.motorized_transport"
+graphic_alt = "-"
+
+; 1789 - https://en.wikipedia.org/wiki/Nationalism
+[advance_nationalism]
+name     = _("Nationalism")
+req1     = "Philosophy"
+req2     = "Literacy"
+flags    = ""
+graphic     = "a.nationalism"
+graphic_alt = "-"
+
+; 1910 - https://en.wikipedia.org/wiki/Naval_aviation
+[advance_naval_aviation]
+name     = _("Naval Aviation")
+req1     = "Military Aviation"
+req2     = "Dreadnought"
+flags    = ""
+graphic     = "a.naval_aviation"
+graphic_alt = "-"
+
+; 1704 - https://en.wikipedia.org/wiki/Optics
+[advance_optics]
+name     = _("Optics")
+req1     = "Physics"
+req2     = "Mathematics"
+flags    = ""
+graphic     = "a.optics"
+graphic_alt = "-"
+
+; 1828 - https://en.wikipedia.org/wiki/Organic_chemistry
+[advance_organic_chemistry]
+name     = _("Organic Chemistry")
+req1     = "Chemistry"
+req2     = "Thermodynamics"
+flags    = ""
+graphic     = "a.organic_chemistry"
+graphic_alt = "-"
+
+; 1940 - https://en.wikipedia.org/wiki/Paratrooper
+[advance_paratrooper_doctrine]
+name     = _("Paratrooper Doctrine")
+req1     = "Advanced Flight"
+req2     = "Trench Warfare"
+flags    = ""
+graphic     = "a.paratrooper_doctrine"
+graphic_alt = "-"
+
+; 1920 - https://en.wikipedia.org/wiki/Petrochemical
+[advance_petrochemicals]
+name     = _("Petrochemicals")
+req1     = "Petroleum Industry"
+req2     = "Organic Chemistry"
+flags    = ""
+graphic     = "a.petrochemicals"
+graphic_alt = "-"
+
+; 1859 - https://en.wikipedia.org/wiki/Petroleum_industry
+[advance_petroleum_industry]
+name     = _("Petroleum Industry")
+req1     = "Refining"
+req2     = "The Corporation"
+flags    = ""
+graphic     = "a.petroleum_industry"
+graphic_alt = "-"
+
+; 1826 - https://en.wikipedia.org/wiki/Photography
+[advance_photography]
+name     = _("Photography")
+req1     = "Optics"
+req2     = "Chemistry"
+flags    = ""
+graphic     = "a.photography"
+graphic_alt = "-"
+
+; 1800 - https://en.wikipedia.org/wiki/Precision_engineering
+[advance_precision_manufacturing]
+name     = _("Precision Manufacturing")
+req1     = "Machine Tools"
+req2     = "Electrification"
+flags    = ""
+graphic     = "a.precision_manufacturing"
+graphic_alt = "-"
+
+; 1914 - https://en.wikipedia.org/wiki/Propaganda
+[advance_propaganda]
+name     = _("Propaganda")
+req1     = "Cinema"
+req2     = "Journalism"
+flags    = ""
+graphic     = "a.propaganda"
+graphic_alt = "-"
+
+; 1870 - https://en.wikipedia.org/wiki/Public_education
+[advance_public_education]
+name     = _("Public Education")
+req1     = "Civil Service"
+req2     = "University"
+flags    = ""
+graphic     = "a.public_education"
+graphic_alt = "-"
+
+; 1848 - https://en.wikipedia.org/wiki/Public_health
+[advance_public_health]
+name     = _("Public Health")
+req1     = "Vaccination"
+req2     = "Sanitation"
+flags    = ""
+graphic     = "a.public_health"
+graphic_alt = "-"
+
+; 1900 - https://en.wikipedia.org/wiki/Quantum_mechanics
+[advance_quantum_theory]
+name     = _("Quantum Theory")
+req1     = "Atomic Theory"
+req2     = "Electromagnetism"
+flags    = ""
+graphic     = "a.quantum_theory"
+graphic_alt = "-"
+
+; 1935 - https://en.wikipedia.org/wiki/Radar
+[advance_radar]
+name     = _("Radar")
+req1     = "Radio"
+req2     = "Electrical Engineering"
+flags    = ""
+graphic     = "a.radar"
+graphic_alt = "-"
+
+; 1853 - https://en.wikipedia.org/wiki/Reinforced_concrete
+[advance_reinforced_concrete]
+name     = _("Reinforced Concrete")
+req1     = "Steel"
+req2     = "Construction"
+flags    = ""
+graphic     = "a.reinforced_concrete"
+graphic_alt = "-"
+
+; 1498 - https://en.wikipedia.org/wiki/Rifling
+[advance_rifling]
+name     = _("Rifling")
+req1     = "Metallurgy"
+req2     = "Ballistics"
+flags    = ""
+graphic     = "a.rifling"
+graphic_alt = "-"
+
+; 1839 - https://en.wikipedia.org/wiki/Vulcanization
+[advance_rubber_processing]
+name     = _("Rubber Processing")
+req1     = "Chemistry"
+req2     = "Trade"
+flags    = ""
+graphic     = "a.rubber_processing"
+graphic_alt = "-"
+
+; 1859 - https://en.wikipedia.org/wiki/Selective_breeding
+[advance_selective_breeding]
+name     = _("Selective Breeding")
+req1     = "Agricultural Chemistry"
+req2     = "Medicine"
+flags    = ""
+graphic     = "a.selective_breeding"
+graphic_alt = "-"
+
+; 1848 - https://en.wikipedia.org/wiki/Socialism
+[advance_socialism]
+name     = _("Socialism")
+req1     = "Economics"
+req2     = "Nationalism"
+flags    = ""
+graphic     = "a.socialism"
+graphic_alt = "-"
+
+; 1906 - https://en.wikipedia.org/wiki/Sonar
+[advance_sonar]
+name     = _("Sonar")
+req1     = "Submarine Warfare"
+req2     = "Electronics"
+flags    = ""
+graphic     = "a.sonar"
+graphic_alt = "-"
+
+; 1884 - https://en.wikipedia.org/wiki/Steam_turbine
+[advance_steam_turbine]
+name     = _("Steam Turbine")
+req1     = "Thermodynamics"
+req2     = "Steel"
+flags    = ""
+graphic     = "a.steam_turbine"
+graphic_alt = "-"
+
+; 1940 - https://en.wikipedia.org/wiki/Strategic_bombing
+[advance_strategic_bombing]
+name     = _("Strategic Bombing")
+req1     = "Aviation Industry"
+req2     = "Military Aviation"
+flags    = ""
+graphic     = "a.strategic_bombing"
+graphic_alt = "-"
+
+; 1900 - https://en.wikipedia.org/wiki/Submarine_warfare
+[advance_submarine_warfare]
+name     = _("Submarine Warfare")
+req1     = "Torpedo"
+req2     = "Steel"
+flags    = ""
+graphic     = "a.submarine_warfare"
+graphic_alt = "-"
+
+; 1893 - https://en.wikipedia.org/wiki/Universal_suffrage
+[advance_suffrage]
+name     = _("Suffrage")
+req1     = "Democracy"
+req2     = "Public Education"
+flags    = ""
+graphic     = "a.suffrage"
+graphic_alt = "-"
+
+; 1867 - https://en.wikipedia.org/wiki/Surgery
+[advance_surgery]
+name     = _("Surgery")
+req1     = "Anesthesia"
+req2     = "Antiseptics"
+flags    = ""
+graphic     = "a.surgery"
+graphic_alt = "-"
+
+; 1907 - https://en.wikipedia.org/wiki/Synthetic_fiber
+[advance_synthetic_materials]
+name     = _("Synthetic Materials")
+req1     = "Organic Chemistry"
+req2     = "Industrialization"
+flags    = ""
+graphic     = "a.synthetic_materials"
+graphic_alt = "-"
+
+; 1837 - https://en.wikipedia.org/wiki/Electrical_telegraph
+[advance_telegraph]
+name     = _("Telegraph")
+req1     = "Electricity"
+req2     = "Railroad"
+flags    = ""
+graphic     = "a.telegraph"
+graphic_alt = "-"
+
+; 1876 - https://en.wikipedia.org/wiki/Telephone
+[advance_telephone]
+name     = _("Telephone")
+req1     = "Telegraph"
+req2     = "Electrical Engineering"
+flags    = ""
+graphic     = "a.telephone"
+graphic_alt = "-"
+
+; 1824 - https://en.wikipedia.org/wiki/Thermodynamics
+[advance_thermodynamics]
+name     = _("Thermodynamics")
+req1     = "Physics"
+req2     = "Chemistry"
+flags    = ""
+graphic     = "a.thermodynamics"
+graphic_alt = "-"
+
+; 1866 - https://en.wikipedia.org/wiki/Torpedo
+[advance_torpedo]
+name     = _("Torpedo")
+req1     = "Explosives"
+req2     = "Steam Engine"
+flags    = ""
+graphic     = "a.torpedo"
+graphic_alt = "-"
+
+; 1939 - https://en.wikipedia.org/wiki/Total_war
+[advance_total_war_doctrine]
+name     = _("Total War Doctrine")
+req1     = "War Economy"
+req2     = "Fascism"
+flags    = ""
+graphic     = "a.total_war_doctrine"
+graphic_alt = "-"
+
+; 1914 - https://en.wikipedia.org/wiki/Trench_warfare
+[advance_trench_warfare]
+name     = _("Trench Warfare")
+req1     = "Modern Artillery"
+req2     = "Conscription"
+flags    = ""
+graphic     = "a.trench_warfare"
+graphic_alt = "-"
+
+; 1897 - https://en.wikipedia.org/wiki/Tropical_medicine
+[advance_tropical_medicine]
+name     = _("Tropical Medicine")
+req1     = "Epidemiology"
+req2     = "Microbiology"
+flags    = ""
+graphic     = "a.tropical_medicine"
+graphic_alt = "-"
+
+; 1796 - https://en.wikipedia.org/wiki/Vaccination
+[advance_vaccination]
+name     = _("Vaccination")
+req1     = "Medicine"
+req2     = "Chemistry"
+flags    = ""
+graphic     = "a.vaccination"
+graphic_alt = "-"
+
+; 1939 - https://en.wikipedia.org/wiki/War_economy
+[advance_war_economy]
+name     = _("War Economy")
+req1     = "Assembly Line"
+req2     = "Conscription"
+flags    = ""
+graphic     = "a.war_economy"
+graphic_alt = "-"
+
+; =======================================================================
+; New technologies for 1946-2026 era
+; =======================================================================
+
+; --- Early Cold War (1946-1960) ---
+
+; 1944 - https://en.wikipedia.org/wiki/Jet_engine
+[advance_jet_propulsion]
+name     = _("Jet Propulsion")
+req1     = "Aerodynamics"
+req2     = "Combustion"
+flags    = ""
+graphic     = "a.jet_propulsion"
+graphic_alt = "-"
+
+; 1947 - https://en.wikipedia.org/wiki/Transistor
+[advance_transistors]
+name     = _("Transistors")
+req1     = "Electronics"
+req2     = "Quantum Theory"
+flags    = ""
+graphic     = "a.transistors"
+graphic_alt = "-"
+
+; 1944 - https://en.wikipedia.org/wiki/Guided_missile
+[advance_guided_missiles]
+name     = _("Guided Missiles")
+req1     = "Ballistics"
+req2     = "Radar"
+flags    = ""
+graphic     = "a.guided_missiles"
+graphic_alt = "-"
+
+; 1942 - https://en.wikipedia.org/wiki/Helicopter
+[advance_helicopters]
+name     = _("Helicopters")
+req1     = "Advanced Flight"
+req2     = "Combustion"
+flags    = ""
+graphic     = "a.helicopters"
+graphic_alt = "-"
+
+; 1948 - https://en.wikipedia.org/wiki/Television
+[advance_television]
+name     = _("Television")
+req1     = "Radio"
+req2     = "Electronics"
+flags    = ""
+graphic     = "a.television"
+graphic_alt = "-"
+
+; 1945 - https://en.wikipedia.org/wiki/Nuclear_weapon
+[advance_nuclear_weapons]
+name     = _("Nuclear Weapons")
+req1     = "Nuclear Fission"
+req2     = "Rocketry"
+flags    = ""
+graphic     = "a.nuclear_weapons"
+graphic_alt = "-"
+
+; 1947 - https://en.wikipedia.org/wiki/Jet_aircraft
+[advance_jet_aviation]
+name     = _("Jet Aviation")
+req1     = "Jet Propulsion"
+req2     = "Military Aviation"
+flags    = ""
+graphic     = "a.jet_aviation"
+graphic_alt = "-"
+
+; 1950 - https://en.wikipedia.org/wiki/Automation
+[advance_automation]
+name     = _("Automation")
+req1     = "Computers"
+req2     = "Mass Production"
+flags    = ""
+graphic     = "a.automation"
+graphic_alt = "-"
+
+; 1945 - https://en.wikipedia.org/wiki/Pharmaceutical_industry
+[advance_pharmaceutical_industry]
+name     = _("Pharmaceutical Industry")
+req1     = "Antibiotics"
+req2     = "Mass Production"
+flags    = ""
+graphic     = "a.pharmaceutical_industry"
+graphic_alt = "-"
+
+; 1947 - https://en.wikipedia.org/wiki/Decolonization
+[advance_decolonization]
+name     = _("Decolonization")
+req1     = "International Law"
+req2     = "Nationalism"
+flags    = ""
+graphic     = "a.decolonization"
+graphic_alt = "-"
+
+; 1945 - https://en.wikipedia.org/wiki/United_Nations
+[advance_united_nations]
+name     = _("United Nations")
+req1     = "International Law"
+req2     = "Suffrage"
+flags    = ""
+graphic     = "a.united_nations"
+graphic_alt = "-"
+
+; 1947 - https://en.wikipedia.org/wiki/Suburbanization
+[advance_suburban_development]
+name     = _("Suburban Development")
+req1     = "Automobile"
+req2     = "Reinforced Concrete"
+flags    = ""
+graphic     = "a.suburban_development"
+graphic_alt = "-"
+
+; 1947 - https://en.wikipedia.org/wiki/Cold_War
+[advance_cold_war_doctrine]
+name     = _("Cold War Doctrine")
+req1     = "Nuclear Weapons"
+req2     = "Espionage"
+flags    = ""
+graphic     = "a.cold_war_doctrine"
+graphic_alt = "-"
+
+; 1950 - https://en.wikipedia.org/wiki/Petrochemical_industry
+[advance_petrochemical_industry]
+name     = _("Petrochemical Industry")
+req1     = "Petrochemicals"
+req2     = "Mass Production"
+flags    = ""
+graphic     = "a.petrochemical_industry"
+graphic_alt = "-"
+
+; 1952 - https://en.wikipedia.org/wiki/Turbofan
+[advance_turbofan]
+name     = _("Turbofan")
+req1     = "Jet Propulsion"
+req2     = "Thermodynamics"
+flags    = ""
+graphic     = "a.turbofan"
+graphic_alt = "-"
+
+; 1954 - https://en.wikipedia.org/wiki/Semiconductor
+[advance_semiconductor]
+name     = _("Semiconductor")
+req1     = "Transistors"
+req2     = "Materials Science"
+flags    = ""
+graphic     = "a.semiconductor"
+graphic_alt = "-"
+
+; 1952 - https://en.wikipedia.org/wiki/Civil_aviation
+[advance_civil_aviation]
+name     = _("Civil Aviation")
+req1     = "Turbofan"
+req2     = "Radar"
+flags    = ""
+graphic     = "a.civil_aviation"
+graphic_alt = "-"
+
+; 1947 - https://en.wikipedia.org/wiki/Containment
+[advance_containment]
+name     = _("Containment")
+req1     = "Cold War Doctrine"
+req2     = "Propaganda"
+flags    = ""
+graphic     = "a.containment"
+graphic_alt = "-"
+
+; --- Space Age (1960-1975) ---
+
+; 1958 - https://en.wikipedia.org/wiki/Integrated_circuit
+[advance_integrated_circuits]
+name     = _("Integrated Circuits")
+req1     = "Semiconductor"
+req2     = "Miniaturization"
+flags    = ""
+graphic     = "a.integrated_circuits"
+graphic_alt = "-"
+
+; 1957 - https://en.wikipedia.org/wiki/Satellite
+[advance_satellites]
+name     = _("Satellites")
+req1     = "Space Flight"
+req2     = "Radar"
+flags    = ""
+graphic     = "a.satellites"
+graphic_alt = "-"
+
+; 1957 - https://en.wikipedia.org/wiki/Intercontinental_ballistic_missile
+[advance_icbm]
+name     = _("ICBM")
+req1     = "Guided Missiles"
+req2     = "Nuclear Weapons"
+flags    = ""
+graphic     = "a.icbm"
+graphic_alt = "-"
+
+; 1960 - https://en.wikipedia.org/wiki/Telecommunication
+[advance_telecommunications]
+name     = _("Telecommunications")
+req1     = "Television"
+req2     = "Telephone"
+flags    = ""
+graphic     = "a.telecommunications"
+graphic_alt = "-"
+
+; 1954 - https://en.wikipedia.org/wiki/Nuclear_submarine
+[advance_nuclear_submarine]
+name     = _("Nuclear Submarine")
+req1     = "Nuclear Power"
+req2     = "Submarine Warfare"
+flags    = ""
+graphic     = "a.nuclear_submarine"
+graphic_alt = "-"
+
+; 1960 - https://en.wikipedia.org/wiki/Green_Revolution
+[advance_green_revolution]
+name     = _("Green Revolution")
+req1     = "Fertilizers"
+req2     = "Selective Breeding"
+flags    = ""
+graphic     = "a.green_revolution"
+graphic_alt = "-"
+
+; 1962 - https://en.wikipedia.org/wiki/Ecology
+[advance_ecology]
+name     = _("Ecology")
+req1     = "Pharmaceutical Industry"
+req2     = "Public Health"
+flags    = ""
+graphic     = "a.ecology"
+graphic_alt = "-"
+
+; 1953 - https://en.wikipedia.org/wiki/Molecular_biology
+[advance_molecular_biology]
+name     = _("Molecular Biology")
+req1     = "Microbiology"
+req2     = "Quantum Theory"
+flags    = ""
+graphic     = "a.molecular_biology"
+graphic_alt = "-"
+
+; 1962 - https://en.wikipedia.org/wiki/Optoelectronics
+[advance_optoelectronics]
+name     = _("Optoelectronics")
+req1     = "Laser"
+req2     = "Semiconductor"
+flags    = ""
+graphic     = "a.optoelectronics"
+graphic_alt = "-"
+
+; 1960 - https://en.wikipedia.org/wiki/Aerospace_engineering
+[advance_aerospace_engineering]
+name     = _("Aerospace Engineering")
+req1     = "Space Flight"
+req2     = "Jet Aviation"
+flags    = ""
+graphic     = "a.aerospace_engineering"
+graphic_alt = "-"
+
+; 1960 - https://en.wikipedia.org/wiki/Cryogenics
+[advance_cryogenics]
+name     = _("Cryogenics")
+req1     = "Thermodynamics"
+req2     = "Quantum Theory"
+flags    = ""
+graphic     = "a.cryogenics"
+graphic_alt = "-"
+
+; 1960 - https://en.wikipedia.org/wiki/Nuclear_strategy
+[advance_nuclear_strategy]
+name     = _("Nuclear Strategy")
+req1     = "ICBM"
+req2     = "Cold War Doctrine"
+flags    = ""
+graphic     = "a.nuclear_strategy"
+graphic_alt = "-"
+
+; 1960 - https://en.wikipedia.org/wiki/Television_broadcasting
+[advance_television_broadcasting]
+name     = _("Television Broadcasting")
+req1     = "Television"
+req2     = "Telecommunications"
+flags    = ""
+graphic     = "a.television_broadcasting"
+graphic_alt = "-"
+
+; 1960 - https://en.wikipedia.org/wiki/Counterinsurgency
+[advance_counterinsurgency]
+name     = _("Counterinsurgency")
+req1     = "Guerilla Warfare"
+req2     = "Helicopters"
+flags    = ""
+graphic     = "a.counterinsurgency"
+graphic_alt = "-"
+
+; 1956 - https://en.wikipedia.org/wiki/Containerization
+[advance_containerization]
+name     = _("Containerization")
+req1     = "Logistics"
+req2     = "Automation"
+flags    = ""
+graphic     = "a.containerization"
+graphic_alt = "-"
+
+; 1960 - https://en.wikipedia.org/wiki/Plastics_industry
+[advance_plastics_industry]
+name     = _("Plastics Industry")
+req1     = "Plastics"
+req2     = "Petrochemical Industry"
+flags    = ""
+graphic     = "a.plastics_industry"
+graphic_alt = "-"
+
+; 1965 - https://en.wikipedia.org/wiki/Desalination
+[advance_desalination]
+name     = _("Desalination")
+req1     = "Nuclear Power"
+req2     = "Ecology"
+flags    = ""
+graphic     = "a.desalination"
+graphic_alt = "-"
+
+; --- Information Age (1975-2000) ---
+
+; 1971 - https://en.wikipedia.org/wiki/Microprocessor
+[advance_microprocessor]
+name     = _("Microprocessor")
+req1     = "Integrated Circuits"
+req2     = "Computers"
+flags    = ""
+graphic     = "a.microprocessor"
+graphic_alt = "-"
+
+; 1975 - https://en.wikipedia.org/wiki/Fiber-optic_communication
+[advance_fiber_optics]
+name     = _("Fiber Optics")
+req1     = "Optoelectronics"
+req2     = "Telecommunications"
+flags    = ""
+graphic     = "a.fiber_optics"
+graphic_alt = "-"
+
+; 1977 - https://en.wikipedia.org/wiki/Personal_computer
+[advance_personal_computers]
+name     = _("Personal Computers")
+req1     = "Microprocessor"
+req2     = "Television Broadcasting"
+flags    = ""
+graphic     = "a.personal_computers"
+graphic_alt = "-"
+
+; 1978 - https://en.wikipedia.org/wiki/Global_Positioning_System
+[advance_gps]
+name     = _("GPS")
+req1     = "Satellites"
+req2     = "Microprocessor"
+flags    = ""
+graphic     = "a.gps"
+graphic_alt = "-"
+
+; 1980 - https://en.wikipedia.org/wiki/Precision-guided_munition
+[advance_smart_weapons]
+name     = _("Smart Weapons")
+req1     = "GPS"
+req2     = "Guided Missiles"
+flags    = ""
+graphic     = "a.smart_weapons"
+graphic_alt = "-"
+
+; 1983 - https://en.wikipedia.org/wiki/Mobile_phone
+[advance_mobile_telephony]
+name     = _("Mobile Telephony")
+req1     = "Personal Computers"
+req2     = "Telecommunications"
+flags    = ""
+graphic     = "a.mobile_telephony"
+graphic_alt = "-"
+
+; 1983 - https://en.wikipedia.org/wiki/Internet
+[advance_internet]
+name     = _("Internet")
+req1     = "Fiber Optics"
+req2     = "Personal Computers"
+flags    = ""
+graphic     = "a.internet"
+graphic_alt = "-"
+
+; 1973 - https://en.wikipedia.org/wiki/Biotechnology
+[advance_biotechnology]
+name     = _("Biotechnology")
+req1     = "Molecular Biology"
+req2     = "Computers"
+flags    = ""
+graphic     = "a.biotechnology"
+graphic_alt = "-"
+
+; 1980 - https://en.wikipedia.org/wiki/Renewable_energy
+[advance_renewable_energy]
+name     = _("Renewable Energy")
+req1     = "Ecology"
+req2     = "Electrical Engineering"
+flags    = ""
+graphic     = "a.renewable_energy"
+graphic_alt = "-"
+
+; 1975 - https://en.wikipedia.org/wiki/Composite_material
+[advance_advanced_composites]
+name     = _("Advanced Composites")
+req1     = "Materials Science"
+req2     = "Plastics"
+flags    = ""
+graphic     = "a.advanced_composites"
+graphic_alt = "-"
+
+; 1983 - https://en.wikipedia.org/wiki/Cruise_missile
+[advance_cruise_missile_technology]
+name     = _("Cruise Missile Technology")
+req1     = "Smart Weapons"
+req2     = "Jet Aviation"
+flags    = ""
+graphic     = "a.cruise_missile_technology"
+graphic_alt = "-"
+
+; 1971 - https://en.wikipedia.org/wiki/Space_station
+[advance_space_station]
+name     = _("Space Station")
+req1     = "Aerospace Engineering"
+req2     = "Space Flight"
+flags    = ""
+graphic     = "a.space_station"
+graphic_alt = "-"
+
+; 1975 - https://en.wikipedia.org/wiki/Plasma_physics
+[advance_plasma_physics]
+name     = _("Plasma Physics")
+req1     = "Nuclear Power"
+req2     = "Quantum Theory"
+flags    = ""
+graphic     = "a.plasma_physics"
+graphic_alt = "-"
+
+; 1980 - https://en.wikipedia.org/wiki/Digital_electronics
+[advance_digital_electronics]
+name     = _("Digital Electronics")
+req1     = "Microprocessor"
+req2     = "Fiber Optics"
+flags    = ""
+graphic     = "a.digital_electronics"
+graphic_alt = "-"
+
+; 1990 - https://en.wikipedia.org/wiki/Globalization
+[advance_globalization]
+name     = _("Globalization")
+req1     = "Internet"
+req2     = "Containerization"
+flags    = ""
+graphic     = "a.globalization"
+graphic_alt = "-"
+
+; 1990 - https://en.wikipedia.org/wiki/Genetic_engineering
+[advance_genetic_modification]
+name     = _("Genetic Modification")
+req1     = "Genetic Engineering"
+req2     = "Biotechnology"
+flags    = ""
+graphic     = "a.genetic_modification"
+graphic_alt = "-"
+
+; 1983 - https://en.wikipedia.org/wiki/Strategic_Defense_Initiative
+[advance_ballistic_missile_defense]
+name     = _("Ballistic Missile Defense")
+req1     = "Nuclear Strategy"
+req2     = "Satellites"
+flags    = ""
+graphic     = "a.ballistic_missile_defense"
+graphic_alt = "-"
+
+; 1990 - https://en.wikipedia.org/wiki/Information_warfare
+[advance_information_warfare]
+name     = _("Information Warfare")
+req1     = "Internet"
+req2     = "Espionage"
+flags    = ""
+graphic     = "a.information_warfare"
+graphic_alt = "-"
+
+; 1990 - https://en.wikipedia.org/wiki/Unmanned_aerial_vehicle
+[advance_unmanned_vehicles]
+name     = _("Unmanned Vehicles")
+req1     = "Robotics"
+req2     = "GPS"
+flags    = ""
+graphic     = "a.unmanned_vehicles"
+graphic_alt = "-"
+
+; 1985 - https://en.wikipedia.org/wiki/Cell_biology
+[advance_cell_biology]
+name     = _("Cell Biology")
+req1     = "Biotechnology"
+req2     = "Surgery"
+flags    = ""
+graphic     = "a.cell_biology"
+graphic_alt = "-"
+
+; --- Modern (2000-2026) ---
+
+; 2000 - https://en.wikipedia.org/wiki/Artificial_intelligence
+[advance_artificial_intelligence]
+name     = _("Artificial Intelligence")
+req1     = "Internet"
+req2     = "Robotics"
+flags    = ""
+graphic     = "a.artificial_intelligence"
+graphic_alt = "-"
+
+; 2001 - https://en.wikipedia.org/wiki/Unmanned_combat_aerial_vehicle
+[advance_drones]
+name     = _("Drones")
+req1     = "Unmanned Vehicles"
+req2     = "Smart Weapons"
+flags    = ""
+graphic     = "a.drones"
+graphic_alt = "-"
+
+; 2000 - https://en.wikipedia.org/wiki/Cyberwarfare
+[advance_cyber_warfare]
+name     = _("Cyber Warfare")
+req1     = "Information Warfare"
+req2     = "Cryptography"
+flags    = ""
+graphic     = "a.cyber_warfare"
+graphic_alt = "-"
+
+; 2004 - https://en.wikipedia.org/wiki/Social_media
+[advance_social_media]
+name     = _("Social Media")
+req1     = "Internet"
+req2     = "Mobile Telephony"
+flags    = ""
+graphic     = "a.social_media"
+graphic_alt = "-"
+
+; 2010 - https://en.wikipedia.org/wiki/Renewable_energy
+[advance_advanced_renewable_energy]
+name     = _("Advanced Renewable Energy")
+req1     = "Renewable Energy"
+req2     = "Superconductors"
+flags    = ""
+graphic     = "a.advanced_renewable_energy"
+graphic_alt = "-"
+
+; 2005 - https://en.wikipedia.org/wiki/Nanotechnology
+[advance_nanotechnology]
+name     = _("Nanotechnology")
+req1     = "Molecular Biology"
+req2     = "Advanced Composites"
+flags    = ""
+graphic     = "a.nanotechnology"
+graphic_alt = "-"
+
+; 2003 - https://en.wikipedia.org/wiki/Genomics
+[advance_genomics]
+name     = _("Genomics")
+req1     = "Genetic Modification"
+req2     = "Personal Computers"
+flags    = ""
+graphic     = "a.genomics"
+graphic_alt = "-"
+
+; 2019 - https://en.wikipedia.org/wiki/Quantum_computing
+[advance_quantum_computing]
+name     = _("Quantum Computing")
+req1     = "Artificial Intelligence"
+req2     = "Quantum Theory"
+flags    = ""
+graphic     = "a.quantum_computing"
+graphic_alt = "-"
+
+; 2010 - https://en.wikipedia.org/wiki/Directed-energy_weapon
+[advance_directed_energy_weapons]
+name     = _("Directed Energy Weapons")
+req1     = "Laser"
+req2     = "Advanced Composites"
+flags    = ""
+graphic     = "a.directed_energy_weapons"
+graphic_alt = "-"
+
+; 2015 - https://en.wikipedia.org/wiki/Lethal_autonomous_weapon
+[advance_autonomous_weapons]
+name     = _("Autonomous Weapons")
+req1     = "Drones"
+req2     = "Artificial Intelligence"
+flags    = ""
+graphic     = "a.autonomous_weapons"
+graphic_alt = "-"
+
+; 2019 - https://en.wikipedia.org/wiki/5G
+[advance_5g_networks]
+name     = _("5G Networks")
+req1     = "Mobile Telephony"
+req2     = "Fiber Optics"
+flags    = ""
+graphic     = "a.5g_networks"
+graphic_alt = "-"
+
+; 2010 - https://en.wikipedia.org/wiki/Space_commercialization
+[advance_space_commercialization]
+name     = _("Space Commercialization")
+req1     = "Space Station"
+req2     = "The Corporation"
+flags    = ""
+graphic     = "a.space_commercialization"
+graphic_alt = "-"
+
+; 2020 - https://en.wikipedia.org/wiki/Hypersonic_weapon
+[advance_hypersonic_weapons]
+name     = _("Hypersonic Weapons")
+req1     = "Jet Propulsion"
+req2     = "Advanced Composites"
+flags    = ""
+graphic     = "a.hypersonic_weapons"
 graphic_alt = "-"
