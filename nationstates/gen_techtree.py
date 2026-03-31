@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
-"""Parse techs.ruleset and generate a Mermaid tech tree diagram and table."""
+"""Parse rulesets and generate a Mermaid tech tree diagram, plus unit and building tables."""
 
 import re
+from collections import defaultdict
 from pathlib import Path
 
 
@@ -51,6 +52,117 @@ def parse_techs(ruleset_path):
     return techs
 
 
+def parse_units(ruleset_path):
+    """Parse units.ruleset and return list of unit dicts."""
+    text = ruleset_path.read_text()
+    units = []
+
+    headers = list(re.finditer(r'\[unit_\w+\]', text))
+    for i, m in enumerate(headers):
+        end = headers[i + 1].start() if i + 1 < len(headers) else len(text)
+        section = text[m.end():end]
+
+        name_match = re.search(r'name\s*=\s*_\("(?:\?unit:)?(.+?)"\)', section)
+        if not name_match:
+            continue
+
+        def get_str(field):
+            match = re.search(rf'{field}\s*=\s*"(.+?)"', section)
+            return match.group(1) if match else "None"
+
+        def get_int(field):
+            match = re.search(rf'{field}\s*=\s*(\d+)', section)
+            return int(match.group(1)) if match else 0
+
+        units.append({
+            "name": name_match.group(1),
+            "class": get_str("class"),
+            "tech_req": get_str("tech_req"),
+            "obsolete_by": get_str("obsolete_by"),
+            "attack": get_int("attack"),
+            "defense": get_int("defense"),
+            "hitpoints": get_int("hitpoints"),
+            "firepower": get_int("firepower"),
+            "move_rate": get_int("move_rate"),
+            "build_cost": get_int("build_cost"),
+            "pop_cost": get_int("pop_cost"),
+            "transport_cap": get_int("transport_cap"),
+            "fuel": get_int("fuel"),
+        })
+
+    return units
+
+
+def parse_buildings(ruleset_path):
+    """Parse buildings.ruleset and return list of building dicts."""
+    text = ruleset_path.read_text()
+    buildings = []
+
+    headers = list(re.finditer(r'\[building_\w+\]', text))
+    for i, m in enumerate(headers):
+        end = headers[i + 1].start() if i + 1 < len(headers) else len(text)
+        section = text[m.end():end]
+
+        name_match = re.search(r'name\s*=\s*_\("(.+?)"\)', section)
+        if not name_match:
+            continue
+
+        genus_match = re.search(r'genus\s*=\s*"(.+?)"', section)
+        cost_match = re.search(r'build_cost\s*=\s*(\d+)', section)
+        upkeep_match = re.search(r'upkeep\s*=\s*(\d+)', section)
+
+        # Extract tech requirements from reqs block
+        tech_reqs = []
+        reqs_match = re.search(r'reqs\s*=\s*\{([^}]*)\}', section)
+        if reqs_match:
+            for tm in re.finditer(
+                r'"Tech",\s*"([^"]+)",\s*"[^"]+"(?:,\s*(\w+))?',
+                reqs_match.group(1)
+            ):
+                present = tm.group(2)
+                if present is None or present == "TRUE":
+                    tech_reqs.append(tm.group(1))
+
+        # Extract obsolete_by tech
+        obsolete_tech = ""
+        obs_match = re.search(r'obsolete_by\s*=\s*\{([^}]*)\}', section)
+        if obs_match:
+            obs_tech = re.search(r'"Tech",\s*"([^"]+)"', obs_match.group(1))
+            if obs_tech:
+                obsolete_tech = obs_tech.group(1)
+
+        buildings.append({
+            "name": name_match.group(1),
+            "genus": genus_match.group(1) if genus_match else "",
+            "tech_reqs": tech_reqs,
+            "obsolete_tech": obsolete_tech,
+            "build_cost": int(cost_match.group(1)) if cost_match else 0,
+            "upkeep": int(upkeep_match.group(1)) if upkeep_match else 0,
+        })
+
+    return buildings
+
+
+def build_enables_map(units, buildings):
+    """Build a mapping from tech name to what it enables (units and buildings)."""
+    enables = defaultdict(lambda: {"units": [], "buildings": []})
+
+    for u in units:
+        if u["tech_req"] not in ("None", "Never"):
+            enables[u["tech_req"]]["units"].append(u["name"])
+
+    for b in buildings:
+        for tech in b["tech_reqs"]:
+            enables[tech]["buildings"].append(b["name"])
+
+    # Sort lists for consistent output
+    for v in enables.values():
+        v["units"].sort()
+        v["buildings"].sort()
+
+    return dict(enables)
+
+
 def sanitize_id(name):
     """Convert a tech name to a valid Mermaid node ID."""
     return re.sub(r'[^a-zA-Z0-9_]', '_', name)
@@ -80,11 +192,11 @@ def generate_mermaid(techs):
     return "\n".join(lines)
 
 
-def generate_table(techs):
-    """Generate a markdown table of all technologies."""
+def generate_table(techs, enables_map):
+    """Generate a markdown table of all technologies with what they enable."""
     lines = [
-        "| Technology | Requires | Year | Wikipedia |",
-        "|---|---|---|---|",
+        "| Technology | Requires | Enables | Year | Wikipedia |",
+        "|---|---|---|---|---|",
     ]
 
     def sort_key(t):
@@ -98,26 +210,102 @@ def generate_table(techs):
         reqs_str = ", ".join(reqs) if reqs else ""
         year_str = t["year"]
         wiki_str = f"[Link]({t['wiki_url']})" if t["wiki_url"] else ""
-        lines.append(f"| {t['name']} | {reqs_str} | {year_str} | {wiki_str} |")
+
+        # Build enables string
+        enabled = enables_map.get(t["name"], {"units": [], "buildings": []})
+        parts = []
+        for name in enabled["units"]:
+            parts.append(f"{name} (unit)")
+        for name in enabled["buildings"]:
+            parts.append(f"{name} (bldg)")
+        enables_str = ", ".join(parts)
+
+        lines.append(
+            f"| {t['name']} | {reqs_str} | {enables_str} | {year_str} | {wiki_str} |"
+        )
+
+    return "\n".join(lines)
+
+
+def generate_unit_table(units):
+    """Generate a markdown table of all units with stats."""
+    lines = [
+        "| Unit | Class | Tech Req | Obsolete By | Atk | Def | HP | FP | Move | Cost | Notes |",
+        "|---|---|---|---|---|---|---|---|---|---|---|",
+    ]
+
+    def sort_key(u):
+        return (u["class"], u["tech_req"], u["name"])
+
+    for u in sorted(units, key=sort_key):
+        notes = []
+        if u["transport_cap"]:
+            notes.append(f"transport: {u['transport_cap']}")
+        if u["fuel"]:
+            notes.append(f"fuel: {u['fuel']}")
+        if u["pop_cost"]:
+            notes.append(f"pop: {u['pop_cost']}")
+        notes_str = ", ".join(notes)
+
+        tech = u["tech_req"] if u["tech_req"] != "None" else ""
+        obs = u["obsolete_by"] if u["obsolete_by"] != "None" else ""
+
+        lines.append(
+            f"| {u['name']} | {u['class']} | {tech} | {obs} "
+            f"| {u['attack']} | {u['defense']} | {u['hitpoints']} "
+            f"| {u['firepower']} | {u['move_rate']} | {u['build_cost']} "
+            f"| {notes_str} |"
+        )
+
+    return "\n".join(lines)
+
+
+def generate_building_table(buildings):
+    """Generate a markdown table of all buildings."""
+    lines = [
+        "| Building | Type | Tech Req | Build Cost | Upkeep |",
+        "|---|---|---|---|---|",
+    ]
+
+    def sort_key(b):
+        tech_str = ", ".join(b["tech_reqs"]) if b["tech_reqs"] else ""
+        return (b["genus"], tech_str, b["name"])
+
+    for b in sorted(buildings, key=sort_key):
+        tech_str = ", ".join(b["tech_reqs"]) if b["tech_reqs"] else ""
+        lines.append(
+            f"| {b['name']} | {b['genus']} | {tech_str} "
+            f"| {b['build_cost']} | {b['upkeep']} |"
+        )
 
     return "\n".join(lines)
 
 
 def main():
     script_dir = Path(__file__).resolve().parent
-    ruleset_path = script_dir / ".." / "data" / "nationstates" / "techs.ruleset"
+    data_dir = script_dir / ".." / "data" / "nationstates"
     output_path = script_dir / "techtree.md"
 
-    techs = parse_techs(ruleset_path)
+    techs = parse_techs(data_dir / "techs.ruleset")
+    units = parse_units(data_dir / "units.ruleset")
+    buildings = parse_buildings(data_dir / "buildings.ruleset")
+
+    enables_map = build_enables_map(units, buildings)
+
     mermaid = generate_mermaid(techs)
-    table = generate_table(techs)
+    tech_table = generate_table(techs, enables_map)
+    unit_table = generate_unit_table(units)
+    building_table = generate_building_table(buildings)
 
     output_path.write_text(
         f"# Nation States Tech Tree\n\n"
         f"```mermaid\n{mermaid}\n```\n\n"
-        f"## Technology Reference\n\n{table}\n"
+        f"## Technology Reference\n\n{tech_table}\n\n"
+        f"## Unit Reference\n\n{unit_table}\n\n"
+        f"## Building Reference\n\n{building_table}\n"
     )
-    print(f"Generated {output_path} with {len(techs)} techs")
+    print(f"Generated {output_path} with {len(techs)} techs, "
+          f"{len(units)} units, {len(buildings)} buildings")
 
 
 if __name__ == "__main__":
