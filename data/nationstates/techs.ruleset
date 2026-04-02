@@ -113,6 +113,7 @@ format_version=20
 ;
 ; */ <-- avoid gettext warnings
 
+; 1930 - https://en.wikipedia.org/wiki/Aviation_history
 [advance_advanced_flight]
 name     = _("Advanced Flight")
 req1     = "Radio"
@@ -130,6 +131,7 @@ flags    = ""
 graphic     = "a.alphabet"
 graphic_alt = "-"
 
+; 1942 - https://en.wikipedia.org/wiki/Amphibious_warfare
 [advance_amphibious_warfare]
 name     = _("Amphibious Warfare")
 req1     = "Engineering"
@@ -147,14 +149,16 @@ graphic     = "a.astronomy"
 graphic_alt = "-"
 helptext = _("Increases units' vision when in fortresses.")
 
+; 1803 - https://en.wikipedia.org/wiki/Atomic_theory
 [advance_atomic_theory]
 name     = _("Atomic Theory")
 req1     = "Chemistry"
-req2     = "Refrigeration"
+req2     = "Physics"
 flags    = ""
 graphic     = "a.atomic_theory"
 graphic_alt = "-"
 
+; 1886 - https://en.wikipedia.org/wiki/Automobile
 [advance_automobile]
 name     = _("Automobile")
 req1     = "Combustion"
@@ -163,6 +167,7 @@ flags    = ""
 graphic     = "a.automobile"
 graphic_alt = "-"
 
+; 1400 - https://en.wikipedia.org/wiki/History_of_banking
 [advance_banking]
 name     = _("Banking")
 req1     = "Trade"
@@ -196,6 +201,7 @@ flags    = ""
 graphic     = "a.ceremonial_burial"
 graphic_alt = "-"
 
+; 1500 - https://en.wikipedia.org/wiki/History_of_chemistry
 [advance_chemistry]
 name     = _("Chemistry")
 req1     = "University"
@@ -204,6 +210,7 @@ flags    = ""
 graphic     = "a.chemistry"
 graphic_alt = "-"
 
+; 1100 - https://en.wikipedia.org/wiki/Chivalry
 [advance_chivalry]
 name     = _("Chivalry")
 req1     = "Feudalism"
@@ -212,6 +219,7 @@ flags    = ""
 graphic     = "a.chivalry"
 graphic_alt = "-"
 
+; -1754 - https://en.wikipedia.org/wiki/Code_of_Hammurabi
 [advance_code_of_laws]
 name     = _("Code of Laws")
 req1     = "Alphabet"
@@ -220,6 +228,7 @@ flags    = ""
 graphic     = "a.code_of_laws"
 graphic_alt = "-"
 
+; 1939 - https://en.wikipedia.org/wiki/Combined_arms
 [advance_combined_arms]
 name     = _("Combined Arms")
 req1     = "Mobile Warfare"
@@ -228,14 +237,16 @@ flags    = ""
 graphic     = "a.combined_arms"
 graphic_alt = "-"
 
+; 1876 - https://en.wikipedia.org/wiki/Internal_combustion_engine
 [advance_combustion]
 name     = _("Combustion")
 req1     = "Refining"
-req2     = "Engineering"
+req2     = "Thermodynamics"
 flags    = ""
 graphic     = "a.combustion"
 graphic_alt = "-"
 
+; 1848 - https://en.wikipedia.org/wiki/Communism
 [advance_communism]
 name     = _("Communism")
 req1     = "Theology"
@@ -245,14 +256,16 @@ graphic     = "a.communism"
 graphic_alt = "-"
 helptext = _("Reduces the effect of Cathedrals.")
 
+; 1949 - https://en.wikipedia.org/wiki/Computer
 [advance_computers]
 name     = _("Computers")
-req1     = "Transistors"
+req1     = "Electronics"
 req2     = "Cryptography"
 flags    = ""
 graphic     = "a.computers"
 graphic_alt = "-"
 
+; 1793 - https://en.wikipedia.org/wiki/Conscription
 [advance_conscription]
 name     = _("Conscription")
 req1     = "Democracy"
@@ -261,6 +274,7 @@ flags    = ""
 graphic     = "a.conscription"
 graphic_alt = "-"
 
+; 1500 - https://en.wikipedia.org/wiki/Construction
 [advance_construction]
 name     = _("Construction")
 req1     = "Masonry"
@@ -273,6 +287,7 @@ Allows Settlers, Migrants, Workers and Engineers to build forts and \
 fortresses.\
 ")
 
+; 1250 - https://en.wikipedia.org/wiki/Currency
 [advance_currency]
 name     = _("Currency")
 req1     = "Bronze Working"
@@ -281,6 +296,7 @@ flags    = ""
 graphic     = "a.currency"
 graphic_alt = "-"
 
+; 1776 - https://en.wikipedia.org/wiki/Democracy
 [advance_democracy]
 name     = _("Democracy")
 req1     = "Banking"
@@ -289,6 +305,7 @@ flags    = ""
 graphic     = "a.democracy"
 graphic_alt = "-"
 
+; 1776 - https://en.wikipedia.org/wiki/Economics
 [advance_economics]
 name     = _("Economics")
 req1     = "Banking"
@@ -297,6 +314,7 @@ flags    = ""
 graphic     = "a.economics"
 graphic_alt = "-"
 
+; 1831 - https://en.wikipedia.org/wiki/Electricity
 [advance_electricity]
 name     = _("Electricity")
 req1     = "Metallurgy"
@@ -309,6 +327,7 @@ Allows irrigation without an adjacent water source, improves the \
 effect of Amphitheaters, and increases city vision radius.\
 ")
 
+; 1947 - https://en.wikipedia.org/wiki/Electronics
 [advance_electronics]
 name     = _("Electronics")
 req1     = "The Corporation"
@@ -317,6 +336,7 @@ flags    = ""
 graphic     = "a.electronics"
 graphic_alt = "-"
 
+; 1880 - https://en.wikipedia.org/wiki/Engineering
 [advance_engineering]
 name     = _("Engineering")
 req1     = "Electricity"
@@ -325,6 +345,7 @@ flags    = ""
 graphic     = "a.engineering"
 graphic_alt = "-"
 
+; 1970 - https://en.wikipedia.org/wiki/Environmentalism
 [advance_environmentalism]
 name     = _("Environmentalism")
 req1     = "Ecology"
@@ -333,6 +354,7 @@ flags    = ""
 graphic     = "a.environmentalism"
 graphic_alt = "-"
 
+; 1900 - https://en.wikipedia.org/wiki/Espionage
 [advance_espionage]
 name     = _("Espionage")
 req1     = "Communism"
@@ -341,6 +363,7 @@ flags    = ""
 graphic     = "a.espionage"
 graphic_alt = "-"
 
+; 1537 - https://en.wikipedia.org/wiki/Explosive#History
 [advance_explosives]
 name     = _("Explosives")
 req1     = "Gunpowder"
@@ -349,6 +372,7 @@ flags    = ""
 graphic     = "a.explosives"
 graphic_alt = "-"
 
+; 1000 - https://en.wikipedia.org/wiki/Feudalism
 [advance_feudalism]
 name     = _("Feudalism")
 req1     = "Iron Working"
@@ -357,6 +381,7 @@ flags    = ""
 graphic     = "a.feudalism"
 graphic_alt = "-"
 
+; 1903 - https://en.wikipedia.org/wiki/Wright_brothers
 [advance_flight]
 name     = _("Flight")
 req1     = "Combustion"
@@ -365,6 +390,7 @@ flags    = "Build_Airborne"
 graphic     = "a.flight"
 graphic_alt = "-"
 
+; 2025 - https://en.wikipedia.org/wiki/Fusion_power
 [advance_fusion_power]
 name     = _("Fusion Power")
 req1     = "Superconductors"
@@ -374,6 +400,7 @@ graphic     = "a.fusion_power"
 graphic_alt = "-"
 helptext = _("Makes it possible for Engineers to transform terrains.")
 
+; 1973 - https://en.wikipedia.org/wiki/Genetic_engineering
 [advance_genetic_engineering]
 name     = _("Genetic Engineering")
 req1     = "Molecular Biology"
@@ -382,14 +409,16 @@ flags    = ""
 graphic     = "a.genetic_engineering"
 graphic_alt = "-"
 
+; 1808 - https://en.wikipedia.org/wiki/Guerrilla_warfare
 [advance_guerilla_warfare]
 name     = _("Guerilla Warfare")
-req1     = "Communism"
+req1     = "Nationalism"
 req2     = "Tactics"
 flags    = ""
 graphic     = "a.guerilla_warfare"
 graphic_alt = "-"
 
+; 1250 - https://en.wikipedia.org/wiki/Gunpowder
 [advance_gunpowder]
 name     = _("Gunpowder")
 req1     = "Invention"
@@ -397,6 +426,7 @@ req2     = "Feudalism"
 graphic     = "a.gunpowder"
 graphic_alt = "-"
 
+; 1000 - https://en.wikipedia.org/wiki/Equestrianism
 [advance_horseback_riding]
 name     = _("Horseback Riding")
 req1     = "None"
@@ -405,13 +435,15 @@ flags    = ""
 graphic     = "a.horseback_riding"
 graphic_alt = "-"
 
+; 1760 - https://en.wikipedia.org/wiki/Industrialisation
 [advance_industrialization]
 name     = _("Industrialization")
-req1     = "Railroad"
+req1     = "Steam Engine"
 req2     = "Banking"
 graphic     = "a.industrialization"
 graphic_alt = "-"
 
+; 1040 - https://en.wikipedia.org/wiki/Movable_type
 [advance_invention]
 name     = _("Invention")
 req1     = "Bridge Building"
@@ -429,14 +461,16 @@ flags    = ""
 graphic     = "a.iron_working"
 graphic_alt = "-"
 
+; 1868 - https://en.wikipedia.org/wiki/Trade_union
 [advance_labor_union]
 name     = _("Labor Union")
 req1     = "Labor Movement"
-req2     = "Mass Production"
+req2     = "Industrialization"
 flags    = ""
 graphic     = "a.labor_union"
 graphic_alt = "-"
 
+; 1960 - https://en.wikipedia.org/wiki/Laser
 [advance_laser]
 name     = _("Laser")
 req1     = "Quantum Theory"
@@ -445,6 +479,7 @@ flags    = ""
 graphic     = "a.laser"
 graphic_alt = "-"
 
+; 1650 - https://en.wikipedia.org/wiki/Military_leadership
 [advance_leadership]
 name     = _("Leadership")
 req1     = "Chivalry"
@@ -453,6 +488,7 @@ flags    = ""
 graphic     = "a.leadership"
 graphic_alt = "-"
 
+; -1050 - https://en.wikipedia.org/wiki/Phoenician_alphabet
 [advance_literacy]
 name     = _("Literacy")
 req1     = "Writing"
@@ -461,14 +497,16 @@ flags    = ""
 graphic     = "a.literacy"
 graphic_alt = "-"
 
+; 1800 - https://en.wikipedia.org/wiki/Machine_tool
 [advance_machine_tools]
 name     = _("Machine Tools")
-req1     = "Steel"
+req1     = "Metallurgy"
 req2     = "Tactics"
 flags    = ""
 graphic     = "a.machine_tools"
 graphic_alt = "-"
 
+; 1400 - https://en.wikipedia.org/wiki/Compass
 [advance_magnetism]
 name     = _("Magnetism")
 req1     = "Seafaring"
@@ -477,6 +515,7 @@ flags    = ""
 graphic     = "a.magnetism"
 graphic_alt = "-"
 
+; 1400 - https://en.wikipedia.org/wiki/Cartography
 [advance_map_making]
 name     = _("Map Making")
 req1     = "Alphabet"
@@ -493,6 +532,7 @@ flags    = ""
 graphic     = "a.masonry"
 graphic_alt = "-"
 
+; 1913 - https://en.wikipedia.org/wiki/Mass_production
 [advance_mass_production]
 name     = _("Mass Production")
 req1     = "Automobile"
@@ -501,6 +541,7 @@ flags    = ""
 graphic     = "a.mass_production"
 graphic_alt = "-"
 
+; -300 - https://en.wikipedia.org/wiki/Euclid%27s_Elements
 [advance_mathematics]
 name     = _("Mathematics")
 req1     = "Alphabet"
@@ -509,6 +550,7 @@ flags    = ""
 graphic     = "a.mathematics"
 graphic_alt = "-"
 
+; 1400 - https://en.wikipedia.org/wiki/History_of_medicine
 [advance_medicine]
 name     = _("Medicine")
 req1     = "Philosophy"
@@ -522,6 +564,7 @@ Reduces the risk of plague in your cities by 30% of the base chance. \
 This is additive with the benefits of any buildings.\
 ")
 
+; 1500 - https://en.wikipedia.org/wiki/Metallurgy
 [advance_metallurgy]
 name     = _("Metallurgy")
 req1     = "Gunpowder"
@@ -530,6 +573,7 @@ flags    = ""
 graphic     = "a.metallurgy"
 graphic_alt = "-"
 
+; 1957 - https://en.wikipedia.org/wiki/Miniaturization
 [advance_miniaturization]
 name     = _("Miniaturization")
 req1     = "Electronics"
@@ -543,6 +587,7 @@ oil platforms on Deep Ocean, required to get the bonus from \
 Offshore Platforms.\
 ")
 
+; 1939 - https://en.wikipedia.org/wiki/Maneuver_warfare
 [advance_mobile_warfare]
 name     = _("Mobile Warfare")
 req1     = "Automobile"
@@ -551,6 +596,7 @@ flags    = ""
 graphic     = "a.mobile_warfare"
 graphic_alt = "-"
 
+; 1000 - https://en.wikipedia.org/wiki/Monarchy
 [advance_monarchy]
 name     = _("Monarchy")
 req1     = "Ceremonial Burial"
@@ -559,6 +605,7 @@ flags    = ""
 graphic     = "a.monarchy"
 graphic_alt = "-"
 
+; 1200 - https://en.wikipedia.org/wiki/Monotheism
 [advance_monotheism]
 name     = _("Monotheism")
 req1     = "Astronomy"
@@ -576,6 +623,7 @@ graphic     = "a.mysticism"
 graphic_alt = "-"
 helptext = _("Improves the effect of Temples.")
 
+; 1500 - https://en.wikipedia.org/wiki/Navigation
 [advance_navigation]
 name     = _("Navigation")
 req1     = "Invention"
@@ -584,6 +632,7 @@ flags    = ""
 graphic     = "a.navigation"
 graphic_alt = "-"
 
+; 1938 - https://en.wikipedia.org/wiki/Nuclear_fission
 [advance_nuclear_fission]
 name     = _("Nuclear Fission")
 req1     = "Quantum Theory"
@@ -592,15 +641,17 @@ flags    = ""
 graphic     = "a.nuclear_fission"
 graphic_alt = "-"
 
+; 1954 - https://en.wikipedia.org/wiki/Nuclear_power
 [advance_nuclear_power]
 name     = _("Nuclear Power")
 req1     = "Nuclear Fission"
-req2     = "Miniaturization"
+req2     = "Electronics"
 flags    = ""
 graphic     = "a.nuclear_power"
 graphic_alt = "-"
 helptext = _("Gives sea units one extra movepoint.")
 
+; -600 - https://en.wikipedia.org/wiki/Ancient_Greek_philosophy
 [advance_philosophy]
 name     = _("Philosophy")
 req1     = "Mysticism"
@@ -611,6 +662,7 @@ your civilization: you learn %s immediately.")
 graphic     = "a.philosophy"
 graphic_alt = "-"
 
+; 1500 - https://en.wikipedia.org/wiki/History_of_physics
 [advance_physics]
 name     = _("Physics")
 req1     = "The Wheel"
@@ -619,10 +671,11 @@ flags    = ""
 graphic     = "a.physics"
 graphic_alt = "-"
 
+; 1907 - https://en.wikipedia.org/wiki/Plastic
 [advance_plastics]
 name     = _("Plastics")
-req1     = "Petrochemicals"
-req2     = "Mass Production"
+req1     = "Organic Chemistry"
+req2     = "Industrialization"
 flags    = ""
 graphic     = "a.plastics"
 graphic_alt = "-"
@@ -643,10 +696,11 @@ flags    = ""
 graphic     = "a.pottery"
 graphic_alt = "-"
 
+; 1895 - https://en.wikipedia.org/wiki/Radio
 [advance_radio]
 name     = _("Radio")
 req1     = "Flight"
-req2     = "Electronics"
+req2     = "Electrical Engineering"
 flags    = ""
 graphic     = "a.radio"
 graphic_alt = "-"
@@ -654,6 +708,7 @@ helptext = _("\
 Allows Workers and Engineers to build airstrips, airbases and buoys.\
 ")
 
+; 1825 - https://en.wikipedia.org/wiki/Rail_transport
 [advance_railroad]
 name     = _("?tech:Railroad")
 req1     = "Steam Engine"
@@ -670,6 +725,7 @@ tiles with output greater than 2 (as if all your cities were always \
 celebrating).\
 ")
 
+; 1970 - https://en.wikipedia.org/wiki/Recycling
 [advance_recycling]
 name     = _("Recycling")
 req1     = "Plastics"
@@ -678,9 +734,10 @@ flags    = ""
 graphic     = "a.recycling"
 graphic_alt = "-"
 
+; 1856 - https://en.wikipedia.org/wiki/Oil_refinery
 [advance_refining]
 name     = _("Refining")
-req1     = "Explosives"
+req1     = "Chemistry"
 req2     = "Industrialization"
 flags    = ""
 graphic     = "a.refining"
@@ -691,9 +748,10 @@ mines to oil wells on Desert and Glacier tiles, for an extra production \
 point.\
 ")
 
+; 1834 - https://en.wikipedia.org/wiki/Refrigeration
 [advance_refrigeration]
 name     = _("Refrigeration")
-req1     = "Sanitation"
+req1     = "Chemistry"
 req2     = "Electricity"
 flags    = ""
 graphic     = "a.refrigeration"
@@ -703,6 +761,7 @@ Allows Settlers, Migrants, Workers and Engineers to upgrade \
 irrigation systems to farmland.\
 ")
 
+; 1961 - https://en.wikipedia.org/wiki/Robotics
 [advance_robotics]
 name     = _("Robotics")
 req1     = "Computers"
@@ -711,6 +770,7 @@ flags    = ""
 graphic     = "a.robotics"
 graphic_alt = "-"
 
+; 1944 - https://en.wikipedia.org/wiki/Rocketry
 [advance_rocketry]
 name     = _("Rocketry")
 req1     = "Jet Propulsion"
@@ -720,6 +780,7 @@ graphic     = "a.rocketry"
 graphic_alt = "-"
 helptext = _("Doubles movement of nuclear units.")
 
+; 1854 - https://en.wikipedia.org/wiki/Sanitation
 [advance_sanitation]
 name     = _("Sanitation")
 req1     = "Bridge Building"
@@ -728,6 +789,7 @@ flags    = ""
 graphic     = "a.sanitation"
 graphic_alt = "-"
 
+; 1400 - https://en.wikipedia.org/wiki/Seafaring
 [advance_seafaring]
 name     = _("Seafaring")
 req1     = "Pottery"
@@ -736,6 +798,7 @@ flags    = ""
 graphic     = "a.seafaring"
 graphic_alt = "-"
 
+; 1957 - https://en.wikipedia.org/wiki/Spaceflight
 [advance_space_flight]
 name     = _("Space Flight")
 req1     = "Computers"
@@ -744,6 +807,7 @@ flags    = ""
 graphic     = "a.space_flight"
 graphic_alt = "-"
 
+; 1975 - https://en.wikipedia.org/wiki/Stealth_technology
 [advance_stealth]
 name     = _("Stealth")
 req1     = "Advanced Composites"
@@ -752,6 +816,7 @@ flags    = ""
 graphic     = "a.stealth"
 graphic_alt = "-"
 
+; 1769 - https://en.wikipedia.org/wiki/Steam_engine
 [advance_steam_engine]
 name     = _("Steam Engine")
 req1     = "Chemistry"
@@ -760,14 +825,16 @@ flags    = ""
 graphic     = "a.steam_engine"
 graphic_alt = "-"
 
+; 1855 - https://en.wikipedia.org/wiki/Steel
 [advance_steel]
 name     = _("Steel")
-req1     = "Engineering"
+req1     = "Railroad"
 req2     = "Industrialization"
 flags    = ""
 graphic     = "a.steel"
 graphic_alt = "-"
 
+; 1962 - https://en.wikipedia.org/wiki/Superconductivity
 [advance_superconductors]
 name     = _("Superconductors")
 req1     = "Laser"
@@ -780,6 +847,7 @@ Allows Settlers, Migrants, Workers and Engineers to upgrade railroads \
 with maglev.\
 ")
 
+; 1800 - https://en.wikipedia.org/wiki/Military_tactics
 [advance_tactics]
 name     = _("Tactics")
 req1     = "Conscription"
@@ -788,6 +856,7 @@ flags    = ""
 graphic     = "a.tactics"
 graphic_alt = "-"
 
+; 1800 - https://en.wikipedia.org/wiki/Corporation
 [advance_the_corporation]
 name     = _("The Corporation")
 req1     = "Economics"
@@ -800,6 +869,7 @@ Halves the corruption of trade related to distance from the capital \
 (or eliminates it for Federation governments).\
 ")
 
+; -509 - https://en.wikipedia.org/wiki/Roman_Republic
 [advance_the_republic]
 name     = _("The Republic")
 req1     = "Code of Laws"
@@ -816,6 +886,7 @@ flags    = ""
 graphic     = "a.the_wheel"
 graphic_alt = "-"
 
+; 1200 - https://en.wikipedia.org/wiki/Theology
 [advance_theology]
 name     = _("Theology")
 req1     = "Philosophy"
@@ -825,6 +896,7 @@ graphic     = "a.theology"
 graphic_alt = "-"
 helptext = _("Improves the effect of Cathedrals.")
 
+; 1687 - https://en.wikipedia.org/wiki/Gravity
 [advance_theory_of_gravity]
 name     = _("Theory of Gravity")
 req1     = "Physics"
@@ -833,6 +905,7 @@ flags    = ""
 graphic     = "a.theory_of_gravity"
 graphic_alt = "-"
 
+; 1400 - https://en.wikipedia.org/wiki/Trade
 [advance_trade]
 name     = _("Trade")
 req1     = "Currency"
@@ -844,6 +917,7 @@ helptext = _("\
 Halves the waste of production related to distance from the capital.\
 ")
 
+; 1088 - https://en.wikipedia.org/wiki/University
 [advance_university]
 name     = _("University")
 req1     = "Mathematics"
@@ -852,6 +926,7 @@ flags    = ""
 graphic     = "a.university"
 graphic_alt = "-"
 
+; 1000 - https://en.wikipedia.org/wiki/Warrior_code
 [advance_warrior_code]
 name     = _("Warrior Code")
 req1     = "None"
@@ -975,7 +1050,7 @@ graphic_alt = "-"
 [advance_cinema]
 name     = _("Cinema")
 req1     = "Photography"
-req2     = "Electronics"
+req2     = "Electrification"
 flags    = ""
 graphic     = "a.cinema"
 graphic_alt = "-"
@@ -1065,7 +1140,7 @@ graphic_alt = "-"
 [advance_food_preservation]
 name     = _("Food Preservation")
 req1     = "Chemistry"
-req2     = "Sanitation"
+req2     = "Trade"
 flags    = ""
 graphic     = "a.food_preservation"
 graphic_alt = "-"
@@ -1151,7 +1226,7 @@ flags    = ""
 graphic     = "a.military_aviation"
 graphic_alt = "-"
 
-; 1855 - https://en.wikipedia.org/wiki/Naval_mine
+; 1870 - https://en.wikipedia.org/wiki/Naval_mine
 [advance_mine_warfare]
 name     = _("Mine Warfare")
 req1     = "Torpedo"
@@ -1254,7 +1329,7 @@ graphic_alt = "-"
 [advance_precision_manufacturing]
 name     = _("Precision Manufacturing")
 req1     = "Machine Tools"
-req2     = "Electrification"
+req2     = "Industrialization"
 flags    = ""
 graphic     = "a.precision_manufacturing"
 graphic_alt = "-"
@@ -1281,7 +1356,7 @@ graphic_alt = "-"
 [advance_public_health]
 name     = _("Public Health")
 req1     = "Vaccination"
-req2     = "Sanitation"
+req2     = "Medicine"
 flags    = ""
 graphic     = "a.public_health"
 graphic_alt = "-"
@@ -1304,7 +1379,7 @@ flags    = ""
 graphic     = "a.radar"
 graphic_alt = "-"
 
-; 1853 - https://en.wikipedia.org/wiki/Reinforced_concrete
+; 1856 - https://en.wikipedia.org/wiki/Reinforced_concrete
 [advance_reinforced_concrete]
 name     = _("Reinforced Concrete")
 req1     = "Steel"
@@ -1313,7 +1388,7 @@ flags    = ""
 graphic     = "a.reinforced_concrete"
 graphic_alt = "-"
 
-; 1498 - https://en.wikipedia.org/wiki/Rifling
+; 1540 - https://en.wikipedia.org/wiki/Rifling
 [advance_rifling]
 name     = _("Rifling")
 req1     = "Metallurgy"
@@ -1353,7 +1428,7 @@ graphic_alt = "-"
 [advance_sonar]
 name     = _("Sonar")
 req1     = "Submarine Warfare"
-req2     = "Electronics"
+req2     = "Electromagnetism"
 flags    = ""
 graphic     = "a.sonar"
 graphic_alt = "-"
@@ -1425,7 +1500,7 @@ graphic_alt = "-"
 [advance_telephone]
 name     = _("Telephone")
 req1     = "Telegraph"
-req2     = "Electrical Engineering"
+req2     = "Electromagnetism"
 flags    = ""
 graphic     = "a.telephone"
 graphic_alt = "-"

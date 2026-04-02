@@ -20,7 +20,7 @@ def parse_techs(ruleset_path):
     # by finding comment lines that precede [advance_*] headers.
     comment_map = {}
     for m in re.finditer(
-        r'; (\d{4}) - (https://\S+)\s*\n\[advance_\w+\]', text
+        r'; (-?\d+) - (https://\S+)\s*\n\[advance_\w+\]', text
     ):
         # Map the start of the [advance_*] header to (year, url)
         header_start = text.index('[advance_', m.start())
@@ -53,9 +53,24 @@ def parse_techs(ruleset_path):
 
 
 def parse_units(ruleset_path):
-    """Parse units.ruleset and return list of unit dicts."""
+    """Parse units.ruleset and return list of unit dicts.
+
+    Each dict has keys: name, class, tech_req, obsolete_by, attack, defense,
+    hitpoints, firepower, move_rate, build_cost, pop_cost, transport_cap, fuel,
+    year, wiki_url.
+    Year and wiki_url come from comment lines like:
+        ; 1893 - https://en.wikipedia.org/wiki/HMS_Havock_(1893)
+    """
     text = ruleset_path.read_text()
     units = []
+
+    # Build a map from section header position to (year, wiki_url)
+    comment_map = {}
+    for cm in re.finditer(
+        r'; (-?\d+) - (https://\S+)\s*\n\[unit_\w+\]', text
+    ):
+        header_start = text.index('[unit_', cm.start())
+        comment_map[header_start] = (cm.group(1), cm.group(2))
 
     headers = list(re.finditer(r'\[unit_\w+\]', text))
     for i, m in enumerate(headers):
@@ -74,6 +89,7 @@ def parse_units(ruleset_path):
             match = re.search(rf'{field}\s*=\s*(\d+)', section)
             return int(match.group(1)) if match else 0
 
+        year, wiki_url = comment_map.get(m.start(), ("", ""))
         units.append({
             "name": name_match.group(1),
             "class": get_str("class"),
@@ -88,6 +104,8 @@ def parse_units(ruleset_path):
             "pop_cost": get_int("pop_cost"),
             "transport_cap": get_int("transport_cap"),
             "fuel": get_int("fuel"),
+            "year": year,
+            "wiki_url": wiki_url,
         })
 
     return units
@@ -192,6 +210,16 @@ def generate_mermaid(techs):
     return "\n".join(lines)
 
 
+def format_year(year_str):
+    """Format a year string, converting negative years to 'YYYY BC'."""
+    if not year_str:
+        return ""
+    year = int(year_str)
+    if year < 0:
+        return f"{abs(year)} BC"
+    return year_str
+
+
 def generate_table(techs, enables_map):
     """Generate a markdown table of all technologies with what they enable."""
     lines = [
@@ -208,7 +236,7 @@ def generate_table(techs, enables_map):
     for t in sorted(techs, key=sort_key):
         reqs = [r for r in (t["req1"], t["req2"]) if r not in ("None", "Never")]
         reqs_str = ", ".join(reqs) if reqs else ""
-        year_str = t["year"]
+        year_str = format_year(t["year"])
         wiki_str = f"[Link]({t['wiki_url']})" if t["wiki_url"] else ""
 
         # Build enables string
@@ -230,12 +258,16 @@ def generate_table(techs, enables_map):
 def generate_unit_table(units):
     """Generate a markdown table of all units with stats."""
     lines = [
-        "| Unit | Class | Tech Req | Obsolete By | Atk | Def | HP | FP | Move | Cost | Notes |",
-        "|---|---|---|---|---|---|---|---|---|---|---|",
+        "| Unit | Class | Tech Req | Obsolete By | Atk | Def | HP | FP "
+        "| Move | Cost | Year | Wikipedia | Notes |",
+        "|---|---|---|---|---|---|---|---|---|---|---|---|---|",
     ]
 
     def sort_key(u):
-        return (u["class"], u["tech_req"], u["name"])
+        # Units with year first (sorted by year), then without (alphabetical)
+        if u["year"]:
+            return (0, int(u["year"]), u["class"], u["name"])
+        return (1, 0, u["class"], u["name"])
 
     for u in sorted(units, key=sort_key):
         notes = []
@@ -249,12 +281,14 @@ def generate_unit_table(units):
 
         tech = u["tech_req"] if u["tech_req"] != "None" else ""
         obs = u["obsolete_by"] if u["obsolete_by"] != "None" else ""
+        year_str = format_year(u["year"])
+        wiki_str = f"[Link]({u['wiki_url']})" if u["wiki_url"] else ""
 
         lines.append(
             f"| {u['name']} | {u['class']} | {tech} | {obs} "
             f"| {u['attack']} | {u['defense']} | {u['hitpoints']} "
             f"| {u['firepower']} | {u['move_rate']} | {u['build_cost']} "
-            f"| {notes_str} |"
+            f"| {year_str} | {wiki_str} | {notes_str} |"
         )
 
     return "\n".join(lines)

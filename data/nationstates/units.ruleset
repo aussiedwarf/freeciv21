@@ -798,11 +798,12 @@ Equipped with long pikes, Pikemen replaces Phalanx\
  as the preferred city defender.\
 ")
 
+; 1500 - https://en.wikipedia.org/wiki/Musketeer
 [unit_musketeers]
 name          = _("Musketeers")
 class         = "Land"
 tech_req      = "Gunpowder"
-obsolete_by   = "Riflemen"
+obsolete_by   = "Line Infantry"
 graphic       = "u.musketeers"
 graphic_alt   = "-"
 sound_move    = "m_musketeers"
@@ -832,11 +833,12 @@ Musketeers are infantry equipped with early\
  city defender.\
 ")
 
+; 1860 - https://en.wikipedia.org/wiki/Rifleman
 [unit_riflemen]
 name          = _("Riflemen")
 class         = "Land"
 tech_req      = "Conscription"
-obsolete_by   = "Marines"
+obsolete_by   = "Infantry"
 graphic       = "u.riflemen"
 graphic_alt   = "-"
 sound_move    = "m_riflemen"
@@ -864,6 +866,7 @@ Riflemen are World War-era infantry and very good\
  at defending your cities.\
 ")
 
+; 1914 - https://en.wikipedia.org/wiki/Mountain_warfare
 [unit_alpine_troops]
 name          = _("Alpine Troops")
 class         = "Land"
@@ -898,6 +901,7 @@ Alpine Troops are highly mobile units as well as\
  excellent defenders.\
 ")
 
+; 1940 - https://en.wikipedia.org/wiki/Partisan_(military)
 [unit_partisan]
 name          = _("Partisan")
 class         = "Land"
@@ -940,6 +944,7 @@ A number of Partisans are granted free when an enemy conquers your\
  - You must run either a Democracy or a Communist government.\
 ")
 
+; 1940 - https://en.wikipedia.org/wiki/Fanaticism
 [unit_fanatics]
 name          = _("Fanatics")
 class         = "Land"
@@ -978,11 +983,12 @@ Fundamentalist nations can maintain Fanatic units without\
  Instead, each unit reduces the population by 1.\
 ")
 
+; 1942 - https://en.wikipedia.org/wiki/United_States_Marine_Corps
 [unit_marines]
 name          = _("Marines")
 class         = "Land"
 tech_req      = "Amphibious Warfare"
-obsolete_by   = "None"
+obsolete_by   = "Modern Infantry"
 graphic       = "u.marines"
 graphic_alt   = "-"
 sound_move    = "m_marines"
@@ -1011,6 +1017,7 @@ helptext      = _("\
 Marines are infantry who are experts at marine warfare.\
 ")
 
+; 1940 - https://en.wikipedia.org/wiki/Paratrooper
 [unit_paratroopers]
 name          = _("Paratroopers")
 class         = "Land"
@@ -1050,6 +1057,7 @@ targets!)\
 ")
 paratroopers_range = 10
 
+; 1960 - https://en.wikipedia.org/wiki/Mechanized_infantry
 [unit_mech_inf]
 name          = _("Mech. Inf.")
 class         = "Big Land"
@@ -1250,6 +1258,7 @@ helptext      = _("\
 Knights are mounted and heavily armored warriors.\
 ")
 
+; 1700 - https://en.wikipedia.org/wiki/Dragoon
 [unit_dragoons]
 name          = _("Dragoons")
 class         = "Land"
@@ -1281,11 +1290,12 @@ helptext      = _("\
 Dragoons are mounted warriors carrying early firearms.\
 ")
 
+; 1800 - https://en.wikipedia.org/wiki/Cavalry
 [unit_cavalry]
 name          = _("Cavalry")
 class         = "Land"
 tech_req      = "Tactics"
-obsolete_by   = "Armor"
+obsolete_by   = "Armored Car"
 graphic       = "u.cavalry"
 graphic_alt   = "-"
 sound_move    = "m_cavalry"
@@ -1312,11 +1322,13 @@ helptext      = _("\
 Cavalry are mounted and highly trained soldiers.\
 ")
 
+; 1916 - https://en.wikipedia.org/wiki/British_Mark_I_tank
 [unit_armor]
-name          = _("Armor")
+name          = _("Tank")
+rule_name     = "Armor"
 class         = "Big Land"
-tech_req      = "Mobile Warfare"
-obsolete_by   = "None"
+tech_req      = "Trench Warfare"
+obsolete_by   = "Main Battle Tank"
 graphic       = "u.armor"
 graphic_alt   = "-"
 sound_move    = "m_armor"
@@ -1385,11 +1397,12 @@ jungles), are difficult to defend, and are too big for early ships \
 (Triremes and Caravels).\
 ")
 
+; 1500 - https://en.wikipedia.org/wiki/Cannon
 [unit_cannon]
 name          = _("Cannon")
 class         = "Big Land"
 tech_req      = "Metallurgy"
-obsolete_by   = "Artillery"
+obsolete_by   = "Horse Artillery"
 graphic       = "u.cannon"
 graphic_alt   = "-"
 sound_move    = "m_cannon"
@@ -1419,11 +1432,12 @@ attackers but equally weak defenders and will need an escort to be \
 effective, and have limited mobility.\
 ")
 
+; 1900 - https://en.wikipedia.org/wiki/Artillery
 [unit_artillery]
 name          = _("Artillery")
 class         = "Big Land"
-tech_req      = "Machine Tools"
-obsolete_by   = "Howitzer"
+tech_req      = "Modern Artillery"
+obsolete_by   = "Self-Propelled Artillery"
 graphic       = "u.artillery"
 graphic_alt   = "-"
 sound_move    = "m_artillery"
@@ -1452,6 +1466,7 @@ very strong attacker but equally weak defender and will need an escort \
 to be effective, and has limited mobility.\
 ")
 
+; 1970 - https://en.wikipedia.org/wiki/Howitzer
 [unit_howitzer]
 name          = _("Howitzer")
 class         = "Big Land"
@@ -1485,27 +1500,29 @@ offensive capabilities. However, they still have the limited mobility \
 of their predecessors.\
 ")
 
+; 1915 - https://en.wikipedia.org/wiki/Fokker_Eindecker_fighters
 [unit_fighter]
-name          = _("Fighter")
+name          = _("Biplane Fighter")
+rule_name     = "Fighter"
 class         = "Air"
 tech_req      = "Flight"
-obsolete_by   = "Stealth Fighter"
+obsolete_by   = "Interwar Fighter"
 graphic       = "u.fighter"
 graphic_alt   = "-"
 sound_move    = "m_fighter"
 sound_move_alt = "m_generic"
 sound_fight   = "f_fighter"
 sound_fight_alt = "f_generic"
-build_cost    = 60
+build_cost    = 50
 pop_cost      = 0
-attack        = 4
-defense       = 4
-hitpoints     = 20
+attack        = 3
+defense       = 3
+hitpoints     = 15
 firepower     = 1
-move_rate     = 10
+move_rate     = 8
 vision_radius_sq = 8
 transport_cap = 0
-fuel          = 2
+fuel          = 1
 uk_happy      = 0
 uk_shield     = 1
 uk_food       = 1
@@ -1514,18 +1531,20 @@ targets       = "Air", "Missile", "Helicopter"
 flags         = "AirAttacker", "HasNoZOC"
 roles         = "DefendOk", "DefendOkStartUnit"
 helptext      = _("\
-Fighters are your first airborne units. They can\
- move anywhere and attack any unit.\
+The Biplane Fighter is a WWI-era aircraft. Fragile and short-ranged, \
+but the first true combat aircraft.\
 "), _("\
-Fighters and other aircraft lose 10% of their hitpoints for every \
+Aircraft lose 10% of their hitpoints for every \
 turn not spent in a city, airstrip, or airbase, or on a Carrier.\
 ")
 
+; 1937 - https://en.wikipedia.org/wiki/Boeing_B-17_Flying_Fortress
 [unit_bomber]
-name          = _("Bomber")
+name          = _("Strategic Bomber")
+rule_name     = "Bomber"
 class         = "Air"
 tech_req      = "Advanced Flight"
-obsolete_by   = "Stealth Bomber"
+obsolete_by   = "Heavy Bomber"
 graphic       = "u.bomber"
 graphic_alt   = "-"
 sound_move    = "m_bomber"
@@ -1561,11 +1580,13 @@ turn not spent in a city, airstrip, or airbase, or on a Carrier.\
 ")
 bombard_rate = 3
 
+; 1952 - https://en.wikipedia.org/wiki/Sikorsky_H-34
 [unit_helicopter]
-name          = _("Helicopter")
+name          = _("Transport Helicopter")
+rule_name     = "Helicopter"
 class         = "Helicopter"
-tech_req      = "Combined Arms"
-obsolete_by   = "None"
+tech_req      = "Helicopters"
+obsolete_by   = "Attack Helicopter"
 graphic       = "u.helicopter"
 graphic_alt   = "-"
 sound_move    = "m_helicopter"
@@ -1574,13 +1595,13 @@ sound_fight   = "f_helicopter"
 sound_fight_alt = "f_generic"
 build_cost    = 70
 pop_cost      = 0
-attack        = 5
+attack        = 2
 defense       = 3
 hitpoints     = 30
 firepower     = 1
 move_rate     = 6
 vision_radius_sq = 8
-transport_cap = 1
+transport_cap = 2
 fuel          = 0
 uk_happy      = 1
 uk_shield     = 1
@@ -1591,14 +1612,13 @@ flags         = "OneAttack", "AirAttacker", "Bombarder", "HasNoZOC",
                 "Provoking"
 roles         = ""
 helptext      = _("\
-A Helicopter's attack against units on land is a bombard attack. Against \
+The Transport Helicopter carries troops into battle. \
+Its attack against units on land is a bombard attack. Against \
 units on water it has a regular attack.\
 "), _("\
-Helicopters can also transport one military land unit. While most troops \
-must load or unload in a city, airstrip, or airbase (and not in the field \
-or onboard a Carrier), units specializing in mobility (Paratroopers, \
-Alpine Troops, Marines, Partisans, and Fanatics) can embark or disembark \
-at any time.\
+Helicopters can transport military land units. While most troops \
+must load or unload in a city, airstrip, or airbase, units specializing \
+in mobility can embark or disembark at any time.\
 "), _("\
 Unlike other aircraft, Helicopters are not required to return to a city, \
 base, or Carrier to refuel after a set number of turns. However, care \
@@ -1606,6 +1626,7 @@ must be exercised, due to the health they lose every turn.\
 ")
 bombard_rate = 2
 
+; 1997 - https://en.wikipedia.org/wiki/Lockheed_Martin_F-22_Raptor
 [unit_stealth_fighter]
 name          = _("Stealth Fighter")
 class         = "Air"
@@ -1640,6 +1661,7 @@ An improved Fighter, with improved attack and a higher movement\
  radius.\
 ")
 
+; 1989 - https://en.wikipedia.org/wiki/Northrop_Grumman_B-2_Spirit
 [unit_stealth_bomber]
 name          = _("Stealth Bomber")
 class         = "Air"
@@ -1709,6 +1731,7 @@ The Trireme is your first boat unit. It can act\
  rivers, but it may not enter deep ocean tiles.\
 ")
 
+; 1450 - https://en.wikipedia.org/wiki/Caravel
 [unit_caravel]
 name          = _("Caravel")
 class         = "Sea"
@@ -1743,6 +1766,7 @@ The Caravel is a sailing ship that can enter\
  any ocean tile.\
 ")
 
+; 1550 - https://en.wikipedia.org/wiki/Galleon
 [unit_galleon]
 name          = _("Galleon")
 class         = "Sea"
@@ -1777,11 +1801,13 @@ The Galleon is a pure transport ship, the first which can\
  it may still defend itself when attacked.\
 ")
 
+; 1800 - https://en.wikipedia.org/wiki/HMS_Trincomalee
 [unit_frigate]
-name          = _("Frigate")
+name          = _("Sailing Frigate")
+rule_name     = "Frigate"
 class         = "Sea"
 tech_req      = "Navigation"
-obsolete_by   = "Ironclad"
+obsolete_by   = "Frigate"
 graphic       = "u.frigate"
 graphic_alt   = "-"
 sound_move    = "m_frigate"
@@ -1809,11 +1835,12 @@ The Frigate is a specialized ship with a strong offensive value,\
  and can attack units on land, but it cannot transport units.\
 ")
 
+; 1862 - https://en.wikipedia.org/wiki/Ironclad_warship
 [unit_ironclad]
 name          = _("Ironclad")
 class         = "Sea"
 tech_req      = "Steam Engine"
-obsolete_by   = "Destroyer"
+obsolete_by   = "Pre-Dreadnought"
 graphic       = "u.ironclad"
 graphic_alt   = "-"
 sound_move    = "m_ironclad"
@@ -1841,22 +1868,24 @@ The Ironclad is an armored ship,\
  more sturdy than the Frigate.\
 ")
 
+; 1893 - https://en.wikipedia.org/wiki/HMS_Havock_(1893)
 [unit_destroyer]
-name          = _("Destroyer")
+name          = _("Torpedo Boat Destroyer")
+rule_name     = "Destroyer"
 class         = "Sea"
-tech_req      = "Engineering"
-obsolete_by   = "None"
+tech_req      = "Torpedo"
+obsolete_by   = "Fleet Destroyer"
 graphic       = "u.destroyer"
 graphic_alt   = "-"
 sound_move    = "m_destroyer"
 sound_move_alt = "m_generic"
 sound_fight   = "f_destroyer"
 sound_fight_alt = "f_generic"
-build_cost    = 60
+build_cost    = 50
 pop_cost      = 0
 attack        = 4
-defense       = 4
-hitpoints     = 30
+defense       = 3
+hitpoints     = 20
 firepower     = 1
 move_rate     = 6
 vision_radius_sq = 8
@@ -1880,11 +1909,13 @@ TIP: A very fast unit, which is very useful for hunting down enemy\
  Transports and Submarines.\
 ")
 
+; 1875 - https://en.wikipedia.org/wiki/Armored_cruiser
 [unit_cruiser]
-name          = _("Cruiser")
+name          = _("Armored Cruiser")
+rule_name     = "Cruiser"
 class         = "Sea"
 tech_req      = "Steel"
-obsolete_by   = "AEGIS Cruiser"
+obsolete_by   = "Cruiser"
 graphic       = "u.cruiser"
 graphic_alt   = "-"
 sound_move    = "m_cruiser"
@@ -1911,6 +1942,7 @@ helptext      = _("\
 The Cruiser is a strong offensive boat unit.\
 ")
 
+; 1983 - https://en.wikipedia.org/wiki/Ticonderoga-class_cruiser
 [unit_aegis_cruiser]
 name          = _("AEGIS Cruiser")
 class         = "Sea"
@@ -1947,11 +1979,12 @@ The AEGIS Cruiser is equipped with an advanced\
  defensive missile system.\
 ")
 
+; 1916 - https://en.wikipedia.org/wiki/Queen_Elizabeth-class_battleship
 [unit_battleship]
 name          = _("Battleship")
 class         = "Sea"
 tech_req      = "Mass Production"
-obsolete_by   = "None"
+obsolete_by   = "Super Battleship"
 graphic       = "u.battleship"
 graphic_alt   = "-"
 sound_move    = "m_battleship"
@@ -1979,11 +2012,12 @@ The Battleship is the supreme naval unit with\
  excellent offensive and defensive values.\
 ")
 
+; 1939 - https://en.wikipedia.org/wiki/Type_VII_submarine
 [unit_submarine]
 name          = _("Submarine")
 class         = "Sea"
-tech_req      = "Combustion"
-obsolete_by   = "None"
+tech_req      = "Submarine Warfare"
+obsolete_by   = "Nuclear Sub"
 graphic       = "u.submarine"
 graphic_alt   = "-"
 sound_move    = "m_submarine"
@@ -1992,7 +2026,7 @@ sound_fight   = "f_submarine"
 sound_fight_alt = "f_generic"
 build_cost    = 70
 pop_cost      = 0
-attack        = 12
+attack        = 8
 defense       = 5
 hitpoints     = 20
 firepower     = 1
@@ -2015,11 +2049,12 @@ Traveling under the surface of the ocean, Submarines have\
  off guard.\
 ")
 
+; 1941 - https://en.wikipedia.org/wiki/Essex-class_aircraft_carrier
 [unit_carrier]
 name          = _("Carrier")
 class         = "Sea"
-tech_req      = "Advanced Flight"
-obsolete_by   = "None"
+tech_req      = "Naval Aviation"
+obsolete_by   = "Supercarrier"
 graphic       = "u.carrier"
 graphic_alt   = "-"
 sound_move    = "m_carrier"
@@ -2055,10 +2090,11 @@ TIP: Guard Carriers with a handful of fast-moving ships and a\
  painful and expensive.\
 ")
 
+; 1890 - https://en.wikipedia.org/wiki/Troopship
 [unit_transport]
 name          = _("Transport")
 class         = "Sea"
-tech_req      = "Engineering"
+tech_req      = "Steel"
 obsolete_by   = "None"
 graphic       = "u.transport"
 graphic_alt   = "-"
@@ -2098,6 +2134,7 @@ with knowledge of Miniaturization, may build oil platforms on deep ocean \
 tiles, for use by Offshore Platforms.\
 ")
 
+; 1980 - https://en.wikipedia.org/wiki/Tomahawk_(missile)
 [unit_cruise_missile]
 name          = _("Cruise Missile")
 class         = "Missile"
@@ -2134,6 +2171,7 @@ TIP: A handful of these can successfully keep the waters around\
  your treasured homeland free of enemy ships.\
 ")
 
+; 1945 - https://en.wikipedia.org/wiki/Nuclear_weapon
 [unit_nuclear]
 name          = _("Nuclear")
 class         = "Missile"
@@ -2585,10 +2623,11 @@ When a Barbarian Leader is killed on a tile without any defending units,\
  the 100 gold ransom is paid, but only to land units and helicopters.\
 ")
 
+; 1945 - https://en.wikipedia.org/wiki/Boeing_E-3_Sentry
 [unit_awacs]
 name          = _("AWACS")
 class         = "Air"
-tech_req      = "Advanced Flight"
+tech_req      = "Radar"
 obsolete_by   = "None"
 graphic       = "u.awacs"
 graphic_alt   = "u.bomber"  ; backwards compatibility
@@ -2616,4 +2655,1955 @@ helptext      = _("\
 The AWACS (Airborne Warning and Control System) is an airplane with an \
 advanced radar that can determine the location of enemy units over a \
 wide area.\
+")
+
+; =======================================================================
+; NEW UNITS - Navy
+; =======================================================================
+
+; 1800 - https://en.wikipedia.org/wiki/Corvette
+[unit_corvette]
+name          = _("Corvette")
+class         = "Trireme"
+tech_req      = "Navigation"
+obsolete_by   = "Steam Corvette"
+graphic       = "u.frigate"
+graphic_alt   = "-"
+sound_move    = "m_frigate"
+sound_move_alt = "m_generic"
+sound_fight   = "f_frigate"
+sound_fight_alt = "f_generic"
+build_cost    = 35
+pop_cost      = 0
+attack        = 2
+defense       = 2
+hitpoints     = 15
+firepower     = 1
+move_rate     = 4
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 0
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 1
+uk_gold       = 1
+flags         = "BadCityDefender"
+roles         = ""
+helptext      = _("\
+A small, fast warship used for coastal patrol and escort duties. \
+Too small for open ocean operations.\
+")
+
+; 1800 - https://en.wikipedia.org/wiki/HMS_Victory
+[unit_ship_of_the_line]
+name          = _("Ship of the Line")
+class         = "Sea"
+tech_req      = "Metallurgy"
+obsolete_by   = "Ironclad"
+graphic       = "u.galleon"
+graphic_alt   = "-"
+sound_move    = "m_galleon"
+sound_move_alt = "m_generic"
+sound_fight   = "f_galleon"
+sound_fight_alt = "f_generic"
+build_cost    = 60
+pop_cost      = 0
+attack        = 5
+defense       = 4
+hitpoints     = 25
+firepower     = 1
+move_rate     = 3
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 0
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 1
+uk_gold       = 1
+flags         = "BadCityDefender"
+roles         = ""
+helptext      = _("\
+The Ship of the Line is the dominant capital ship of the Age of Sail. \
+Armed with rows of heavy cannon, it is the most powerful warship afloat \
+until the advent of ironclad vessels.\
+")
+
+; 1856 - https://en.wikipedia.org/wiki/HMS_Pearl_(1855)
+[unit_steam_corvette]
+name          = _("Steam Corvette")
+class         = "Trireme"
+tech_req      = "Steam Engine"
+obsolete_by   = "Escort Corvette"
+graphic       = "u.ironclad"
+graphic_alt   = "u.frigate"
+sound_move    = "m_ironclad"
+sound_move_alt = "m_generic"
+sound_fight   = "f_ironclad"
+sound_fight_alt = "f_generic"
+build_cost    = 40
+pop_cost      = 0
+attack        = 3
+defense       = 2
+hitpoints     = 15
+firepower     = 1
+move_rate     = 5
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 0
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 1
+uk_gold       = 1
+flags         = "BadCityDefender"
+roles         = ""
+helptext      = _("\
+A transitional warship combining steam power with traditional armament. \
+Faster than sailing corvettes but still limited to coastal operations.\
+")
+
+; 1892 - https://en.wikipedia.org/wiki/Royal_Sovereign-class_battleship
+[unit_pre_dreadnought]
+name          = _("Pre-Dreadnought")
+class         = "Sea"
+tech_req      = "Armor Plate"
+obsolete_by   = "Dreadnought BB"
+graphic       = "u.battleship"
+graphic_alt   = "u.ironclad"
+sound_move    = "m_battleship"
+sound_move_alt = "m_generic"
+sound_fight   = "f_battleship"
+sound_fight_alt = "f_generic"
+build_cost    = 80
+pop_cost      = 0
+attack        = 6
+defense       = 5
+hitpoints     = 25
+firepower     = 1
+move_rate     = 4
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 0
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 1
+uk_gold       = 1
+flags         = "BadCityDefender"
+roles         = ""
+helptext      = _("\
+The Pre-Dreadnought battleship is a steel-hulled capital ship with \
+mixed-caliber guns and armor plate. The dominant warship of the 1890s-1905 era.\
+")
+
+; 1906 - https://en.wikipedia.org/wiki/HMS_Dreadnought_(1906)
+[unit_dreadnought]
+name          = _("Dreadnought BB")
+class         = "Sea"
+tech_req      = "Dreadnought"
+obsolete_by   = "Battleship"
+graphic       = "u.battleship"
+graphic_alt   = "-"
+sound_move    = "m_battleship"
+sound_move_alt = "m_generic"
+sound_fight   = "f_battleship"
+sound_fight_alt = "f_generic"
+build_cost    = 120
+pop_cost      = 0
+attack        = 8
+defense       = 8
+hitpoints     = 30
+firepower     = 1
+move_rate     = 4
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 0
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 1
+uk_gold       = 1
+flags         = "BadCityDefender"
+roles         = ""
+helptext      = _("\
+The Dreadnought revolutionized naval warfare with its all-big-gun \
+design, making all previous battleships obsolete overnight.\
+")
+
+; 1908 - https://en.wikipedia.org/wiki/HMS_Invincible_(1907)
+[unit_battlecruiser]
+name          = _("Battlecruiser")
+class         = "Sea"
+tech_req      = "Dreadnought"
+obsolete_by   = "Super Battleship"
+graphic       = "u.cruiser"
+graphic_alt   = "u.battleship"
+sound_move    = "m_cruiser"
+sound_move_alt = "m_generic"
+sound_fight   = "f_cruiser"
+sound_fight_alt = "f_generic"
+build_cost    = 100
+pop_cost      = 0
+attack        = 7
+defense       = 4
+hitpoints     = 25
+firepower     = 1
+move_rate     = 6
+vision_radius_sq = 8
+transport_cap = 0
+fuel          = 0
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 1
+uk_gold       = 1
+flags         = "BadCityDefender"
+roles         = "Hunter"
+helptext      = _("\
+The Battlecruiser combines battleship-caliber guns with cruiser speed, \
+sacrificing armor protection. Fast enough to hunt down cruisers, \
+powerful enough to outgun them.\
+")
+
+; 1914 - https://en.wikipedia.org/wiki/SM_U-9
+[unit_u_boat]
+name          = _("U-Boat")
+class         = "Sea"
+tech_req      = "Submarine Warfare"
+obsolete_by   = "Submarine"
+graphic       = "u.submarine"
+graphic_alt   = "-"
+sound_move    = "m_submarine"
+sound_move_alt = "m_generic"
+sound_fight   = "f_submarine"
+sound_fight_alt = "f_generic"
+build_cost    = 50
+pop_cost      = 0
+attack        = 6
+defense       = 3
+hitpoints     = 15
+firepower     = 1
+move_rate     = 4
+vision_radius_sq = 8
+transport_cap = 4
+fuel          = 0
+uk_happy      = 0
+uk_shield     = 1
+uk_food       = 1
+uk_gold       = 1
+cargo         = "Missile"
+vision_layer  = "Subsurface"
+flags         = "BadCityDefender", "Only_Native_Attack",
+                "Submarine", "Provoking"
+roles         = "Hunter"
+helptext      = _("\
+The U-Boat is a WWI-era submarine. Weaker than later submarines but \
+capable of devastating commerce raiding from beneath the waves.\
+")
+
+; 1930 - https://en.wikipedia.org/wiki/County-class_cruiser
+[unit_cruiser_ww2]
+name          = _("Cruiser")
+class         = "Sea"
+tech_req      = "Dreadnought"
+obsolete_by   = "Guided Missile Cruiser"
+graphic       = "u.cruiser"
+graphic_alt   = "-"
+sound_move    = "m_cruiser"
+sound_move_alt = "m_generic"
+sound_fight   = "f_cruiser"
+sound_fight_alt = "f_generic"
+build_cost    = 90
+pop_cost      = 0
+attack        = 8
+defense       = 7
+hitpoints     = 30
+firepower     = 1
+move_rate     = 5
+vision_radius_sq = 8
+transport_cap = 0
+fuel          = 0
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 1
+uk_gold       = 1
+flags         = "BadCityDefender"
+roles         = "DefendOk", "DefendOkStartUnit"
+helptext      = _("\
+The Cruiser is a WWII-era treaty cruiser, a versatile warship \
+capable of independent operations and fleet screening duties.\
+")
+
+; 1934 - https://en.wikipedia.org/wiki/Fletcher-class_destroyer
+[unit_fleet_destroyer]
+name          = _("Fleet Destroyer")
+class         = "Sea"
+tech_req      = "Dreadnought"
+obsolete_by   = "Guided Missile Destroyer"
+graphic       = "u.destroyer"
+graphic_alt   = "-"
+sound_move    = "m_destroyer"
+sound_move_alt = "m_generic"
+sound_fight   = "f_destroyer"
+sound_fight_alt = "f_generic"
+build_cost    = 70
+pop_cost      = 0
+attack        = 6
+defense       = 5
+hitpoints     = 30
+firepower     = 1
+move_rate     = 7
+vision_radius_sq = 8
+transport_cap = 0
+fuel          = 0
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 1
+uk_gold       = 1
+bonuses       =
+   { "flag", "type", "value"
+     "Submarine", "DefenseMultiplier", 1
+   }
+flags         = "BadCityDefender"
+roles         = "Hunter"
+helptext      = _("\
+The Fleet Destroyer is a fast, heavily-armed warship designed to \
+screen the battle fleet and launch torpedo attacks. Its anti-submarine \
+weapons double defense against Submarines.\
+")
+
+; 1940 - https://en.wikipedia.org/wiki/Flower-class_corvette
+[unit_escort_corvette]
+name          = _("Escort Corvette")
+class         = "Trireme"
+tech_req      = "Sonar"
+obsolete_by   = "Patrol Corvette"
+graphic       = "u.frigate"
+graphic_alt   = "-"
+sound_move    = "m_frigate"
+sound_move_alt = "m_generic"
+sound_fight   = "f_frigate"
+sound_fight_alt = "f_generic"
+build_cost    = 35
+pop_cost      = 0
+attack        = 3
+defense       = 3
+hitpoints     = 20
+firepower     = 1
+move_rate     = 5
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 0
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 1
+uk_gold       = 1
+bonuses       =
+   { "flag", "type", "value"
+     "Submarine", "DefenseMultiplier", 1
+   }
+flags         = "BadCityDefender"
+roles         = ""
+helptext      = _("\
+The Escort Corvette is a cheap, mass-produced convoy escort. \
+Built for anti-submarine warfare, it doubled defense against Submarines. \
+Limited to coastal waters.\
+")
+
+; 1941 - https://en.wikipedia.org/wiki/River-class_frigate
+[unit_frigate_ww2]
+name          = _("Frigate")
+class         = "Sea"
+tech_req      = "Sonar"
+obsolete_by   = "Modern Frigate"
+graphic       = "u.frigate"
+graphic_alt   = "-"
+sound_move    = "m_frigate"
+sound_move_alt = "m_generic"
+sound_fight   = "f_frigate"
+sound_fight_alt = "f_generic"
+build_cost    = 50
+pop_cost      = 0
+attack        = 4
+defense       = 5
+hitpoints     = 25
+firepower     = 1
+move_rate     = 6
+vision_radius_sq = 8
+transport_cap = 0
+fuel          = 0
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 1
+uk_gold       = 1
+bonuses       =
+   { "flag", "type", "value"
+     "Submarine", "DefenseMultiplier", 1
+   }
+flags         = "BadCityDefender"
+roles         = ""
+helptext      = _("\
+The Frigate is a purpose-built ASW escort, replacing improvised \
+corvette designs. Its sonar and depth charges double defense against \
+Submarines. An ocean-going vessel unlike corvettes.\
+")
+
+; 1941 - https://en.wikipedia.org/wiki/Yamato-class_battleship
+[unit_super_battleship]
+name          = _("Super Battleship")
+class         = "Sea"
+tech_req      = "War Economy"
+obsolete_by   = "None"
+graphic       = "u.battleship"
+graphic_alt   = "-"
+sound_move    = "m_battleship"
+sound_move_alt = "m_generic"
+sound_fight   = "f_battleship"
+sound_fight_alt = "f_generic"
+build_cost    = 200
+pop_cost      = 0
+attack        = 14
+defense       = 14
+hitpoints     = 40
+firepower     = 1
+move_rate     = 5
+vision_radius_sq = 8
+transport_cap = 0
+fuel          = 0
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 1
+uk_gold       = 1
+flags         = "BadCityDefender"
+roles         = ""
+helptext      = _("\
+The Super Battleship represents the ultimate development of the \
+battleship concept - combining battleship armor and firepower with \
+battlecruiser speed. The most powerful surface combatant ever built.\
+")
+
+; 1941 - https://en.wikipedia.org/wiki/Bogue-class_escort_carrier
+[unit_escort_carrier]
+name          = _("Escort Carrier")
+class         = "Sea"
+tech_req      = "Naval Aviation"
+obsolete_by   = "Carrier"
+graphic       = "u.carrier"
+graphic_alt   = "-"
+sound_move    = "m_carrier"
+sound_move_alt = "m_generic"
+sound_fight   = "f_carrier"
+sound_fight_alt = "f_generic"
+build_cost    = 90
+pop_cost      = 0
+attack        = 0
+defense       = 5
+hitpoints     = 25
+firepower     = 1
+move_rate     = 4
+vision_radius_sq = 8
+transport_cap = 4
+fuel          = 0
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 1
+uk_gold       = 1
+cargo         = "Air", "Missile", "Helicopter"
+flags         = "BadCityDefender", "HasNoZOC"
+roles         = ""
+helptext      = _("\
+A small aircraft carrier built for convoy escort and limited air \
+operations. Carries fewer aircraft than a fleet carrier but is much \
+cheaper to build.\
+")
+
+; 1942 - https://en.wikipedia.org/wiki/Landing_Ship,_Tank
+[unit_landing_ship]
+name          = _("Landing Ship")
+class         = "Sea"
+tech_req      = "Amphibious Warfare"
+obsolete_by   = "None"
+graphic       = "u.transport"
+graphic_alt   = "-"
+sound_move    = "m_transport"
+sound_move_alt = "m_generic"
+sound_fight   = "f_transport"
+sound_fight_alt = "f_generic"
+build_cost    = 40
+pop_cost      = 0
+attack        = 0
+defense       = 2
+hitpoints     = 25
+firepower     = 1
+move_rate     = 4
+vision_radius_sq = 2
+transport_cap = 6
+fuel          = 0
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 1
+uk_gold       = 1
+cargo         = "Land", "Small Land", "Big Land"
+flags         = "BadCityDefender", "HasNoZOC"
+roles         = ""
+helptext      = _("\
+The Landing Ship is a specialized amphibious transport designed to \
+deliver troops and vehicles directly onto beaches.\
+")
+
+; 1955 - https://en.wikipedia.org/wiki/USS_Nautilus_(SSN-571)
+[unit_nuclear_sub]
+name          = _("Nuclear Sub")
+class         = "Sea"
+tech_req      = "Nuclear Submarine"
+obsolete_by   = "None"
+graphic       = "u.submarine"
+graphic_alt   = "-"
+sound_move    = "m_submarine"
+sound_move_alt = "m_generic"
+sound_fight   = "f_submarine"
+sound_fight_alt = "f_generic"
+build_cost    = 90
+pop_cost      = 0
+attack        = 14
+defense       = 6
+hitpoints     = 25
+firepower     = 1
+move_rate     = 6
+vision_radius_sq = 8
+transport_cap = 10
+fuel          = 0
+uk_happy      = 0
+uk_shield     = 1
+uk_food       = 1
+uk_gold       = 1
+cargo         = "Missile"
+vision_layer  = "Subsurface"
+flags         = "BadCityDefender", "Only_Native_Attack",
+                "Submarine", "Provoking"
+roles         = "Hunter"
+helptext      = _("\
+The Nuclear Submarine is powered by a nuclear reactor, giving it \
+virtually unlimited range and higher speed than conventional submarines. \
+Can carry more missiles than earlier submarines.\
+")
+
+; 1960 - https://en.wikipedia.org/wiki/Charles_F._Adams-class_destroyer
+[unit_guided_missile_destroyer]
+name          = _("Guided Missile Destroyer")
+class         = "Sea"
+tech_req      = "Guided Missiles"
+obsolete_by   = "Modern Destroyer"
+graphic       = "u.destroyer"
+graphic_alt   = "-"
+sound_move    = "m_destroyer"
+sound_move_alt = "m_generic"
+sound_fight   = "f_destroyer"
+sound_fight_alt = "f_generic"
+build_cost    = 75
+pop_cost      = 0
+attack        = 6
+defense       = 6
+hitpoints     = 30
+firepower     = 1
+move_rate     = 6
+vision_radius_sq = 8
+transport_cap = 0
+fuel          = 0
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 1
+uk_gold       = 1
+bonuses       =
+   { "flag", "type", "value"
+     "Submarine", "DefenseMultiplier", 1
+   }
+flags         = "BadCityDefender"
+roles         = "Hunter"
+helptext      = _("\
+The Guided Missile Destroyer combines missile armament with \
+traditional destroyer speed and ASW capability. \
+Anti-submarine weapons double defense against Submarines.\
+")
+
+; 1961 - https://en.wikipedia.org/wiki/USS_Enterprise_(CVN-65)
+[unit_supercarrier]
+name          = _("Supercarrier")
+class         = "Sea"
+tech_req      = "Cold War Doctrine"
+obsolete_by   = "None"
+graphic       = "u.carrier"
+graphic_alt   = "-"
+sound_move    = "m_carrier"
+sound_move_alt = "m_generic"
+sound_fight   = "f_carrier"
+sound_fight_alt = "f_generic"
+build_cost    = 200
+pop_cost      = 0
+attack        = 0
+defense       = 12
+hitpoints     = 50
+firepower     = 1
+move_rate     = 6
+vision_radius_sq = 8
+transport_cap = 12
+fuel          = 0
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 1
+uk_gold       = 1
+cargo         = "Land", "Air", "Missile", "Helicopter"
+flags         = "BadCityDefender", "HasNoZOC", "Provoking"
+roles         = "DefendGood", "DefendGoodStartUnit"
+helptext      = _("\
+The Supercarrier is a nuclear-powered aircraft carrier, the most \
+expensive and powerful naval vessel. It can carry a large air wing \
+and project power across the globe.\
+")
+
+; 1962 - https://en.wikipedia.org/wiki/Leahy-class_cruiser
+[unit_guided_missile_cruiser]
+name          = _("Guided Missile Cruiser")
+class         = "Sea"
+tech_req      = "Rocketry"
+obsolete_by   = "AEGIS Cruiser"
+graphic       = "u.cruiser"
+graphic_alt   = "-"
+sound_move    = "m_cruiser"
+sound_move_alt = "m_generic"
+sound_fight   = "f_cruiser"
+sound_fight_alt = "f_generic"
+build_cost    = 85
+pop_cost      = 0
+attack        = 7
+defense       = 7
+hitpoints     = 30
+firepower     = 1
+move_rate     = 5
+vision_radius_sq = 8
+transport_cap = 0
+fuel          = 0
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 1
+uk_gold       = 1
+flags         = "BadCityDefender"
+roles         = ""
+helptext      = _("\
+The Guided Missile Cruiser is armed with surface-to-air and \
+surface-to-surface missiles, bridging the gap between conventional \
+cruisers and the advanced AEGIS system.\
+")
+
+; 1965 - https://en.wikipedia.org/wiki/Grisha-class_corvette
+[unit_patrol_corvette]
+name          = _("Patrol Corvette")
+class         = "Trireme"
+tech_req      = "Cold War Doctrine"
+obsolete_by   = "Modern Corvette"
+graphic       = "u.destroyer"
+graphic_alt   = "u.frigate"
+sound_move    = "m_destroyer"
+sound_move_alt = "m_generic"
+sound_fight   = "f_destroyer"
+sound_fight_alt = "f_generic"
+build_cost    = 40
+pop_cost      = 0
+attack        = 3
+defense       = 4
+hitpoints     = 20
+firepower     = 1
+move_rate     = 6
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 0
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 1
+uk_gold       = 1
+flags         = "BadCityDefender"
+roles         = ""
+helptext      = _("\
+The Patrol Corvette is a Cold War-era coastal patrol vessel, \
+cheap and effective for littoral defense.\
+")
+
+; 1977 - https://en.wikipedia.org/wiki/Oliver_Hazard_Perry-class_frigate
+[unit_modern_frigate]
+name          = _("Modern Frigate")
+class         = "Sea"
+tech_req      = "Cold War Doctrine"
+obsolete_by   = "None"
+graphic       = "u.destroyer"
+graphic_alt   = "u.frigate"
+sound_move    = "m_destroyer"
+sound_move_alt = "m_generic"
+sound_fight   = "f_destroyer"
+sound_fight_alt = "f_generic"
+build_cost    = 55
+pop_cost      = 0
+attack        = 5
+defense       = 5
+hitpoints     = 25
+firepower     = 1
+move_rate     = 7
+vision_radius_sq = 8
+transport_cap = 0
+fuel          = 0
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 1
+uk_gold       = 1
+bonuses       =
+   { "flag", "type", "value"
+     "Submarine", "DefenseMultiplier", 1
+   }
+flags         = "BadCityDefender"
+roles         = ""
+helptext      = _("\
+The Modern Frigate is a multi-role escort vessel specialized in \
+anti-submarine warfare. Its sonar and ASW weapons double defense \
+against Submarines.\
+")
+
+; 1991 - https://en.wikipedia.org/wiki/Arleigh_Burke-class_destroyer
+[unit_modern_destroyer]
+name          = _("Modern Destroyer")
+class         = "Sea"
+tech_req      = "Smart Weapons"
+obsolete_by   = "None"
+graphic       = "u.destroyer"
+graphic_alt   = "-"
+sound_move    = "m_destroyer"
+sound_move_alt = "m_generic"
+sound_fight   = "f_destroyer"
+sound_fight_alt = "f_generic"
+build_cost    = 80
+pop_cost      = 0
+attack        = 7
+defense       = 7
+hitpoints     = 35
+firepower     = 1
+move_rate     = 7
+vision_radius_sq = 8
+transport_cap = 0
+fuel          = 0
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 1
+uk_gold       = 1
+bonuses       =
+   { "flag", "type", "value"
+     "Submarine", "DefenseMultiplier", 1
+   }
+flags         = "BadCityDefender"
+roles         = "Hunter"
+helptext      = _("\
+The Modern Destroyer is a multi-role surface combatant with advanced \
+radar, missile systems, and ASW capability. The backbone of modern navies.\
+")
+
+; 2000 - https://en.wikipedia.org/wiki/Visby-class_corvette
+[unit_modern_corvette]
+name          = _("Modern Corvette")
+class         = "Trireme"
+tech_req      = "Smart Weapons"
+obsolete_by   = "None"
+graphic       = "u.destroyer"
+graphic_alt   = "u.frigate"
+sound_move    = "m_destroyer"
+sound_move_alt = "m_generic"
+sound_fight   = "f_destroyer"
+sound_fight_alt = "f_generic"
+build_cost    = 45
+pop_cost      = 0
+attack        = 4
+defense       = 4
+hitpoints     = 20
+firepower     = 1
+move_rate     = 7
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 0
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 1
+uk_gold       = 1
+flags         = "BadCityDefender"
+roles         = ""
+helptext      = _("\
+The Modern Corvette is a stealthy, fast coastal warship equipped with \
+advanced sensors and weapons. Effective in littoral operations.\
+")
+
+; 2008 - https://en.wikipedia.org/wiki/Freedom-class_littoral_combat_ship
+[unit_littoral_combat_ship]
+name          = _("Littoral Combat Ship")
+class         = "Sea"
+tech_req      = "Drones"
+obsolete_by   = "None"
+graphic       = "u.destroyer"
+graphic_alt   = "u.frigate"
+sound_move    = "m_destroyer"
+sound_move_alt = "m_generic"
+sound_fight   = "f_destroyer"
+sound_fight_alt = "f_generic"
+build_cost    = 45
+pop_cost      = 0
+attack        = 4
+defense       = 4
+hitpoints     = 20
+firepower     = 1
+move_rate     = 8
+vision_radius_sq = 8
+transport_cap = 1
+fuel          = 0
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 1
+uk_gold       = 1
+cargo         = "Helicopter"
+flags         = "BadCityDefender"
+roles         = ""
+helptext      = _("\
+The Littoral Combat Ship is a fast, modular coastal vessel that can \
+carry a helicopter. Designed for operations in shallow waters.\
+")
+
+; =======================================================================
+; NEW UNITS - Air Force
+; =======================================================================
+
+; 1914 - https://en.wikipedia.org/wiki/Rumpler_Taube
+[unit_scout_plane]
+name          = _("Scout Plane")
+class         = "Air"
+tech_req      = "Flight"
+obsolete_by   = "AWACS"
+graphic       = "u.fighter"
+graphic_alt   = "-"
+sound_move    = "m_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_fighter"
+sound_fight_alt = "f_generic"
+build_cost    = 30
+pop_cost      = 0
+attack        = 0
+defense       = 1
+hitpoints     = 10
+firepower     = 1
+move_rate     = 10
+vision_radius_sq = 18
+transport_cap = 0
+fuel          = 1
+uk_happy      = 0
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 1
+flags         = "HasNoZOC"
+roles         = ""
+helptext      = _("\
+The Scout Plane is an unarmed reconnaissance aircraft with excellent \
+vision range. Very cheap but cannot defend itself.\
+")
+
+; 1936 - https://en.wikipedia.org/wiki/Messerschmitt_Bf_109
+[unit_interwar_fighter]
+name          = _("Interwar Fighter")
+class         = "Air"
+tech_req      = "Military Aviation"
+obsolete_by   = "WWII Fighter"
+graphic       = "u.fighter"
+graphic_alt   = "-"
+sound_move    = "m_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_fighter"
+sound_fight_alt = "f_generic"
+build_cost    = 55
+pop_cost      = 0
+attack        = 4
+defense       = 4
+hitpoints     = 20
+firepower     = 1
+move_rate     = 10
+vision_radius_sq = 8
+transport_cap = 0
+fuel          = 2
+uk_happy      = 0
+uk_shield     = 1
+uk_food       = 1
+uk_gold       = 1
+targets       = "Air", "Missile", "Helicopter"
+flags         = "AirAttacker", "HasNoZOC"
+roles         = "DefendOk", "DefendOkStartUnit"
+helptext      = _("\
+The Interwar Fighter is a 1930s monoplane fighter, bridging the gap \
+between WWI biplanes and WWII fighters.\
+")
+
+; 1935 - https://en.wikipedia.org/wiki/Junkers_Ju_87
+[unit_tactical_bomber]
+name          = _("Tactical Bomber")
+class         = "Air"
+tech_req      = "Military Aviation"
+obsolete_by   = "Strike Fighter"
+graphic       = "u.bomber"
+graphic_alt   = "-"
+sound_move    = "m_bomber"
+sound_move_alt = "m_generic"
+sound_fight   = "f_bomber"
+sound_fight_alt = "f_generic"
+build_cost    = 70
+pop_cost      = 0
+attack        = 5
+defense       = 2
+hitpoints     = 20
+firepower     = 1
+move_rate     = 8
+vision_radius_sq = 8
+transport_cap = 0
+fuel          = 2
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 1
+uk_gold       = 1
+flags         = "FieldUnit", "OneAttack", "AirAttacker", "Bombarder", "HasNoZOC"
+roles         = ""
+helptext      = _("\
+The Tactical Bomber is a dive bomber or ground-attack aircraft, \
+effective against land targets. Its attack is a bombard attack.\
+")
+bombard_rate = 2
+
+; 1940 - https://en.wikipedia.org/wiki/Supermarine_Spitfire
+[unit_wwii_fighter]
+name          = _("WWII Fighter")
+class         = "Air"
+tech_req      = "Aviation Industry"
+obsolete_by   = "Jet Fighter"
+graphic       = "u.fighter"
+graphic_alt   = "-"
+sound_move    = "m_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_fighter"
+sound_fight_alt = "f_generic"
+build_cost    = 60
+pop_cost      = 0
+attack        = 5
+defense       = 5
+hitpoints     = 20
+firepower     = 1
+move_rate     = 12
+vision_radius_sq = 8
+transport_cap = 0
+fuel          = 2
+uk_happy      = 0
+uk_shield     = 1
+uk_food       = 1
+uk_gold       = 1
+targets       = "Air", "Missile", "Helicopter"
+flags         = "AirAttacker", "HasNoZOC"
+roles         = "DefendOk", "DefendOkStartUnit"
+helptext      = _("\
+The WWII Fighter is a high-performance propeller-driven fighter, \
+the definitive air superiority aircraft of the Second World War.\
+")
+
+; 1941 - https://en.wikipedia.org/wiki/Vought_F4U_Corsair
+[unit_naval_fighter]
+name          = _("Naval Fighter")
+class         = "Air"
+tech_req      = "Naval Aviation"
+obsolete_by   = "Jet Fighter"
+graphic       = "u.fighter"
+graphic_alt   = "-"
+sound_move    = "m_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_fighter"
+sound_fight_alt = "f_generic"
+build_cost    = 60
+pop_cost      = 0
+attack        = 4
+defense       = 5
+hitpoints     = 20
+firepower     = 1
+move_rate     = 10
+vision_radius_sq = 8
+transport_cap = 0
+fuel          = 2
+uk_happy      = 0
+uk_shield     = 1
+uk_food       = 1
+uk_gold       = 1
+targets       = "Air", "Missile", "Helicopter"
+flags         = "AirAttacker", "HasNoZOC"
+roles         = ""
+helptext      = _("\
+The Naval Fighter is a carrier-based fighter designed for operations \
+at sea. Slightly lower performance than land-based fighters but \
+built to withstand carrier landings.\
+")
+
+; 1942 - https://en.wikipedia.org/wiki/Avro_Lancaster
+[unit_heavy_bomber]
+name          = _("Heavy Bomber")
+class         = "Air"
+tech_req      = "Strategic Bombing"
+obsolete_by   = "Jet Bomber"
+graphic       = "u.bomber"
+graphic_alt   = "-"
+sound_move    = "m_bomber"
+sound_move_alt = "m_generic"
+sound_fight   = "f_bomber"
+sound_fight_alt = "f_generic"
+build_cost    = 110
+pop_cost      = 0
+attack        = 7
+defense       = 2
+hitpoints     = 35
+firepower     = 1
+move_rate     = 8
+vision_radius_sq = 8
+transport_cap = 0
+fuel          = 3
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 1
+uk_gold       = 1
+flags         = "FieldUnit", "OneAttack", "AirAttacker", "Bombarder",
+                "HasNoZOC", "CityBuster"
+roles         = ""
+helptext      = _("\
+The Heavy Bomber is a WWII-era strategic bomber capable of \
+devastating city attacks. Has double firepower against cities.\
+")
+bombard_rate = 4
+
+; 1950 - https://en.wikipedia.org/wiki/North_American_F-86_Sabre
+[unit_jet_fighter]
+name          = _("Jet Fighter")
+class         = "Air"
+tech_req      = "Jet Aviation"
+obsolete_by   = "4th Gen Fighter"
+graphic       = "u.stealth_fighter"
+graphic_alt   = "u.fighter"
+sound_move    = "m_stealth_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_stealth_fighter"
+sound_fight_alt = "f_generic"
+build_cost    = 70
+pop_cost      = 0
+attack        = 6
+defense       = 6
+hitpoints     = 20
+firepower     = 1
+move_rate     = 14
+vision_radius_sq = 8
+transport_cap = 0
+fuel          = 2
+uk_happy      = 0
+uk_shield     = 1
+uk_food       = 1
+uk_gold       = 1
+targets       = "Air", "Missile", "Helicopter"
+flags         = "AirAttacker", "HasNoZOC"
+roles         = "DefendOk", "DefendOkStartUnit"
+helptext      = _("\
+The Jet Fighter is a first-generation jet air superiority fighter, \
+much faster than any propeller-driven aircraft.\
+")
+
+; 1952 - https://en.wikipedia.org/wiki/Boeing_B-52_Stratofortress
+[unit_jet_bomber]
+name          = _("Jet Bomber")
+class         = "Air"
+tech_req      = "Jet Aviation"
+obsolete_by   = "Stealth Bomber"
+graphic       = "u.stealth_bomber"
+graphic_alt   = "u.bomber"
+sound_move    = "m_stealth_bomber"
+sound_move_alt = "m_generic"
+sound_fight   = "f_stealth_bomber"
+sound_fight_alt = "f_generic"
+build_cost    = 110
+pop_cost      = 0
+attack        = 8
+defense       = 3
+hitpoints     = 30
+firepower     = 1
+move_rate     = 12
+vision_radius_sq = 8
+transport_cap = 0
+fuel          = 3
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 1
+uk_gold       = 1
+flags         = "FieldUnit", "OneAttack", "AirAttacker", "Bombarder",
+                "HasNoZOC", "CityBuster"
+roles         = ""
+helptext      = _("\
+The Jet Bomber is a long-range strategic bomber capable of carrying \
+nuclear and conventional payloads across continents.\
+")
+bombard_rate = 4
+
+; 1967 - https://en.wikipedia.org/wiki/General_Dynamics_F-111_Aardvark
+[unit_strike_fighter]
+name          = _("Strike Fighter")
+class         = "Air"
+tech_req      = "Turbofan"
+obsolete_by   = "Stealth Fighter"
+graphic       = "u.stealth_fighter"
+graphic_alt   = "u.fighter"
+sound_move    = "m_stealth_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_stealth_fighter"
+sound_fight_alt = "f_generic"
+build_cost    = 75
+pop_cost      = 0
+attack        = 7
+defense       = 5
+hitpoints     = 25
+firepower     = 1
+move_rate     = 12
+vision_radius_sq = 8
+transport_cap = 0
+fuel          = 2
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 1
+uk_gold       = 1
+targets       = "Air", "Missile", "Helicopter"
+flags         = "AirAttacker", "HasNoZOC", "Bombarder"
+roles         = ""
+helptext      = _("\
+The Strike Fighter is a multi-role attack aircraft, effective against \
+both ground targets and other aircraft.\
+")
+bombard_rate = 2
+
+; 1976 - https://en.wikipedia.org/wiki/McDonnell_Douglas_F-15_Eagle
+[unit_4th_gen_fighter]
+name          = _("4th Gen Fighter")
+class         = "Air"
+tech_req      = "Aerospace Engineering"
+obsolete_by   = "Stealth Fighter"
+graphic       = "u.stealth_fighter"
+graphic_alt   = "u.fighter"
+sound_move    = "m_stealth_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_stealth_fighter"
+sound_fight_alt = "f_generic"
+build_cost    = 75
+pop_cost      = 0
+attack        = 7
+defense       = 7
+hitpoints     = 25
+firepower     = 1
+move_rate     = 14
+vision_radius_sq = 8
+transport_cap = 0
+fuel          = 2
+uk_happy      = 0
+uk_shield     = 1
+uk_food       = 1
+uk_gold       = 1
+targets       = "Air", "Missile", "Helicopter"
+flags         = "AirAttacker", "HasNoZOC"
+roles         = "DefendOk", "DefendOkStartUnit"
+helptext      = _("\
+The 4th Generation Fighter is a dominant late Cold War air superiority \
+fighter with look-down/shoot-down radar and beyond-visual-range missiles.\
+")
+
+; 2007 - https://en.wikipedia.org/wiki/General_Atomics_MQ-9_Reaper
+[unit_combat_drone]
+name          = _("Combat Drone")
+class         = "Air"
+tech_req      = "Drones"
+obsolete_by   = "None"
+graphic       = "u.bomber"
+graphic_alt   = "-"
+sound_move    = "m_bomber"
+sound_move_alt = "m_generic"
+sound_fight   = "f_bomber"
+sound_fight_alt = "f_generic"
+build_cost    = 40
+pop_cost      = 0
+attack        = 6
+defense       = 2
+hitpoints     = 15
+firepower     = 1
+move_rate     = 14
+vision_radius_sq = 8
+transport_cap = 0
+fuel          = 3
+uk_happy      = 0
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 1
+flags         = "FieldUnit", "OneAttack", "AirAttacker", "Bombarder", "HasNoZOC"
+roles         = ""
+helptext      = _("\
+The Combat Drone is an unmanned aerial vehicle capable of long-endurance \
+surveillance and precision strikes. Cheap and expendable.\
+")
+bombard_rate = 2
+
+; 2015 - https://en.wikipedia.org/wiki/Lockheed_Martin_F-35_Lightning_II
+[unit_multirole_fighter]
+name          = _("Multirole Fighter")
+class         = "Air"
+tech_req      = "Autonomous Weapons"
+obsolete_by   = "None"
+graphic       = "u.stealth_fighter"
+graphic_alt   = "u.fighter"
+sound_move    = "m_stealth_fighter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_stealth_fighter"
+sound_fight_alt = "f_generic"
+build_cost    = 90
+pop_cost      = 0
+attack        = 9
+defense       = 9
+hitpoints     = 25
+firepower     = 1
+move_rate     = 16
+vision_radius_sq = 8
+transport_cap = 0
+fuel          = 2
+uk_happy      = 0
+uk_shield     = 1
+uk_food       = 1
+uk_gold       = 1
+targets       = "Air", "Missile", "Helicopter"
+flags         = "AirAttacker", "HasNoZOC"
+roles         = "DefendGood", "DefendGoodStartUnit"
+helptext      = _("\
+The Multirole Fighter is a 5th generation networked stealth fighter, \
+the most advanced combat aircraft available.\
+")
+
+; 2019 - https://en.wikipedia.org/wiki/Kh-47M2_Kinzhal
+[unit_hypersonic_missile]
+name          = _("Hypersonic Missile")
+class         = "Missile"
+tech_req      = "Hypersonic Weapons"
+obsolete_by   = "None"
+graphic       = "u.cruise_missile"
+graphic_alt   = "-"
+sound_move    = "m_cruise_missile"
+sound_move_alt = "m_generic"
+sound_fight   = "f_cruise_missile"
+sound_fight_alt = "f_generic"
+build_cost    = 60
+pop_cost      = 0
+attack        = 22
+defense       = 0
+hitpoints     = 10
+firepower     = 1
+move_rate     = 20
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 1
+uk_happy      = 0
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 1
+flags         = "FieldUnit", "OneAttack", "HasNoZOC", "CityBuster"
+roles         = ""
+helptext      = _("\
+The Hypersonic Missile travels at speeds exceeding Mach 5, making it \
+nearly impossible to intercept. More powerful than cruise missiles.\
+")
+
+; 2020 - https://en.wikipedia.org/wiki/HESA_Shahed_136
+[unit_loitering_munition]
+name          = _("Loitering Munition")
+class         = "Missile"
+tech_req      = "Drones"
+obsolete_by   = "None"
+graphic       = "u.cruise_missile"
+graphic_alt   = "-"
+sound_move    = "m_cruise_missile"
+sound_move_alt = "m_generic"
+sound_fight   = "f_cruise_missile"
+sound_fight_alt = "f_generic"
+build_cost    = 20
+pop_cost      = 0
+attack        = 10
+defense       = 0
+hitpoints     = 5
+firepower     = 1
+move_rate     = 8
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 1
+uk_happy      = 0
+uk_shield     = 1
+uk_food       = 0
+uk_gold       = 1
+flags         = "FieldUnit", "OneAttack", "HasNoZOC"
+roles         = ""
+helptext      = _("\
+The Loitering Munition is a cheap kamikaze drone that can loiter over \
+an area before striking. Very cost-effective but fragile.\
+")
+
+; =======================================================================
+; NEW UNITS - Helicopters
+; =======================================================================
+
+; 1960 - https://en.wikipedia.org/wiki/Sikorsky_SH-60_Seahawk
+[unit_naval_helicopter]
+name          = _("Naval Helicopter")
+class         = "Helicopter"
+tech_req      = "Helicopters"
+obsolete_by   = "None"
+graphic       = "u.helicopter"
+graphic_alt   = "-"
+sound_move    = "m_helicopter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_helicopter"
+sound_fight_alt = "f_generic"
+build_cost    = 50
+pop_cost      = 0
+attack        = 4
+defense       = 3
+hitpoints     = 20
+firepower     = 1
+move_rate     = 6
+vision_radius_sq = 8
+transport_cap = 0
+fuel          = 0
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 1
+uk_gold       = 1
+bonuses       =
+   { "flag", "type", "value"
+     "Submarine", "DefenseDivider", 1
+   }
+flags         = "OneAttack", "AirAttacker", "HasNoZOC"
+roles         = ""
+helptext      = _("\
+The Naval Helicopter is a shipborne anti-submarine helicopter. \
+Its dipping sonar doubles attack against Submarines.\
+")
+
+; 1962 - https://en.wikipedia.org/wiki/Boeing_CH-47_Chinook
+[unit_heavy_transport_heli]
+name          = _("Heavy Transport Heli")
+class         = "Helicopter"
+tech_req      = "Cold War Doctrine"
+obsolete_by   = "None"
+graphic       = "u.helicopter"
+graphic_alt   = "-"
+sound_move    = "m_helicopter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_helicopter"
+sound_fight_alt = "f_generic"
+build_cost    = 60
+pop_cost      = 0
+attack        = 2
+defense       = 2
+hitpoints     = 25
+firepower     = 1
+move_rate     = 5
+vision_radius_sq = 8
+transport_cap = 3
+fuel          = 0
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 1
+uk_gold       = 1
+cargo         = "Land"
+flags         = "OneAttack", "AirAttacker", "HasNoZOC"
+roles         = ""
+helptext      = _("\
+The Heavy Transport Helicopter can carry up to 3 land units. \
+Slower but with much greater lift capacity than the Transport Helicopter.\
+")
+
+; 1967 - https://en.wikipedia.org/wiki/Boeing_AH-64_Apache
+[unit_attack_helicopter]
+name          = _("Attack Helicopter")
+class         = "Helicopter"
+tech_req      = "Counterinsurgency"
+obsolete_by   = "None"
+graphic       = "u.helicopter"
+graphic_alt   = "-"
+sound_move    = "m_helicopter"
+sound_move_alt = "m_generic"
+sound_fight   = "f_helicopter"
+sound_fight_alt = "f_generic"
+build_cost    = 80
+pop_cost      = 0
+attack        = 8
+defense       = 4
+hitpoints     = 30
+firepower     = 1
+move_rate     = 6
+vision_radius_sq = 8
+transport_cap = 0
+fuel          = 0
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 1
+uk_gold       = 1
+flags         = "OneAttack", "AirAttacker", "Bombarder", "HasNoZOC",
+                "Provoking"
+roles         = "Hunter"
+helptext      = _("\
+The Attack Helicopter is a dedicated gunship with powerful anti-tank \
+weapons. Cannot transport troops but devastating in ground attack.\
+")
+bombard_rate = 3
+
+; =======================================================================
+; NEW UNITS - Army Infantry
+; =======================================================================
+
+; 1840 - https://en.wikipedia.org/wiki/Line_infantry
+[unit_line_infantry]
+name          = _("Line Infantry")
+class         = "Land"
+tech_req      = "Rifling"
+obsolete_by   = "Riflemen"
+graphic       = "u.musketeers"
+graphic_alt   = "-"
+sound_move    = "m_musketeers"
+sound_move_alt = "m_generic"
+sound_fight   = "f_musketeers"
+sound_fight_alt = "f_generic"
+build_cost    = 45
+pop_cost      = 0
+attack        = 4
+defense       = 3
+hitpoints     = 20
+firepower     = 1
+move_rate     = 1
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 0
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 1
+uk_gold       = 1
+flags         = "Marines", "Capturer"
+roles         = "DefendGood", "DefendGoodStartUnit", "FirstBuild"
+helptext      = _("\
+Line Infantry are mid-19th century troops armed with rifled muskets, \
+more effective than earlier Musketeers.\
+")
+
+; 1914 - https://en.wikipedia.org/wiki/Infantry_in_World_War_I
+[unit_infantry]
+name          = _("Infantry")
+class         = "Land"
+tech_req      = "Trench Warfare"
+obsolete_by   = "Marines"
+graphic       = "u.riflemen"
+graphic_alt   = "-"
+sound_move    = "m_riflemen"
+sound_move_alt = "m_generic"
+sound_fight   = "f_riflemen"
+sound_fight_alt = "f_generic"
+build_cost    = 55
+pop_cost      = 0
+attack        = 6
+defense       = 6
+hitpoints     = 25
+firepower     = 1
+move_rate     = 1
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 0
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 1
+uk_gold       = 1
+flags         = "Marines", "Capturer"
+roles         = "DefendGood", "DefendGoodStartUnit", "FirstBuild"
+helptext      = _("\
+WWI-era Infantry equipped with helmets, grenades, and machine gun \
+support. Excellent defense reflects trench warfare doctrine.\
+")
+
+; 1914 - https://en.wikipedia.org/wiki/Maxim_gun
+[unit_machine_gun]
+name          = _("Machine Gun")
+class         = "Land"
+tech_req      = "Trench Warfare"
+obsolete_by   = "None"
+graphic       = "u.riflemen"
+graphic_alt   = "-"
+sound_move    = "m_riflemen"
+sound_move_alt = "m_generic"
+sound_fight   = "f_riflemen"
+sound_fight_alt = "f_generic"
+build_cost    = 50
+pop_cost      = 0
+attack        = 2
+defense       = 8
+hitpoints     = 20
+firepower     = 1
+move_rate     = 1
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 0
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 1
+uk_gold       = 1
+flags         = "Capturer"
+roles         = "DefendGood"
+helptext      = _("\
+The Machine Gun is a devastating defensive weapon. Very high defense \
+but minimal attack capability. The weapon that defined trench warfare.\
+")
+
+; 1952 - https://en.wikipedia.org/wiki/Special_Air_Service
+[unit_special_forces]
+name          = _("Special Forces")
+class         = "Land"
+tech_req      = "Counterinsurgency"
+obsolete_by   = "None"
+graphic       = "u.paratroopers"
+graphic_alt   = "u.marines"
+sound_move    = "m_paratroopers"
+sound_move_alt = "m_generic"
+sound_fight   = "f_paratroopers"
+sound_fight_alt = "f_generic"
+build_cost    = 60
+pop_cost      = 0
+attack        = 7
+defense       = 5
+hitpoints     = 20
+firepower     = 1
+move_rate     = 2
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 0
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 1
+uk_gold       = 1
+flags         = "IgTer", "IgZOC", "Marines", "Capturer"
+roles         = "Hunter"
+helptext      = _("\
+Special Forces are elite commando units with high mobility. \
+They ignore terrain and zone of control restrictions, and can attack \
+from non-native tiles.\
+")
+
+; 1960 - https://en.wikipedia.org/wiki/BGM-71_TOW
+[unit_modern_anti_tank]
+name          = _("Modern Anti-Tank")
+class         = "Land"
+tech_req      = "Guided Missiles"
+obsolete_by   = "None"
+graphic       = "u.riflemen"
+graphic_alt   = "-"
+sound_move    = "m_riflemen"
+sound_move_alt = "m_generic"
+sound_fight   = "f_riflemen"
+sound_fight_alt = "f_generic"
+build_cost    = 45
+pop_cost      = 0
+attack        = 5
+defense       = 3
+hitpoints     = 20
+firepower     = 1
+move_rate     = 1
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 0
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 1
+uk_gold       = 1
+bonuses       =
+   { "flag", "type", "value"
+   }
+flags         = "Capturer"
+roles         = ""
+helptext      = _("\
+Modern Anti-Tank infantry are equipped with guided missiles like the \
+TOW system, effective against armored vehicles.\
+")
+
+; 2000 - https://en.wikipedia.org/wiki/Future_Soldier
+[unit_modern_infantry]
+name          = _("Modern Infantry")
+class         = "Land"
+tech_req      = "Information Warfare"
+obsolete_by   = "None"
+graphic       = "u.mech_inf"
+graphic_alt   = "u.marines"
+sound_move    = "m_mech_inf"
+sound_move_alt = "m_generic"
+sound_fight   = "f_mech_inf"
+sound_fight_alt = "f_generic"
+build_cost    = 60
+pop_cost      = 0
+attack        = 8
+defense       = 7
+hitpoints     = 25
+firepower     = 1
+move_rate     = 1
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 0
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 1
+uk_gold       = 1
+flags         = "Marines", "Capturer"
+roles         = "DefendGood", "DefendGoodStartUnit", "FirstBuild"
+helptext      = _("\
+Modern Infantry are networked soldiers with body armor, night vision, \
+and digital communications. The most capable foot soldiers available.\
+")
+
+; =======================================================================
+; NEW UNITS - Army Cavalry/Armor
+; =======================================================================
+
+; 1914 - https://en.wikipedia.org/wiki/Rolls-Royce_Armoured_Car
+[unit_armored_car]
+name          = _("Armored Car")
+class         = "Land"
+tech_req      = "Motorized Transport"
+obsolete_by   = "Tank"
+graphic       = "u.armor"
+graphic_alt   = "u.cavalry"
+sound_move    = "m_armor"
+sound_move_alt = "m_generic"
+sound_fight   = "f_armor"
+sound_fight_alt = "f_generic"
+build_cost    = 50
+pop_cost      = 0
+attack        = 4
+defense       = 3
+hitpoints     = 20
+firepower     = 1
+move_rate     = 3
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 0
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 1
+uk_gold       = 1
+flags         = "IgZOC", "Capturer"
+roles         = "Hunter"
+helptext      = _("\
+The Armored Car is an early motorized combat vehicle, fast and \
+good for reconnaissance. Bridges the gap between cavalry and tanks.\
+")
+
+; 1960 - https://en.wikipedia.org/wiki/M60_tank
+[unit_main_battle_tank]
+name          = _("Main Battle Tank")
+class         = "Big Land"
+tech_req      = "Cold War Doctrine"
+obsolete_by   = "Advanced MBT"
+graphic       = "u.armor"
+graphic_alt   = "-"
+sound_move    = "m_armor"
+sound_move_alt = "m_generic"
+sound_fight   = "f_armor"
+sound_fight_alt = "f_generic"
+build_cost    = 100
+pop_cost      = 0
+attack        = 12
+defense       = 7
+hitpoints     = 35
+firepower     = 1
+move_rate     = 3
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 0
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 1
+uk_gold       = 1
+flags         = ""
+roles         = "DefendOk", "DefendOkStartUnit", "AttackFastStartUnit", "Hunter"
+helptext      = _("\
+The Main Battle Tank is a Cold War-era tank combining firepower, \
+protection, and mobility. A significant upgrade over WWII-era tanks.\
+")
+
+; 1980 - https://en.wikipedia.org/wiki/M1_Abrams
+[unit_advanced_mbt]
+name          = _("Advanced MBT")
+class         = "Big Land"
+tech_req      = "Advanced Composites"
+obsolete_by   = "None"
+graphic       = "u.armor"
+graphic_alt   = "-"
+sound_move    = "m_armor"
+sound_move_alt = "m_generic"
+sound_fight   = "f_armor"
+sound_fight_alt = "f_generic"
+build_cost    = 120
+pop_cost      = 0
+attack        = 14
+defense       = 9
+hitpoints     = 40
+firepower     = 1
+move_rate     = 3
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 0
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 1
+uk_gold       = 1
+flags         = ""
+roles         = "DefendOk", "DefendOkStartUnit", "AttackFastStartUnit", "Hunter"
+helptext      = _("\
+The Advanced MBT features composite armor and advanced fire control \
+systems. The most powerful ground combat vehicle available.\
+")
+
+; =======================================================================
+; NEW UNITS - Army Motorized/Mechanized
+; =======================================================================
+
+; 1935 - https://en.wikipedia.org/wiki/Motorized_infantry
+[unit_motorized_infantry]
+name          = _("Motorized Infantry")
+class         = "Big Land"
+tech_req      = "Motorized Transport"
+obsolete_by   = "Mech. Inf."
+graphic       = "u.mech_inf"
+graphic_alt   = "u.riflemen"
+sound_move    = "m_mech_inf"
+sound_move_alt = "m_generic"
+sound_fight   = "f_mech_inf"
+sound_fight_alt = "f_generic"
+build_cost    = 55
+pop_cost      = 0
+attack        = 5
+defense       = 4
+hitpoints     = 25
+firepower     = 1
+move_rate     = 2
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 0
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 1
+uk_gold       = 1
+flags         = "Capturer"
+roles         = ""
+helptext      = _("\
+Motorized Infantry are truck-mounted troops, faster than foot infantry \
+but less protected than mechanized forces.\
+")
+
+; 1960 - https://en.wikipedia.org/wiki/M113_armored_personnel_carrier
+[unit_apc]
+name          = _("APC")
+class         = "Big Land"
+tech_req      = "Cold War Doctrine"
+obsolete_by   = "IFV"
+graphic       = "u.mech_inf"
+graphic_alt   = "u.armor"
+sound_move    = "m_mech_inf"
+sound_move_alt = "m_generic"
+sound_fight   = "f_mech_inf"
+sound_fight_alt = "f_generic"
+build_cost    = 55
+pop_cost      = 0
+attack        = 4
+defense       = 5
+hitpoints     = 25
+firepower     = 1
+move_rate     = 3
+vision_radius_sq = 2
+transport_cap = 1
+fuel          = 0
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 1
+uk_gold       = 1
+cargo         = "Land"
+flags         = "HasNoZOC"
+roles         = ""
+helptext      = _("\
+The APC (Armored Personnel Carrier) transports one infantry unit \
+with armored protection. Faster than foot infantry.\
+")
+
+; 1981 - https://en.wikipedia.org/wiki/M2_Bradley
+[unit_ifv]
+name          = _("IFV")
+class         = "Big Land"
+tech_req      = "Smart Weapons"
+obsolete_by   = "None"
+graphic       = "u.mech_inf"
+graphic_alt   = "u.armor"
+sound_move    = "m_mech_inf"
+sound_move_alt = "m_generic"
+sound_fight   = "f_mech_inf"
+sound_fight_alt = "f_generic"
+build_cost    = 65
+pop_cost      = 0
+attack        = 6
+defense       = 6
+hitpoints     = 30
+firepower     = 1
+move_rate     = 3
+vision_radius_sq = 2
+transport_cap = 1
+fuel          = 0
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 1
+uk_gold       = 1
+cargo         = "Land"
+flags         = "HasNoZOC"
+roles         = ""
+helptext      = _("\
+The IFV (Infantry Fighting Vehicle) is an armored vehicle with an \
+autocannon that can transport one infantry unit and fight alongside tanks.\
+")
+
+; =======================================================================
+; NEW UNITS - Army Artillery
+; =======================================================================
+
+; 1800 - https://en.wikipedia.org/wiki/Royal_Horse_Artillery
+[unit_horse_artillery]
+name          = _("Horse Artillery")
+class         = "Big Land"
+tech_req      = "Ballistics"
+obsolete_by   = "Artillery"
+graphic       = "u.cannon"
+graphic_alt   = "-"
+sound_move    = "m_cannon"
+sound_move_alt = "m_generic"
+sound_fight   = "f_cannon"
+sound_fight_alt = "f_generic"
+build_cost    = 55
+pop_cost      = 0
+attack        = 9
+defense       = 1
+hitpoints     = 20
+firepower     = 1
+move_rate     = 2
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 0
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 1
+uk_gold       = 1
+flags         = "CityBuster", "BadCityDefender", "HasNoZOC"
+roles         = "AttackStrongStartUnit"
+helptext      = _("\
+Horse Artillery is mobile Napoleonic-era cannon, faster than \
+regular cannon due to horse-drawn limbers. Has double firepower \
+against cities.\
+")
+
+; 1936 - https://en.wikipedia.org/wiki/3.7_cm_Pak_36
+[unit_anti_tank_gun]
+name          = _("Anti-Tank Gun")
+class         = "Land"
+tech_req      = "Trench Warfare"
+obsolete_by   = "Modern Anti-Tank"
+graphic       = "u.artillery"
+graphic_alt   = "u.cannon"
+sound_move    = "m_artillery"
+sound_move_alt = "m_generic"
+sound_fight   = "f_artillery"
+sound_fight_alt = "f_generic"
+build_cost    = 40
+pop_cost      = 0
+attack        = 3
+defense       = 4
+hitpoints     = 20
+firepower     = 1
+move_rate     = 1
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 0
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 1
+uk_gold       = 1
+flags         = "Capturer"
+roles         = "DefendGood"
+helptext      = _("\
+The Anti-Tank Gun is a specialized defensive weapon designed to \
+destroy armored vehicles. Cheap and effective in defense.\
+")
+
+; 1942 - https://en.wikipedia.org/wiki/M7_Priest
+[unit_self_propelled_artillery]
+name          = _("Self-Propelled Artillery")
+class         = "Big Land"
+tech_req      = "Combined Arms"
+obsolete_by   = "Rocket Artillery"
+graphic       = "u.howitzer"
+graphic_alt   = "u.artillery"
+sound_move    = "m_howitzer"
+sound_move_alt = "m_generic"
+sound_fight   = "f_howitzer"
+sound_fight_alt = "f_generic"
+build_cost    = 70
+pop_cost      = 0
+attack        = 11
+defense       = 3
+hitpoints     = 25
+firepower     = 1
+move_rate     = 2
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 0
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 1
+uk_gold       = 1
+flags         = "CityBuster", "BadCityDefender", "HasNoZOC"
+roles         = ""
+helptext      = _("\
+Self-Propelled Artillery can keep up with armored advances, \
+unlike towed guns. Has double firepower against cities.\
+")
+
+; 1963 - https://en.wikipedia.org/wiki/BM-21_Grad
+[unit_rocket_artillery]
+name          = _("Rocket Artillery")
+class         = "Big Land"
+tech_req      = "Rocketry"
+obsolete_by   = "None"
+graphic       = "u.howitzer"
+graphic_alt   = "u.artillery"
+sound_move    = "m_howitzer"
+sound_move_alt = "m_generic"
+sound_fight   = "f_howitzer"
+sound_fight_alt = "f_generic"
+build_cost    = 85
+pop_cost      = 0
+attack        = 13
+defense       = 2
+hitpoints     = 25
+firepower     = 1
+move_rate     = 2
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 0
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 1
+uk_gold       = 1
+flags         = "CityBuster", "BadCityDefender", "HasNoZOC"
+roles         = ""
+helptext      = _("\
+Rocket Artillery fires salvoes of unguided rockets for devastating \
+area bombardment. Has double firepower against cities.\
 ")
