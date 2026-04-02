@@ -25,7 +25,8 @@
 #include "unittype.h"
 
 // std
-#include <cmath> // pow
+#include <algorithm> // std::max
+#include <cmath>     // pow
 
 /**
    Checks if player is restricted diplomatically from attacking the tile.
@@ -399,25 +400,141 @@ void get_modified_firepower(const struct unit *attacker,
 }
 
 /**
+ * Returns the total number of first strikes for a unit, including
+ * bonuses from effects (buildings, techs, etc.).
+ */
+int get_first_strikes(const struct unit &punit)
+{
+  return std::max(unit_type_get(&punit)->first_strikes
+                      + get_unit_bonus(&punit, EFT_FIRST_STRIKES),
+                  0);
+}
+
+/**
+ * Returns true if the unit's type has any flag listed in the
+ * ruleset's combat_rules.first_strike_immune_flags setting.  Used to
+ * suppress standard first strikes against certain attackers (e.g.
+ * aircraft).
+ */
+static bool is_first_strike_immune(const struct unit &punit)
+{
+  return BV_CHECK_MASK(unit_type_get(&punit)->flags,
+                       game.info.first_strike_immune_flags);
+}
+
+/**
+ * Scans the defending tile's unit stack to find the best first-strike
+ * unit and computes the net first-strike rounds after cancellation by
+ * the attacker's own first strikes.
+ *
+ * Only the single unit with the highest applicable first strikes fires.
+ * Multiple first-strike units in a stack do not combine their rounds;
+ * this keeps the mechanic simple and predictable.
+ *
+ * Standard first strikes (from unit_type::first_strikes and
+ * EFT_FIRST_STRIKES) are suppressed against attackers with any flag
+ * listed in combat_rules.first_strike_immune_flags.
+ * Conditional first strikes (CBONUS_FIRST_STRIKES) fire only when
+ * the attacker has the matching unit flag.
+ *
+ * Returns the best first-strike unit, or nullptr if no applicable
+ * first strikes exist. Sets net_fs to the net rounds (positive means
+ * defender stack advantage, negative means attacker advantage).
+ */
+struct unit *find_best_first_strike_unit(const struct unit &attacker,
+                                         const struct tile &ptile,
+                                         int &net_fs)
+{
+  const bool attacker_immune = is_first_strike_immune(attacker);
+  const struct unit_type *att_type = unit_type_get(&attacker);
+  int best_fs = 0;
+  struct unit *best_unit = nullptr;
+
+  unit_list_iterate(ptile.units, candidate)
+  {
+    if (!pplayers_at_war(unit_owner(candidate), unit_owner(&attacker))) {
+      continue;
+    }
+
+    // Standard first strikes: suppressed against immune classes
+    const int standard_fs =
+        attacker_immune ? 0 : get_first_strikes(*candidate);
+
+    // Conditional first strikes from combat bonuses (e.g. anti-air)
+    const int bonus_fs = combat_bonus_against(
+        unit_type_get(candidate)->bonuses, att_type, CBONUS_FIRST_STRIKES);
+
+    const int total_fs = standard_fs + bonus_fs;
+    if (total_fs > best_fs) {
+      best_fs = total_fs;
+      best_unit = candidate;
+    }
+  }
+  unit_list_iterate_end;
+
+  const int attacker_fs = get_first_strikes(attacker);
+  net_fs = best_fs - attacker_fs;
+  return best_unit;
+}
+
+/**
  * Returns a double in the range [0;1] indicating the attackers chance of
- * winning. The calculation takes all factors into account. This assumes that
- * a normal 'ACTION_ATTACK' action is to be used.
+ * winning. The calculation takes all factors into account, including
+ * stack-level first strikes which are resolved as a pre-combat phase
+ * in do_attack() before normal combat.
+ *
+ * First-strike damage is modelled as expected HP reduction: each round
+ * has a hit probability and deals firepower damage on a hit.  The
+ * expected HP after first strikes is used for the normal win_chance
+ * calculation.
  */
 double unit_win_chance(const struct unit *attacker,
                        const struct unit *defender)
 {
-  int def_power = get_total_defense_power(attacker, defender);
-  int att_power = get_total_attack_power(attacker, defender);
-
-  double chance;
+  const int def_power = get_total_defense_power(attacker, defender);
+  const int att_power = get_total_attack_power(attacker, defender);
 
   int def_fp, att_fp;
   get_modified_firepower(attacker, defender, &att_fp, &def_fp);
 
-  chance = win_chance(att_power, attacker->hp, att_fp, def_power,
-                      defender->hp, def_fp);
+  int att_hp = attacker->hp;
+  int def_hp = defender->hp;
 
-  return chance;
+  // Account for stack-level first strikes
+  int net_fs = 0;
+  struct unit *fs_unit =
+      find_best_first_strike_unit(*attacker, *unit_tile(defender), net_fs);
+
+  if (net_fs > 0 && fs_unit != nullptr) {
+    // Defender stack advantage: fs_unit fires at attacker.
+    // 2-arg overload used because fs_unit is not the action's target;
+    // action-specific combat modifiers do not apply to first strikes.
+    const int fs_attack = get_total_attack_power(fs_unit, attacker);
+    const int att_defense = get_total_defense_power(fs_unit, attacker);
+    int fs_fp;
+    [[maybe_unused]] int unused_def_fp;
+    get_modified_firepower(fs_unit, attacker, &fs_fp, &unused_def_fp);
+    const double hit_prob =
+        (fs_attack + att_defense > 0)
+            ? static_cast<double>(fs_attack) / (fs_attack + att_defense)
+            : 0.0;
+    att_hp -= static_cast<int>(net_fs * hit_prob * fs_fp);
+    if (att_hp < 1) {
+      att_hp = 1;
+    }
+  } else if (net_fs < 0) {
+    // Attacker advantage: fires at chosen defender
+    const double hit_prob =
+        (att_power + def_power > 0)
+            ? static_cast<double>(att_power) / (att_power + def_power)
+            : 0.0;
+    def_hp -= static_cast<int>(-net_fs * hit_prob * att_fp);
+    if (def_hp < 1) {
+      def_hp = 1;
+    }
+  }
+
+  return win_chance(att_power, att_hp, att_fp, def_power, def_hp, def_fp);
 }
 
 /**

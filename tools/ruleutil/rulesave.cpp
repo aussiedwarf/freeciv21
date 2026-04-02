@@ -1196,6 +1196,22 @@ static bool save_game_ruleset(const char *filename, const char *name)
                    RS_DEFAULT_NUKE_DEFENDER_SURVIVAL_CHANCE_PCT,
                    "combat_rules.nuke_defender_survival_chance_pct",
                    nullptr);
+  {
+    const char *flag_names[UTYF_LAST_USER_FLAG + 1];
+    int flagi;
+
+    set_count = 0;
+    for (flagi = 0; flagi <= UTYF_LAST_USER_FLAG; flagi++) {
+      if (BV_ISSET(game.info.first_strike_immune_flags, flagi)) {
+        flag_names[set_count++] =
+            unit_type_flag_id_name(unit_type_flag_id(flagi));
+      }
+    }
+    if (set_count > 0) {
+      secfile_insert_str_vec(sfile, flag_names, set_count,
+                             "combat_rules.first_strike_immune_flags");
+    }
+  }
   save_default_int(sfile, game.info.border_city_radius_sq,
                    RS_DEFAULT_BORDER_RADIUS_SQ_CITY,
                    "borders.radius_sq_city", nullptr);
@@ -2901,6 +2917,10 @@ static bool save_units_ruleset(const char *filename, const char *name)
 
       secfile_insert_int(sfile, put->hp, "%s.hitpoints", path);
       secfile_insert_int(sfile, put->firepower, "%s.firepower", path);
+      if (put->first_strikes > 0) {
+        secfile_insert_int(sfile, put->first_strikes, "%s.first_strikes",
+                           path);
+      }
       secfile_insert_int(sfile, put->fuel, "%s.fuel", path);
       secfile_insert_int(sfile, put->happy_cost, "%s.uk_happy", path);
 

@@ -139,6 +139,7 @@ struct unit_type {
   int transport_capacity;
   int hp;
   int firepower;
+  int first_strikes;
   struct combat_bonus_list *bonuses;
 
 #define U_NOT_OBSOLETED (nullptr)

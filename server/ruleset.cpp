@@ -2026,6 +2026,15 @@ static bool load_ruleset_units(struct section_file *file,
       }
       u->move_rate *= SINGLE_MOVE;
 
+      u->first_strikes =
+          secfile_lookup_int_default(file, 0, "%s.first_strikes", sec_name);
+      if (u->first_strikes > MAX_UINT8) {
+        qCWarning(ruleset_category,
+                  "%s: first_strikes %d exceeds packet limit %d, clamping",
+                  sec_name, u->first_strikes, MAX_UINT8);
+        u->first_strikes = MAX_UINT8;
+      }
+
       lookup_cbonus_list(compat, u->bonuses, file, sec_name, "bonuses");
 
       output_type_iterate(o)
@@ -6753,6 +6762,28 @@ static bool load_ruleset_game(struct section_file *file, bool act,
             RS_MAX_NUKE_DEFENDER_SURVIVAL_CHANCE_PCT,
             "combat_rules.nuke_defender_survival_chance_pct");
 
+    BV_CLR_ALL(game.info.first_strike_immune_flags);
+    {
+      size_t fs_nval;
+      const char **fs_list = secfile_lookup_str_vec(
+          file, &fs_nval, "combat_rules.first_strike_immune_flags");
+      if (fs_list != nullptr) {
+        for (size_t k = 0; k < fs_nval; k++) {
+          auto flag = unit_type_flag_id_by_name(fs_list[k], fc_strcasecmp);
+          if (!unit_type_flag_id_is_valid(flag)) {
+            qCCritical(ruleset_category,
+                       "\"%s\": unknown unit type flag \"%s\" in "
+                       "combat_rules.first_strike_immune_flags.",
+                       filename, fs_list[k]);
+            ok = false;
+            break;
+          }
+          BV_SET(game.info.first_strike_immune_flags, flag);
+        }
+        delete[] fs_list;
+      }
+    }
+
     // section: borders
     game.info.border_city_radius_sq = secfile_lookup_int_default_min_max(
         file, RS_DEFAULT_BORDER_RADIUS_SQ_CITY, RS_MIN_BORDER_RADIUS_SQ_CITY,
@@ -7366,6 +7397,7 @@ static void send_ruleset_units(struct conn_list *dest)
     packet.transport_capacity = u->transport_capacity;
     packet.hp = u->hp;
     packet.firepower = u->firepower;
+    packet.first_strikes = u->first_strikes;
     packet.obsoleted_by =
         u->obsoleted_by ? utype_number(u->obsoleted_by) : utype_count();
     packet.converted_to =

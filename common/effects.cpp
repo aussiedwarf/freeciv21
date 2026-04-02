@@ -1263,6 +1263,10 @@ QString effect_type_unit_text(effect_type type, int value)
   case EFT_COMBAT_ROUNDS:
     // TRANS: Combat rounds
     return QString(PL_("%1 round", "%1 rounds", value)).arg(value);
+  case EFT_FIRST_STRIKES:
+    // TRANS: First strike rounds
+    return QString(PL_("%1 first strike", "%1 first strikes", value))
+        .arg(value);
   case EFT_PERFORMANCE:
   case EFT_HISTORY:
   case EFT_NATION_PERFORMANCE:

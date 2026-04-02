@@ -1318,6 +1318,8 @@ BV_DEFINE(bv_unit_type_roles, L_MAX);
 #define SPECENUM_VALUE3NAME "DefenseMultiplierPct"
 #define SPECENUM_VALUE4 CBONUS_DEFENSE_DIVIDER_PCT
 #define SPECENUM_VALUE4NAME "DefenseDividerPct"
+#define SPECENUM_VALUE5 CBONUS_FIRST_STRIKES
+#define SPECENUM_VALUE5NAME "FirstStrikes"
 #include "specenum_gen.h"
 
 /**
@@ -2772,6 +2774,8 @@ BV_DEFINE(bv_spaceship_structure, NUM_SS_STRUCTURALS);
 #define SPECENUM_VALUE135NAME "Growth_Surplus_Pct"
 #define SPECENUM_VALUE136 EFT_POLLU_TRADE_PCT
 #define SPECENUM_VALUE136NAME "Pollu_Trade_Pct"
+#define SPECENUM_VALUE137 EFT_FIRST_STRIKES
+#define SPECENUM_VALUE137NAME "First_Strikes"
 // keep this last
 #define SPECENUM_COUNT EFT_COUNT
 #include "specenum_gen.h"

@@ -298,7 +298,7 @@ void unit_versus_unit(const struct action *action, struct unit *attacker,
     }
   }
   for (rounds = 0; *att_hp > 0 && *def_hp > 0
-                   && (max_rounds <= 0 || max_rounds > rounds);
+                       && (max_rounds <= 0 || max_rounds > rounds);
        rounds++) {
     if (fc_rand(attackpower + defensepower) >= defensepower) {
       *def_hp -= attack_firepower;

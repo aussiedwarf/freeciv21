@@ -37,6 +37,12 @@ bool can_unit_attack_tile(const struct unit *punit,
 
 double win_chance(int as, int ahp, int afp, int ds, int dhp, int dfp);
 
+int get_first_strikes(const struct unit &punit);
+
+struct unit *find_best_first_strike_unit(const struct unit &attacker,
+                                         const struct tile &ptile,
+                                         int &net_fs);
+
 void get_modified_firepower(const struct unit *attacker,
                             const struct unit *defender, int *att_fp,
                             int *def_fp);

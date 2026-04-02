@@ -917,6 +917,10 @@ void help_widget::set_topic_unit(const help_item *topic, const char *title)
                       utype_build_shield_cost_base(max_utype));
     add_info_progress(_("Firepower:"), utype->firepower, 0,
                       max_utype->firepower);
+    if (max_utype->first_strikes > 0) {
+      add_info_progress(_("First Strikes:"), utype->first_strikes, 0,
+                        max_utype->first_strikes);
+    }
     add_info_progress(
         _("Vision:"), static_cast<int>(std::sqrt(utype->vision_radius_sq)),
         0, static_cast<int>(std::sqrt(max_utype->vision_radius_sq)));
@@ -1608,6 +1612,7 @@ struct unit_type *help_widget::utype_max_values()
   max->city_size = 0;
   max->defense_strength = 0;
   max->firepower = 0;
+  max->first_strikes = 0;
   max->fuel = 0;
   max->happy_cost = 0;
   max->hp = 0;
@@ -1630,6 +1635,7 @@ struct unit_type *help_widget::utype_max_values()
     SET_MAX(convert_time);
     SET_MAX(defense_strength);
     SET_MAX(firepower);
+    SET_MAX(first_strikes);
     SET_MAX(fuel);
     SET_MAX(happy_cost);
     SET_MAX(hp);

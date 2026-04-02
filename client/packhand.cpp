@@ -3490,6 +3490,7 @@ void handle_ruleset_unit(const struct packet_ruleset_unit *p)
   u->transport_capacity = p->transport_capacity;
   u->hp = p->hp;
   u->firepower = p->firepower;
+  u->first_strikes = p->first_strikes;
   u->obsoleted_by = utype_by_number(p->obsoleted_by);
   u->converted_to = utype_by_number(p->converted_to);
   u->convert_time = p->convert_time;

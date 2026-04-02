@@ -531,6 +531,9 @@ const QString popup_info_text(struct tile *ptile, bool with_links)
                     QString::number(ptype->firepower),
                     QString::number(punit->hp), QString::number(ptype->hp),
                     mp_left, max_mp);
+    if (ptype->first_strikes > 0) {
+      str += QString(_(" FS:%1")).arg(ptype->first_strikes);
+    }
     {
       const char *veteran_name =
           utype_veteran_name_translation(ptype, punit->veteran);

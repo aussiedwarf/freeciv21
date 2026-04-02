@@ -1802,10 +1802,55 @@ char *helptext_unit(char *buf, size_t bufsz, struct player *pplayer,
                      (static_cast<float>(cbonus->value) + 100.0f) / 100.0f,
                      qUtf8Printable(strvec_to_or_list(against)));
         break;
+      case CBONUS_FIRST_STRIKES:
+        cat_snprintf(buf, bufsz,
+                     // TRANS: first strikes ... or-list of unit types
+                     PL_("* Has %d first strike round against %s when "
+                         "defending in a stack.\n",
+                         "* Has %d first strike rounds against %s when "
+                         "defending in a stack.\n",
+                         cbonus->value),
+                     cbonus->value,
+                     qUtf8Printable(strvec_to_or_list(against)));
+        break;
       }
     }
   }
   combat_bonus_list_iterate_end;
+
+  if (utype->first_strikes > 0) {
+    QVector<QString> immune_flags;
+    for (int i = 0; i <= UTYF_LAST_USER_FLAG; i++) {
+      if (BV_ISSET(game.info.first_strike_immune_flags, i)) {
+        immune_flags.append(unit_type_flag_id_name(unit_type_flag_id(i)));
+      }
+    }
+
+    if (!immune_flags.isEmpty()) {
+      cat_snprintf(buf, bufsz,
+                   PL_("* Has %d first strike round when defending in a "
+                       "stack: fires at the attacker before normal combat. "
+                       "Does not work against units with the %s flag. "
+                       "Cancelled out by attacker's first strikes.\n",
+                       "* Has %d first strike rounds when defending in a "
+                       "stack: fires at the attacker before normal combat. "
+                       "Does not work against units with the %s flag. "
+                       "Cancelled out by attacker's first strikes.\n",
+                       utype->first_strikes),
+                   utype->first_strikes,
+                   qUtf8Printable(strvec_to_or_list(immune_flags)));
+    } else {
+      cat_snprintf(buf, bufsz,
+                   PL_("* Has %d first strike round when defending in a "
+                       "stack: fires at the attacker before normal combat. "
+                       "Cancelled out by attacker's first strikes.\n",
+                       "* Has %d first strike rounds when defending in a "
+                       "stack: fires at the attacker before normal combat. "
+                       "Cancelled out by attacker's first strikes.\n",
+                       utype->first_strikes),
+                   utype->first_strikes);
+    }
+  }
 
   // Add requirement text for the unit type itself
   requirement_vector_iterate(&utype->build_reqs, preq)
@@ -4190,7 +4235,7 @@ void helptext_government(char *buf, size_t bufsz, struct player *pplayer,
                            ratio);
             }
           } // else this effect somehow has no effect; keep quiet
-        }   // else there was some extra condition making it complicated
+        } // else there was some extra condition making it complicated
         break;
       case EFT_UNIT_UPKEEP_FREE_PER_CITY:
         if (!unittype) {

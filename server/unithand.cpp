@@ -4106,7 +4106,95 @@ static bool do_attack(struct unit *punit, struct tile *def_tile,
   /* Record tired attack string before attack */
   sz_strlcpy(attacker_tired, unit_tired_attack_string(punit));
 
-  unit_versus_unit(paction, punit, pdefender, &att_hp, &def_hp);
+  // Stack-level first strike phase
+  int net_fs = 0;
+  struct unit *fs_unit =
+      find_best_first_strike_unit(*punit, *def_tile, net_fs);
+
+  if (net_fs > 0 && fs_unit != nullptr) {
+    // Defender stack has first-strike advantage: fs_unit fires at attacker.
+    // Use the 2-arg overload (no paction) because first strikes are a
+    // stack-level mechanic — fs_unit is not the action's target, so
+    // action-specific combat modifiers do not apply here.
+    const int fs_attack = get_total_attack_power(fs_unit, punit);
+    const int att_defense = get_total_defense_power(fs_unit, punit);
+    int fs_fp, att_def_fp;
+    get_modified_firepower(fs_unit, punit, &fs_fp, &att_def_fp);
+    const int pre_fs_hp = punit->hp;
+
+    for (int i = 0; i < net_fs && punit->hp > 0; i++) {
+      if (fc_rand(fs_attack + att_defense) >= att_defense) {
+        punit->hp -= fs_fp;
+      }
+    }
+    if (punit->hp < 0) {
+      punit->hp = 0;
+    }
+
+    // Notify both players about first-strike damage
+    const int fs_damage = pre_fs_hp - punit->hp;
+    if (fs_damage > 0) {
+      notify_player(unit_owner(pdefender), unit_tile(pdefender),
+                    E_UNIT_TIE_DEF, ftc_server,
+                    _("Your %s fired %d first strike round(s) at the "
+                      "attacking %s %s, dealing %d damage."),
+                    unit_rule_name(fs_unit), net_fs,
+                    nation_adjective_for_player(pplayer),
+                    unit_rule_name(punit), fs_damage);
+      notify_player(pplayer, unit_tile(punit), E_UNIT_TIE_ATT, ftc_server,
+                    _("The defending %s %s fired %d first strike round(s) "
+                      "at your %s, dealing %d damage."),
+                    nation_adjective_for_player(unit_owner(pdefender)),
+                    unit_rule_name(fs_unit), net_fs, unit_rule_name(punit),
+                    fs_damage);
+    }
+  } else if (net_fs < 0) {
+    // Attacker has first-strike advantage: fires at chosen defender.
+    // Reuses att_power/def_power/att_fp computed above for punit vs
+    // pdefender.
+    const int pre_fs_hp = pdefender->hp;
+
+    for (int i = 0; i < -net_fs && pdefender->hp > 0; i++) {
+      if (fc_rand(att_power + def_power) >= def_power) {
+        pdefender->hp -= att_fp;
+      }
+    }
+    if (pdefender->hp < 0) {
+      pdefender->hp = 0;
+    }
+
+    // Notify both players about first-strike damage
+    const int fs_damage = pre_fs_hp - pdefender->hp;
+    if (fs_damage > 0) {
+      // Use TIE events: first strikes are pre-combat damage, not a
+      // decisive win/loss outcome.
+      notify_player(pplayer, unit_tile(punit), E_UNIT_TIE_ATT, ftc_server,
+                    _("Your %s fired %d first strike round(s) at the "
+                      "defending %s %s, dealing %d damage."),
+                    unit_rule_name(punit), -net_fs,
+                    nation_adjective_for_player(unit_owner(pdefender)),
+                    unit_rule_name(pdefender), fs_damage);
+      notify_player(unit_owner(pdefender), unit_tile(pdefender),
+                    E_UNIT_TIE_DEF, ftc_server,
+                    _("The attacking %s %s fired %d first strike round(s) "
+                      "at your %s, dealing %d damage."),
+                    nation_adjective_for_player(pplayer),
+                    unit_rule_name(punit), -net_fs,
+                    unit_rule_name(pdefender), fs_damage);
+    }
+  }
+
+  /* att_hp_start and def_hp_start intentionally NOT reset after first
+   * strikes. Post-combat messages will show total HP loss including
+   * first-strike damage, which is the correct player-facing behavior. */
+
+  // Normal combat (skipped if either unit died during first strikes)
+  if (punit->hp > 0 && pdefender->hp > 0) {
+    unit_versus_unit(paction, punit, pdefender, &att_hp, &def_hp);
+  } else {
+    att_hp = punit->hp;
+    def_hp = pdefender->hp;
+  }
 
   if ((att_hp <= 0 || utype_is_consumed_by_action(paction, punit->utype))
       && unit_transported(punit)) {

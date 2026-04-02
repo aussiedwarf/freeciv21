@@ -559,6 +559,11 @@ static bool manual_command(struct tag_types *tag_info)
         fprintf(doc, tag_info->subitem_begin, "firepower");
         fprintf(doc, _("Firepower: %d"), putype->firepower);
         fprintf(doc, "%s", tag_info->subitem_end);
+        if (putype->first_strikes > 0) {
+          fprintf(doc, tag_info->subitem_begin, "first_strikes");
+          fprintf(doc, _("First Strikes: %d"), putype->first_strikes);
+          fprintf(doc, "%s", tag_info->subitem_end);
+        }
         fprintf(doc, tag_info->subitem_begin, "hitpoints");
         fprintf(doc, _("Hitpoints: %d"), putype->hp);
         fprintf(doc, "%s", tag_info->subitem_end);
