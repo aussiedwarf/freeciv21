@@ -89,6 +89,16 @@ def parse_units(ruleset_path):
             match = re.search(rf'{field}\s*=\s*(\d+)', section)
             return int(match.group(1)) if match else 0
 
+        # Parse combat bonuses for anti-air first strikes
+        has_aa_fs = False
+        bonuses_match = re.search(
+            r'bonuses\s*=\s*\{([^}]*)\}', section, re.DOTALL
+        )
+        if bonuses_match:
+            has_aa_fs = bool(re.search(
+                r'"FirstStrikes"', bonuses_match.group(1)
+            ))
+
         year, wiki_url = comment_map.get(m.start(), ("", ""))
         units.append({
             "name": name_match.group(1),
@@ -99,11 +109,13 @@ def parse_units(ruleset_path):
             "defense": get_int("defense"),
             "hitpoints": get_int("hitpoints"),
             "firepower": get_int("firepower"),
+            "first_strikes": get_int("first_strikes"),
             "move_rate": get_int("move_rate"),
             "build_cost": get_int("build_cost"),
             "pop_cost": get_int("pop_cost"),
             "transport_cap": get_int("transport_cap"),
             "fuel": get_int("fuel"),
+            "has_aa_fs": has_aa_fs,
             "year": year,
             "wiki_url": wiki_url,
         })
@@ -271,6 +283,10 @@ def generate_unit_table(units):
 
     for u in sorted(units, key=sort_key):
         notes = []
+        if u["first_strikes"]:
+            notes.append(f"FS: {u['first_strikes']}")
+        if u["has_aa_fs"]:
+            notes.append("AA-FS")
         if u["transport_cap"]:
             notes.append(f"transport: {u['transport_cap']}")
         if u["fuel"]:

@@ -240,6 +240,11 @@ nuke_pop_loss_pct = 50
 ; 0 no defenders will survive. When set to 100 all defenders will survive.
 nuke_defender_survival_chance_pct = 0
 
+; Unit type flags that grant immunity to standard first strikes.
+; Units with these flags cannot be hit by standard first strikes,
+; but CAN still be hit by conditional first strikes (e.g. anti-air).
+first_strike_immune_flags = "Flying"
+
 [auto_attack]
 ; An auto attack may be triggered when another unit moves to an adjacent
 ; tile and the autoattack server setting is enabled. The following details
