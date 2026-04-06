@@ -4633,3 +4633,42 @@ helptext      = _("\
 Rocket Artillery fires salvoes of unguided rockets for devastating \
 area bombardment. Has double firepower against cities.\
 ")
+
+; 1925 - https://en.wikipedia.org/wiki/Anti-aircraft_warfare
+[unit_aa_artillery]
+name          = _("AA-Artillery")
+class         = "Big Land"
+tech_req      = "Military Aviation"
+obsolete_by   = "None"
+graphic       = "u.artillery"
+graphic_alt   = "-"
+sound_move    = "m_artillery"
+sound_move_alt = "m_generic"
+sound_fight   = "f_artillery"
+sound_fight_alt = "f_generic"
+build_cost    = 60
+pop_cost      = 0
+attack        = 4
+defense       = 1
+hitpoints     = 20
+firepower     = 1
+move_rate     = 1
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 0
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 1
+uk_gold       = 1
+bonuses       =
+   { "flag", "type", "value"
+     "Flying", "FirstStrikes", 2
+     "AirAttacker", "DefenseDivider", 1
+   }
+flags         = "CityBuster"
+roles         = "AttackStrongStartUnit"
+helptext      = _("\
+The AA-Artillery is an anti-aircraft gun. It gets two first strike\
+ rounds when defending against aircraft, and halves the defense of\
+ air units when attacking them.\
+")

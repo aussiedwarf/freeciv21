@@ -89,15 +89,21 @@ def parse_units(ruleset_path):
             match = re.search(rf'{field}\s*=\s*(\d+)', section)
             return int(match.group(1)) if match else 0
 
-        # Parse combat bonuses for anti-air first strikes
-        has_aa_fs = False
+        # Parse combat bonuses (e.g. anti-air first strikes, defense dividers)
+        bonuses = []
         bonuses_match = re.search(
             r'bonuses\s*=\s*\{([^}]*)\}', section, re.DOTALL
         )
         if bonuses_match:
-            has_aa_fs = bool(re.search(
-                r'"FirstStrikes"', bonuses_match.group(1)
-            ))
+            for bm in re.finditer(
+                r'"(\w+)",\s*"(\w+)",\s*(\d+)',
+                bonuses_match.group(1)
+            ):
+                bonuses.append({
+                    "flag": bm.group(1),
+                    "type": bm.group(2),
+                    "value": int(bm.group(3)),
+                })
 
         year, wiki_url = comment_map.get(m.start(), ("", ""))
         units.append({
@@ -115,7 +121,7 @@ def parse_units(ruleset_path):
             "pop_cost": get_int("pop_cost"),
             "transport_cap": get_int("transport_cap"),
             "fuel": get_int("fuel"),
-            "has_aa_fs": has_aa_fs,
+            "bonuses": bonuses,
             "year": year,
             "wiki_url": wiki_url,
         })
@@ -285,8 +291,19 @@ def generate_unit_table(units):
         notes = []
         if u["first_strikes"]:
             notes.append(f"FS: {u['first_strikes']}")
-        if u["has_aa_fs"]:
-            notes.append("AA-FS")
+        for b in u["bonuses"]:
+            if b["type"] == "FirstStrikes":
+                notes.append(f"FS vs {b['flag']}: {b['value']}")
+            elif b["type"] == "DefenseDivider":
+                notes.append(f"Atk vs {b['flag']}: /{b['value'] + 1} def")
+            elif b["type"] == "DefenseDividerPct":
+                notes.append(f"Atk vs {b['flag']}: +{b['value']}%")
+            elif b["type"] == "DefenseMultiplier":
+                notes.append(f"Def vs {b['flag']}: x{b['value'] + 1}")
+            elif b["type"] == "DefenseMultiplierPct":
+                notes.append(f"Def vs {b['flag']}: +{b['value']}%")
+            elif b["type"] == "Firepower1":
+                notes.append(f"FP1 vs {b['flag']}")
         if u["transport_cap"]:
             notes.append(f"transport: {u['transport_cap']}")
         if u["fuel"]:
