@@ -4135,6 +4135,10 @@ static bool do_attack(struct unit *punit, struct tile *def_tile,
 
     // Notify both players about first-strike damage
     const int fs_damage = pre_fs_hp - punit->hp;
+    log_debug("First strike (defender): %s fired %d round(s) at %s, "
+              "damage=%d",
+              unit_rule_name(fs_unit), net_fs, unit_rule_name(punit),
+              fs_damage);
     if (fs_damage > 0) {
       notify_player(unit_owner(pdefender), unit_tile(pdefender),
                     E_UNIT_TIE_DEF, ftc_server,
@@ -4167,6 +4171,10 @@ static bool do_attack(struct unit *punit, struct tile *def_tile,
 
     // Notify both players about first-strike damage
     const int fs_damage = pre_fs_hp - pdefender->hp;
+    log_debug("First strike (attacker): %s fired %d round(s) at %s, "
+              "damage=%d",
+              unit_rule_name(punit), -net_fs, unit_rule_name(pdefender),
+              fs_damage);
     if (fs_damage > 0) {
       // Use TIE events: first strikes are pre-combat damage, not a
       // decisive win/loss outcome.
