@@ -1029,6 +1029,7 @@ PACKET_UNIT_INFO = 63; sc, lsend, is-game-info, cancel(PACKET_UNIT_SHORT_INFO)
   UINT8 veteran;
   SERVER_SIDE_AGENT ssa_controller;
   BOOL paradropped;
+  UINT8 first_strikes_used;
   BOOL occupied, transported, done_moving;
   BOOL stay;
 
@@ -1404,6 +1405,7 @@ PACKET_RULESET_UNIT = 140; sc, lsend
   UINT8 hp;
   UINT8 firepower;
   UINT8 first_strikes;
+  UINT8 max_first_strike_defenses;
   UINT8 obsoleted_by;
   UINT8 converted_to;
   UINT8 convert_time;
@@ -2234,6 +2236,7 @@ PACKET_EDIT_UNIT = 210; cs, handle-per-conn, handle-via-packet
   BOOL debug;
   BOOL moved;
   BOOL paradropped;
+  UINT8 first_strikes_used;
   BOOL done_moving;
   UNIT transported_by;
   BOOL stay;

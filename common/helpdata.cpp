@@ -1850,6 +1850,15 @@ char *helptext_unit(char *buf, size_t bufsz, struct player *pplayer,
                        utype->first_strikes),
                    utype->first_strikes);
     }
+
+    if (utype->max_first_strike_defenses > 0) {
+      cat_snprintf(
+          buf, bufsz,
+          PL_("* Can defend with first strikes %d time per turn.\n",
+              "* Can defend with first strikes %d times per turn.\n",
+              utype->max_first_strike_defenses),
+          utype->max_first_strike_defenses);
+    }
   }
 
   // Add requirement text for the unit type itself

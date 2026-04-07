@@ -5906,6 +5906,8 @@ static bool sg_load_player_unit(struct loaddata *loading, struct player *plr,
       secfile_lookup_bool_default(loading->file, false, "%s.moved", unitstr);
   punit->paradropped = secfile_lookup_bool_default(
       loading->file, false, "%s.paradropped", unitstr);
+  punit->first_strikes_used = secfile_lookup_int_default(
+      loading->file, 0, "%s.first_strikes_used", unitstr);
   str =
       secfile_lookup_str_default(loading->file, "", "%s.carrying", unitstr);
   if (str[0] != '\0') {
@@ -6310,6 +6312,8 @@ static void sg_save_player_units(struct savedata *saving, struct player *plr)
     secfile_insert_bool(saving->file, punit->moved, "%s.moved", buf);
     secfile_insert_bool(saving->file, punit->paradropped, "%s.paradropped",
                         buf);
+    secfile_insert_int(saving->file, punit->first_strikes_used,
+                       "%s.first_strikes_used", buf);
     secfile_insert_int(
         saving->file,
         unit_transport_get(punit) ? unit_transport_get(punit)->id : -1,

@@ -639,6 +639,7 @@ static void unit_restore_movepoints(struct player *pplayer,
 {
   punit->moves_left = unit_move_rate(punit);
   punit->done_moving = false;
+  punit->first_strikes_used = 0;
 }
 
 /**
@@ -2451,6 +2452,7 @@ struct unit *unit_change_owner(struct unit *punit, struct player *pplayer,
   // Copy some more unit fields
   gained_unit->fuel = punit->fuel;
   gained_unit->paradropped = punit->paradropped;
+  gained_unit->first_strikes_used = punit->first_strikes_used;
   gained_unit->server.birth_turn = punit->server.birth_turn;
 
   if (game.server.unitwaittime_extended) {
@@ -2874,6 +2876,7 @@ void package_unit(struct unit *punit, struct packet_unit_info *packet)
   packet->goto_tile =
       (nullptr != punit->goto_tile ? tile_index(punit->goto_tile) : -1);
   packet->paradropped = punit->paradropped;
+  packet->first_strikes_used = punit->first_strikes_used;
   packet->done_moving = punit->done_moving;
   packet->stay = punit->stay;
   if (!unit_transported(punit)) {

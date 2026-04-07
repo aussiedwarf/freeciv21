@@ -563,6 +563,13 @@ static bool manual_command(struct tag_types *tag_info)
           fprintf(doc, tag_info->subitem_begin, "first_strikes");
           fprintf(doc, _("First Strikes: %d"), putype->first_strikes);
           fprintf(doc, "%s", tag_info->subitem_end);
+          if (putype->max_first_strike_defenses > 0) {
+            fprintf(doc, tag_info->subitem_begin,
+                    "max_first_strike_defenses");
+            fprintf(doc, _("Max First Strike Defenses Per Turn: %d"),
+                    putype->max_first_strike_defenses);
+            fprintf(doc, "%s", tag_info->subitem_end);
+          }
         }
         fprintf(doc, tag_info->subitem_begin, "hitpoints");
         fprintf(doc, _("Hitpoints: %d"), putype->hp);

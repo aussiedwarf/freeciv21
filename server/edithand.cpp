@@ -639,6 +639,11 @@ void handle_edit_unit(server_connection *pc,
     changed = true;
   }
 
+  if (packet->first_strikes_used != punit->first_strikes_used) {
+    punit->first_strikes_used = packet->first_strikes_used;
+    changed = true;
+  }
+
   // TODO: Handle more property edits.
 
   // Send the new state to all affected.

@@ -2921,6 +2921,10 @@ static bool save_units_ruleset(const char *filename, const char *name)
         secfile_insert_int(sfile, put->first_strikes, "%s.first_strikes",
                            path);
       }
+      if (put->max_first_strike_defenses > 0) {
+        secfile_insert_int(sfile, put->max_first_strike_defenses,
+                           "%s.max_first_strike_defenses", path);
+      }
       secfile_insert_int(sfile, put->fuel, "%s.fuel", path);
       secfile_insert_int(sfile, put->happy_cost, "%s.uk_happy", path);
 

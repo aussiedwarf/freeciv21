@@ -142,6 +142,8 @@ struct unit {
   enum server_side_agent ssa_controller;
   bool moved;
   bool paradropped;
+  int first_strikes_used; // Times this unit fired as first-strike defender
+                          // this turn
 
   /* This value is set if the unit is done moving for this turn. This
    * information is used by the client.  The invariant is:

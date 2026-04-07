@@ -2035,6 +2035,16 @@ static bool load_ruleset_units(struct section_file *file,
         u->first_strikes = MAX_UINT8;
       }
 
+      u->max_first_strike_defenses = secfile_lookup_int_default(
+          file, 0, "%s.max_first_strike_defenses", sec_name);
+      if (u->max_first_strike_defenses > MAX_UINT8) {
+        qCWarning(ruleset_category,
+                  "%s: max_first_strike_defenses %d exceeds packet limit "
+                  "%d, clamping",
+                  sec_name, u->max_first_strike_defenses, MAX_UINT8);
+        u->max_first_strike_defenses = MAX_UINT8;
+      }
+
       lookup_cbonus_list(compat, u->bonuses, file, sec_name, "bonuses");
 
       output_type_iterate(o)
@@ -7398,6 +7408,7 @@ static void send_ruleset_units(struct conn_list *dest)
     packet.hp = u->hp;
     packet.firepower = u->firepower;
     packet.first_strikes = u->first_strikes;
+    packet.max_first_strike_defenses = u->max_first_strike_defenses;
     packet.obsoleted_by =
         u->obsoleted_by ? utype_number(u->obsoleted_by) : utype_count();
     packet.converted_to =

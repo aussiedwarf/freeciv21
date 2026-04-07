@@ -456,6 +456,13 @@ struct unit *find_best_first_strike_unit(const struct unit &attacker,
       continue;
     }
 
+    // Skip units that have exhausted their per-turn first-strike limit
+    const int max_uses =
+        unit_type_get(candidate)->max_first_strike_defenses;
+    if (max_uses > 0 && candidate->first_strikes_used >= max_uses) {
+      continue;
+    }
+
     // Standard first strikes: suppressed against immune classes
     const int standard_fs =
         attacker_immune ? 0 : get_first_strikes(*candidate);

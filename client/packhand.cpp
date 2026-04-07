@@ -235,6 +235,7 @@ static struct unit *unpackage_unit(const struct packet_unit_info *packet)
   punit->fuel = packet->fuel;
   punit->goto_tile = index_to_tile(&(wld.map), packet->goto_tile);
   punit->paradropped = packet->paradropped;
+  punit->first_strikes_used = packet->first_strikes_used;
   punit->done_moving = packet->done_moving;
   punit->stay = packet->stay;
 
@@ -1904,6 +1905,7 @@ static bool handle_unit_packet_common(struct unit *packet_unit)
     punit->fuel = packet_unit->fuel;
     punit->goto_tile = packet_unit->goto_tile;
     punit->paradropped = packet_unit->paradropped;
+    punit->first_strikes_used = packet_unit->first_strikes_used;
     punit->stay = packet_unit->stay;
     if (punit->done_moving != packet_unit->done_moving) {
       punit->done_moving = packet_unit->done_moving;
@@ -3491,6 +3493,7 @@ void handle_ruleset_unit(const struct packet_ruleset_unit *p)
   u->hp = p->hp;
   u->firepower = p->firepower;
   u->first_strikes = p->first_strikes;
+  u->max_first_strike_defenses = p->max_first_strike_defenses;
   u->obsoleted_by = utype_by_number(p->obsoleted_by);
   u->converted_to = utype_by_number(p->converted_to);
   u->convert_time = p->convert_time;

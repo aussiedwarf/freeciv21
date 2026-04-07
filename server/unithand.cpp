@@ -4131,6 +4131,8 @@ static bool do_attack(struct unit *punit, struct tile *def_tile,
       punit->hp = 0;
     }
 
+    fs_unit->first_strikes_used++;
+
     // Notify both players about first-strike damage
     const int fs_damage = pre_fs_hp - punit->hp;
     if (fs_damage > 0) {

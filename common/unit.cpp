@@ -1535,6 +1535,7 @@ struct unit *unit_virtual_create(struct player *pplayer, struct city *pcity,
 
   punit->ssa_controller = SSA_NONE;
   punit->paradropped = false;
+  punit->first_strikes_used = 0;
   punit->done_moving = false;
 
   punit->transporter = nullptr;

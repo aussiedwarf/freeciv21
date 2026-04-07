@@ -140,6 +140,7 @@ struct unit_type {
   int hp;
   int firepower;
   int first_strikes;
+  int max_first_strike_defenses; // 0 = unlimited
   struct combat_bonus_list *bonuses;
 
 #define U_NOT_OBSOLETED (nullptr)
