@@ -228,6 +228,35 @@ def generate_mermaid(techs):
     return "\n".join(lines)
 
 
+def generate_unit_upgrade_mermaid(units):
+    """Generate a Mermaid flowchart showing unit upgrade chains.
+
+    Each unit is a node. An edge from A to B means A is obsoleted by B.
+    Standalone units (no chain) appear as isolated nodes.
+    """
+    lines = ["flowchart LR"]
+
+    # Build a name set for validation of obsolete_by targets
+    unit_names = {u["name"] for u in units}
+
+    # Node declarations
+    for u in sorted(units, key=lambda u: u["name"]):
+        sid = sanitize_id(u["name"])
+        lines.append(f"    {sid}[\"{u['name']}\"]")
+
+    lines.append("")
+
+    # Edges: unit --> obsolete_by
+    for u in sorted(units, key=lambda u: u["name"]):
+        obs = u["obsolete_by"]
+        if obs not in ("None", "Never") and obs in unit_names:
+            lines.append(
+                f"    {sanitize_id(u['name'])} --> {sanitize_id(obs)}"
+            )
+
+    return "\n".join(lines)
+
+
 def format_year(year_str):
     """Format a year string, converting negative years to 'YYYY BC'."""
     if not year_str:
@@ -360,6 +389,7 @@ def main():
     enables_map = build_enables_map(units, buildings)
 
     mermaid = generate_mermaid(techs)
+    unit_upgrade_mermaid = generate_unit_upgrade_mermaid(units)
     tech_table = generate_table(techs, enables_map)
     unit_table = generate_unit_table(units)
     building_table = generate_building_table(buildings)
@@ -368,6 +398,8 @@ def main():
         f"# Nation States Tech Tree\n\n"
         f"```mermaid\n{mermaid}\n```\n\n"
         f"## Technology Reference\n\n{tech_table}\n\n"
+        f"## Unit Upgrade Chains\n\n"
+        f"```mermaid\n{unit_upgrade_mermaid}\n```\n\n"
         f"## Unit Reference\n\n{unit_table}\n\n"
         f"## Building Reference\n\n{building_table}\n"
     )

@@ -181,7 +181,7 @@ paradrop_to_transport    = FALSE
 ;            have enough gold, random buildings from random cities are sold.
 ;            If still more gold is needed, then random units with gold
 ;            upkeep are disbanded.
-gold_upkeep_style = "Mixed"
+gold_upkeep_style = "Nation"
 
 ; How many points of output one basic unit consists of. Typically you
 ; want this to be some 10^n.

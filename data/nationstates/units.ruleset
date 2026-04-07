@@ -1819,39 +1819,7 @@ The Galleon is a pure transport ship, the first which can\
  it may still defend itself when attacked.\
 ")
 
-; 1800 - https://en.wikipedia.org/wiki/HMS_Trincomalee
-[unit_frigate]
-name          = _("Sailing Frigate")
-rule_name     = "Frigate"
-class         = "Sea"
-tech_req      = "Navigation"
-obsolete_by   = "WW2 Frigate"
-graphic       = "u.frigate"
-graphic_alt   = "-"
-sound_move    = "m_frigate"
-sound_move_alt = "m_generic"
-sound_fight   = "f_frigate"
-sound_fight_alt = "f_generic"
-build_cost    = 40
-pop_cost      = 0
-attack        = 3
-defense       = 2
-hitpoints     = 10
-firepower     = 1
-move_rate     = 4
-vision_radius_sq = 2
-transport_cap = 0
-fuel          = 0
-uk_happy      = 1
-uk_shield     = 1
-uk_food       = 1
-uk_gold       = 1
-flags         = "BadCityDefender"
-roles         = "Hunter"
-helptext      = _("\
-The Frigate is a specialized ship with a strong offensive value,\
- and can attack units on land, but it cannot transport units.\
-")
+
 
 ; 1862 - https://en.wikipedia.org/wiki/Ironclad_warship
 [unit_ironclad]
@@ -1868,8 +1836,8 @@ sound_fight_alt = "f_generic"
 build_cost    = 50
 pop_cost      = 0
 attack        = 4
-defense       = 3
-hitpoints     = 20
+defense       = 6
+hitpoints     = 40
 firepower     = 1
 move_rate     = 4
 vision_radius_sq = 2
@@ -1889,7 +1857,6 @@ The Ironclad is an armored ship,\
 ; 1893 - https://en.wikipedia.org/wiki/HMS_Havock_(1893)
 [unit_destroyer]
 name          = _("Torpedo Boat Destroyer")
-rule_name     = "Destroyer"
 class         = "Sea"
 tech_req      = "Torpedo"
 obsolete_by   = "Fleet Destroyer"
@@ -1930,7 +1897,6 @@ TIP: A very fast unit, which is very useful for hunting down enemy\
 ; 1875 - https://en.wikipedia.org/wiki/Armored_cruiser
 [unit_cruiser]
 name          = _("Armored Cruiser")
-rule_name     = "Cruiser"
 class         = "Sea"
 tech_req      = "Steel"
 obsolete_by   = "WW2 Cruiser"
@@ -2679,9 +2645,10 @@ wide area.\
 ; NEW UNITS - Navy
 ; =======================================================================
 
-; 1800 - https://en.wikipedia.org/wiki/Corvette
+; 1800 - https://en.wikipedia.org/wiki/Brig
+; TODO graphics
 [unit_corvette]
-name          = _("Corvette")
+name          = _("Brig")
 class         = "Trireme"
 tech_req      = "Navigation"
 obsolete_by   = "Steam Corvette"
@@ -2701,11 +2668,11 @@ move_rate     = 4
 vision_radius_sq = 2
 transport_cap = 0
 fuel          = 0
-uk_happy      = 1
-uk_shield     = 1
-uk_food       = 1
-uk_gold       = 1
-flags         = "BadCityDefender"
+uk_happy      = 0
+uk_shield     = 0
+uk_food       = 0
+uk_gold       = 0
+flags         = "BadCityDefender", "Corvette", "Ship"
 roles         = ""
 helptext      = _("\
 A small, fast warship used for coastal patrol and escort duties. \
@@ -2713,8 +2680,42 @@ Too small for open ocean operations.\
 ")
 
 ; 1800 - https://en.wikipedia.org/wiki/HMS_Victory
-[unit_ship_of_the_line]
-name          = _("Ship of the Line")
+[unit_first_rate_ship_of_the_line]
+name          = _("First-Rate Ship of the Line")
+class         = "Sea"
+tech_req      = "Metallurgy"
+obsolete_by   = "Ironclad"
+graphic       = "u.galleon"
+graphic_alt   = "-"
+sound_move    = "m_galleon"
+sound_move_alt = "m_generic"
+sound_fight   = "f_galleon"
+sound_fight_alt = "f_generic"
+build_cost    = 60
+pop_cost      = 0
+attack        = 6
+defense       = 3
+hitpoints     = 50
+firepower     = 1
+move_rate     = 3
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 0
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 1
+uk_gold       = 1
+flags         = "BadCityDefender", "Battleship", "Ship"
+roles         = ""
+helptext      = _("\
+The First-Rate Ship of the Line is the dominant capital ship of the Age of Sail. \
+Armed with rows of heavy cannon, it is the most powerful warship afloat \
+until the advent of ironclad vessels.\
+")
+
+; 1800 - 
+[unit_second_rate_ship_of_the_line]
+name          = _("Second-Rate Ship of the Line")
 class         = "Sea"
 tech_req      = "Metallurgy"
 obsolete_by   = "Ironclad"
@@ -2727,8 +2728,8 @@ sound_fight_alt = "f_generic"
 build_cost    = 60
 pop_cost      = 0
 attack        = 5
-defense       = 4
-hitpoints     = 20
+defense       = 3
+hitpoints     = 40
 firepower     = 1
 move_rate     = 3
 vision_radius_sq = 2
@@ -2738,20 +2739,80 @@ uk_happy      = 1
 uk_shield     = 1
 uk_food       = 1
 uk_gold       = 1
-flags         = "BadCityDefender"
+flags         = "BadCityDefender", "Cruiser", "Ship"
 roles         = ""
+helptext      = _("TODO")
+
+; 1800 - 
+[unit_third_rate_ship_of_the_line]
+name          = _("Third-Rate Ship of the Line")
+class         = "Sea"
+tech_req      = "Metallurgy"
+obsolete_by   = "Ironclad"
+graphic       = "u.galleon"
+graphic_alt   = "-"
+sound_move    = "m_galleon"
+sound_move_alt = "m_generic"
+sound_fight   = "f_galleon"
+sound_fight_alt = "f_generic"
+build_cost    = 60
+pop_cost      = 0
+attack        = 4
+defense       = 3
+hitpoints     = 30
+firepower     = 1
+move_rate     = 3
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 0
+uk_happy      = 0
+uk_shield     = 0
+uk_food       = 0
+uk_gold       = 1
+flags         = "BadCityDefender", "Destroyer", "Ship"
+roles         = ""
+helptext      = _("TODO")
+
+; 1800 - https://en.wikipedia.org/wiki/HMS_Trincomalee
+[unit_sailing_frigate]
+name          = _("Sailing Frigate")
+class         = "Sea"
+tech_req      = "Navigation"
+obsolete_by   = "Steam Frigate"
+graphic       = "u.frigate"
+graphic_alt   = "-"
+sound_move    = "m_frigate"
+sound_move_alt = "m_generic"
+sound_fight   = "f_frigate"
+sound_fight_alt = "f_generic"
+build_cost    = 40
+pop_cost      = 0
+attack        = 3
+defense       = 2
+hitpoints     = 20
+firepower     = 1
+move_rate     = 4
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 0
+uk_happy      = 0
+uk_shield     = 0
+uk_food       = 0
+uk_gold       = 1
+flags         = "BadCityDefender", "Frigate", "Ship"
+roles         = "Hunter"
 helptext      = _("\
-The Ship of the Line is the dominant capital ship of the Age of Sail. \
-Armed with rows of heavy cannon, it is the most powerful warship afloat \
-until the advent of ironclad vessels.\
+The Frigate is a specialized ship with a strong offensive value,\
+ and can attack units on land, but it cannot transport units.\
 ")
 
 ; 1856 - https://en.wikipedia.org/wiki/HMS_Pearl_(1855)
+; TODO Graphics
 [unit_steam_corvette]
 name          = _("Steam Corvette")
 class         = "Trireme"
 tech_req      = "Steam Engine"
-obsolete_by   = "Escort Corvette"
+obsolete_by   = "Torpedo Boat"
 graphic       = "u.ironclad"
 graphic_alt   = "u.frigate"
 sound_move    = "m_ironclad"
@@ -2772,19 +2833,85 @@ uk_happy      = 1
 uk_shield     = 1
 uk_food       = 1
 uk_gold       = 1
-flags         = "BadCityDefender"
+flags         = "BadCityDefender", "Corvette", "Ship"
 roles         = ""
 helptext      = _("\
 A transitional warship combining steam power with traditional armament. \
 Faster than sailing corvettes but still limited to coastal operations.\
 ")
 
+; 1876 - https://en.wikipedia.org/wiki/HMS_Lightning_(1876)
+; TODO Graphics, Tech
+[unit_torpedo_boat]
+name          = _("Torpedo Boat")
+class         = "Trireme"
+tech_req      = "Steam Engine"
+obsolete_by   = "Patrol Corvette"
+graphic       = "u.ironclad"
+graphic_alt   = "u.frigate"
+sound_move    = "m_ironclad"
+sound_move_alt = "m_generic"
+sound_fight   = "f_ironclad"
+sound_fight_alt = "f_generic"
+build_cost    = 40
+pop_cost      = 0
+attack        = 3
+defense       = 2
+hitpoints     = 10
+firepower     = 1
+move_rate     = 5
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 0
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 1
+uk_gold       = 1
+flags         = "BadCityDefender", "Corvette"
+roles         = ""
+helptext      = _("TODO")
+
+
+; 1860 - 
+; TODO Graphics
+[unit_steam_frigate]
+name          = _("Steam Frigate")
+class         = "Sea"
+tech_req      = "Navigation"
+obsolete_by   = " Sloop"
+graphic       = "u.frigate"
+graphic_alt   = "-"
+sound_move    = "m_frigate"
+sound_move_alt = "m_generic"
+sound_fight   = "f_frigate"
+sound_fight_alt = "f_generic"
+build_cost    = 40
+pop_cost      = 0
+attack        = 3
+defense       = 2
+hitpoints     = 10
+firepower     = 1
+move_rate     = 4
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 0
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 1
+uk_gold       = 1
+flags         = "BadCityDefender"
+roles         = "Hunter"
+helptext      = _("\
+The Frigate is a specialized ship with a strong offensive value,\
+ and can attack units on land, but it cannot transport units.\
+")
+
 ; 1892 - https://en.wikipedia.org/wiki/Royal_Sovereign-class_battleship
 [unit_pre_dreadnought]
-name          = _("Pre-Dreadnought")
+name          = _("Pre-Dreadnought Battleship")
 class         = "Sea"
 tech_req      = "Armor Plate"
-obsolete_by   = "Dreadnought BB"
+obsolete_by   = "Dreadnought Battleship"
 graphic       = "u.battleship"
 graphic_alt   = "u.ironclad"
 sound_move    = "m_battleship"
@@ -2814,7 +2941,7 @@ mixed-caliber guns and armor plate. The dominant warship of the 1890s-1905 era.\
 
 ; 1906 - https://en.wikipedia.org/wiki/HMS_Dreadnought_(1906)
 [unit_dreadnought]
-name          = _("Dreadnought BB")
+name          = _("Dreadnought Battleship")
 class         = "Sea"
 tech_req      = "Dreadnought"
 obsolete_by   = "Battleship"
@@ -2992,7 +3119,7 @@ weapons double defense against Submarines.\
 name          = _("Escort Corvette")
 class         = "Trireme"
 tech_req      = "Sonar"
-obsolete_by   = "Patrol Corvette"
+obsolete_by   = "Missile Corvette"
 graphic       = "u.frigate"
 graphic_alt   = "-"
 sound_move    = "m_frigate"
@@ -3003,7 +3130,7 @@ build_cost    = 35
 pop_cost      = 0
 attack        = 3
 defense       = 3
-hitpoints     = 20
+hitpoints     = 10
 firepower     = 1
 move_rate     = 5
 vision_radius_sq = 2
@@ -3017,7 +3144,7 @@ bonuses       =
    { "flag", "type", "value"
      "Submarine", "DefenseMultiplier", 1
    }
-flags         = "BadCityDefender"
+flags         = "BadCityDefender", "Corvette", "Ship"
 roles         = ""
 helptext      = _("\
 The Escort Corvette is a cheap, mass-produced convoy escort. \
