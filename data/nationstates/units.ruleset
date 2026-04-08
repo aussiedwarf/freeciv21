@@ -44,6 +44,13 @@ flags =
     _("Marines"), _("Can launch attack from non-native tiles.")
     _("Cant_Fortify")
     _("Flying"), _("Immune to first strikes.")
+    _("Ship")
+    _("Corvette")
+    _("Battleship")
+    _("Battlecruiser")
+    _("Cruiser")
+    _("Destroyer")
+    _("Frigate")
   }
 
 ; Names for custom unit class flags. There can be up to 12 of these.
@@ -1826,7 +1833,7 @@ The Galleon is a pure transport ship, the first which can\
 name          = _("Ironclad")
 class         = "Sea"
 tech_req      = "Steam Engine"
-obsolete_by   = "Pre-Dreadnought"
+obsolete_by   = "Pre-Dreadnought Battleship"
 graphic       = "u.ironclad"
 graphic_alt   = "-"
 sound_move    = "m_ironclad"
@@ -2661,7 +2668,7 @@ sound_fight_alt = "f_generic"
 build_cost    = 35
 pop_cost      = 0
 attack        = 2
-defense       = 2
+defense       = 1
 hitpoints     = 10
 firepower     = 1
 move_rate     = 4
@@ -2678,6 +2685,243 @@ helptext      = _("\
 A small, fast warship used for coastal patrol and escort duties. \
 Too small for open ocean operations.\
 ")
+
+
+; 1856 - https://en.wikipedia.org/wiki/HMS_Pearl_(1855)
+; TODO Graphics
+[unit_steam_corvette]
+name          = _("Steam Corvette")
+class         = "Trireme"
+tech_req      = "Steam Engine"
+obsolete_by   = "Torpedo Boat"
+graphic       = "u.ironclad"
+graphic_alt   = "u.frigate"
+sound_move    = "m_ironclad"
+sound_move_alt = "m_generic"
+sound_fight   = "f_ironclad"
+sound_fight_alt = "f_generic"
+build_cost    = 40
+pop_cost      = 0
+attack        = 3
+defense       = 2
+hitpoints     = 10
+firepower     = 1
+move_rate     = 5
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 0
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 1
+uk_gold       = 1
+flags         = "BadCityDefender", "Corvette", "Ship"
+roles         = ""
+helptext      = _("\
+A transitional warship combining steam power with traditional armament. \
+Faster than sailing corvettes but still limited to coastal operations.\
+")
+
+; 1876 - https://en.wikipedia.org/wiki/HMS_Lightning_(1876)
+; TODO Graphics, Tech
+[unit_torpedo_boat]
+name          = _("Torpedo Boat")
+class         = "Trireme"
+tech_req      = "Steam Engine"
+obsolete_by   = "Patrol Corvette"
+graphic       = "u.ironclad"
+graphic_alt   = "u.frigate"
+sound_move    = "m_ironclad"
+sound_move_alt = "m_generic"
+sound_fight   = "f_ironclad"
+sound_fight_alt = "f_generic"
+build_cost    = 40
+pop_cost      = 0
+attack        = 3
+defense       = 2
+hitpoints     = 10
+firepower     = 1
+move_rate     = 5
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 0
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 1
+uk_gold       = 1
+flags         = "BadCityDefender", "Corvette"
+roles         = ""
+helptext      = _("TODO")
+
+
+; 1910 - 
+; TODO Graphics, Tech
+[unit_patrol_corvette]
+name          = _("Patrol Corvette")
+class         = "Trireme"
+tech_req      = "Cold War Doctrine"
+obsolete_by   = "Escort Corvette"
+graphic       = "u.destroyer"
+graphic_alt   = "u.frigate"
+sound_move    = "m_destroyer"
+sound_move_alt = "m_generic"
+sound_fight   = "f_destroyer"
+sound_fight_alt = "f_generic"
+build_cost    = 40
+pop_cost      = 0
+attack        = 3
+defense       = 4
+hitpoints     = 20
+firepower     = 1
+move_rate     = 6
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 0
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 1
+uk_gold       = 1
+flags         = "BadCityDefender"
+roles         = ""
+helptext      = _("\
+The Patrol Corvette is a Cold War-era coastal patrol vessel, \
+cheap and effective for littoral defense.\
+")
+
+; 1940 - https://en.wikipedia.org/wiki/Flower-class_corvette
+[unit_escort_corvette]
+name          = _("Escort Corvette")
+class         = "Trireme"
+tech_req      = "Sonar"
+obsolete_by   = "Patrol Corvette"
+graphic       = "u.frigate"
+graphic_alt   = "-"
+sound_move    = "m_frigate"
+sound_move_alt = "m_generic"
+sound_fight   = "f_frigate"
+sound_fight_alt = "f_generic"
+build_cost    = 35
+pop_cost      = 0
+attack        = 3
+defense       = 3
+hitpoints     = 10
+firepower     = 1
+move_rate     = 5
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 0
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 1
+uk_gold       = 1
+bonuses       =
+   { "flag", "type", "value"
+     "Submarine", "DefenseMultiplier", 1
+   }
+flags         = "BadCityDefender", "Corvette", "Ship"
+roles         = ""
+helptext      = _("\
+The Escort Corvette is a cheap, mass-produced convoy escort. \
+Built for anti-submarine warfare, it doubled defense against Submarines. \
+Limited to coastal waters.\
+")
+
+; 1965 - https://en.wikipedia.org/wiki/Grisha-class_corvette
+[unit_missile_corvette]
+name          = _("Missile Corvette")
+class         = "Trireme"
+tech_req      = "Cold War Doctrine"
+obsolete_by   = "Modern Corvette"
+graphic       = "u.destroyer"
+graphic_alt   = "u.frigate"
+sound_move    = "m_destroyer"
+sound_move_alt = "m_generic"
+sound_fight   = "f_destroyer"
+sound_fight_alt = "f_generic"
+build_cost    = 40
+pop_cost      = 0
+attack        = 3
+defense       = 4
+hitpoints     = 20
+firepower     = 1
+move_rate     = 6
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 0
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 1
+uk_gold       = 1
+flags         = "BadCityDefender", "Corvette", "Ship"
+roles         = ""
+helptext      = _("\
+The Patrol Corvette is a Cold War-era coastal patrol vessel, \
+cheap and effective for littoral defense.\
+")
+
+; 2000 - https://en.wikipedia.org/wiki/Visby-class_corvette
+[unit_modern_corvette]
+name          = _("Modern Corvette")
+class         = "Trireme"
+tech_req      = "Smart Weapons"
+obsolete_by   = "Stealth Corvette"
+graphic       = "u.destroyer"
+graphic_alt   = "u.frigate"
+sound_move    = "m_destroyer"
+sound_move_alt = "m_generic"
+sound_fight   = "f_destroyer"
+sound_fight_alt = "f_generic"
+build_cost    = 45
+pop_cost      = 0
+attack        = 4
+defense       = 4
+hitpoints     = 20
+firepower     = 1
+move_rate     = 7
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 0
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 1
+uk_gold       = 1
+flags         = "BadCityDefender", "Corvette", "Ship"
+roles         = ""
+helptext      = _("\
+The Modern Corvette is a stealthy, fast coastal warship equipped with \
+advanced sensors and weapons. Effective in littoral operations.\
+")
+
+; 2030 - 
+; TODO graphic, tech
+[unit_modern_corvette]
+name          = _("Stealth Corvette")
+class         = "Trireme"
+tech_req      = "Smart Weapons"
+obsolete_by   = "None"
+graphic       = "u.destroyer"
+graphic_alt   = "u.frigate"
+sound_move    = "m_destroyer"
+sound_move_alt = "m_generic"
+sound_fight   = "f_destroyer"
+sound_fight_alt = "f_generic"
+build_cost    = 45
+pop_cost      = 0
+attack        = 4
+defense       = 4
+hitpoints     = 20
+firepower     = 1
+move_rate     = 7
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 0
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 1
+uk_gold       = 1
+flags         = "BadCityDefender", "Corvette", "Ship"
+roles         = ""
+helptext      = _("TODO")
+
 
 ; 1800 - https://en.wikipedia.org/wiki/HMS_Victory
 [unit_first_rate_ship_of_the_line]
@@ -2806,79 +3050,13 @@ The Frigate is a specialized ship with a strong offensive value,\
  and can attack units on land, but it cannot transport units.\
 ")
 
-; 1856 - https://en.wikipedia.org/wiki/HMS_Pearl_(1855)
-; TODO Graphics
-[unit_steam_corvette]
-name          = _("Steam Corvette")
-class         = "Trireme"
-tech_req      = "Steam Engine"
-obsolete_by   = "Torpedo Boat"
-graphic       = "u.ironclad"
-graphic_alt   = "u.frigate"
-sound_move    = "m_ironclad"
-sound_move_alt = "m_generic"
-sound_fight   = "f_ironclad"
-sound_fight_alt = "f_generic"
-build_cost    = 40
-pop_cost      = 0
-attack        = 3
-defense       = 2
-hitpoints     = 10
-firepower     = 1
-move_rate     = 5
-vision_radius_sq = 2
-transport_cap = 0
-fuel          = 0
-uk_happy      = 1
-uk_shield     = 1
-uk_food       = 1
-uk_gold       = 1
-flags         = "BadCityDefender", "Corvette", "Ship"
-roles         = ""
-helptext      = _("\
-A transitional warship combining steam power with traditional armament. \
-Faster than sailing corvettes but still limited to coastal operations.\
-")
-
-; 1876 - https://en.wikipedia.org/wiki/HMS_Lightning_(1876)
-; TODO Graphics, Tech
-[unit_torpedo_boat]
-name          = _("Torpedo Boat")
-class         = "Trireme"
-tech_req      = "Steam Engine"
-obsolete_by   = "Patrol Corvette"
-graphic       = "u.ironclad"
-graphic_alt   = "u.frigate"
-sound_move    = "m_ironclad"
-sound_move_alt = "m_generic"
-sound_fight   = "f_ironclad"
-sound_fight_alt = "f_generic"
-build_cost    = 40
-pop_cost      = 0
-attack        = 3
-defense       = 2
-hitpoints     = 10
-firepower     = 1
-move_rate     = 5
-vision_radius_sq = 2
-transport_cap = 0
-fuel          = 0
-uk_happy      = 1
-uk_shield     = 1
-uk_food       = 1
-uk_gold       = 1
-flags         = "BadCityDefender", "Corvette"
-roles         = ""
-helptext      = _("TODO")
-
-
 ; 1860 - 
 ; TODO Graphics
 [unit_steam_frigate]
 name          = _("Steam Frigate")
 class         = "Sea"
 tech_req      = "Navigation"
-obsolete_by   = " Sloop"
+obsolete_by   = "None"
 graphic       = "u.frigate"
 graphic_alt   = "-"
 sound_move    = "m_frigate"
@@ -3112,44 +3290,6 @@ helptext      = _("\
 The Fleet Destroyer is a fast, heavily-armed warship designed to \
 screen the battle fleet and launch torpedo attacks. Its anti-submarine \
 weapons double defense against Submarines.\
-")
-
-; 1940 - https://en.wikipedia.org/wiki/Flower-class_corvette
-[unit_escort_corvette]
-name          = _("Escort Corvette")
-class         = "Trireme"
-tech_req      = "Sonar"
-obsolete_by   = "Missile Corvette"
-graphic       = "u.frigate"
-graphic_alt   = "-"
-sound_move    = "m_frigate"
-sound_move_alt = "m_generic"
-sound_fight   = "f_frigate"
-sound_fight_alt = "f_generic"
-build_cost    = 35
-pop_cost      = 0
-attack        = 3
-defense       = 3
-hitpoints     = 10
-firepower     = 1
-move_rate     = 5
-vision_radius_sq = 2
-transport_cap = 0
-fuel          = 0
-uk_happy      = 1
-uk_shield     = 1
-uk_food       = 1
-uk_gold       = 1
-bonuses       =
-   { "flag", "type", "value"
-     "Submarine", "DefenseMultiplier", 1
-   }
-flags         = "BadCityDefender", "Corvette", "Ship"
-roles         = ""
-helptext      = _("\
-The Escort Corvette is a cheap, mass-produced convoy escort. \
-Built for anti-submarine warfare, it doubled defense against Submarines. \
-Limited to coastal waters.\
 ")
 
 ; 1941 - https://en.wikipedia.org/wiki/River-class_frigate
@@ -3438,39 +3578,6 @@ surface-to-surface missiles, bridging the gap between conventional \
 cruisers and the advanced AEGIS system.\
 ")
 
-; 1965 - https://en.wikipedia.org/wiki/Grisha-class_corvette
-[unit_patrol_corvette]
-name          = _("Patrol Corvette")
-class         = "Trireme"
-tech_req      = "Cold War Doctrine"
-obsolete_by   = "Modern Corvette"
-graphic       = "u.destroyer"
-graphic_alt   = "u.frigate"
-sound_move    = "m_destroyer"
-sound_move_alt = "m_generic"
-sound_fight   = "f_destroyer"
-sound_fight_alt = "f_generic"
-build_cost    = 40
-pop_cost      = 0
-attack        = 3
-defense       = 4
-hitpoints     = 20
-firepower     = 1
-move_rate     = 6
-vision_radius_sq = 2
-transport_cap = 0
-fuel          = 0
-uk_happy      = 1
-uk_shield     = 1
-uk_food       = 1
-uk_gold       = 1
-flags         = "BadCityDefender"
-roles         = ""
-helptext      = _("\
-The Patrol Corvette is a Cold War-era coastal patrol vessel, \
-cheap and effective for littoral defense.\
-")
-
 ; 1977 - https://en.wikipedia.org/wiki/Oliver_Hazard_Perry-class_frigate
 [unit_modern_frigate]
 name          = _("Modern Frigate")
@@ -3544,39 +3651,6 @@ roles         = "Hunter"
 helptext      = _("\
 The Modern Destroyer is a multi-role surface combatant with advanced \
 radar, missile systems, and ASW capability. The backbone of modern navies.\
-")
-
-; 2000 - https://en.wikipedia.org/wiki/Visby-class_corvette
-[unit_modern_corvette]
-name          = _("Modern Corvette")
-class         = "Trireme"
-tech_req      = "Smart Weapons"
-obsolete_by   = "None"
-graphic       = "u.destroyer"
-graphic_alt   = "u.frigate"
-sound_move    = "m_destroyer"
-sound_move_alt = "m_generic"
-sound_fight   = "f_destroyer"
-sound_fight_alt = "f_generic"
-build_cost    = 45
-pop_cost      = 0
-attack        = 4
-defense       = 4
-hitpoints     = 20
-firepower     = 1
-move_rate     = 7
-vision_radius_sq = 2
-transport_cap = 0
-fuel          = 0
-uk_happy      = 1
-uk_shield     = 1
-uk_food       = 1
-uk_gold       = 1
-flags         = "BadCityDefender"
-roles         = ""
-helptext      = _("\
-The Modern Corvette is a stealthy, fast coastal warship equipped with \
-advanced sensors and weapons. Effective in littoral operations.\
 ")
 
 ; 2008 - https://en.wikipedia.org/wiki/Freedom-class_littoral_combat_ship
