@@ -2671,7 +2671,7 @@ attack        = 2
 defense       = 1
 hitpoints     = 10
 firepower     = 1
-move_rate     = 4
+move_rate     = 3
 vision_radius_sq = 2
 transport_cap = 0
 fuel          = 0
@@ -2702,11 +2702,11 @@ sound_fight   = "f_ironclad"
 sound_fight_alt = "f_generic"
 build_cost    = 40
 pop_cost      = 0
-attack        = 3
-defense       = 2
+attack        = 2
+defense       = 1
 hitpoints     = 10
 firepower     = 1
-move_rate     = 5
+move_rate     = 4
 vision_radius_sq = 2
 transport_cap = 0
 fuel          = 0
@@ -2736,8 +2736,8 @@ sound_fight   = "f_ironclad"
 sound_fight_alt = "f_generic"
 build_cost    = 40
 pop_cost      = 0
-attack        = 3
-defense       = 2
+attack        = 4
+defense       = 1
 hitpoints     = 10
 firepower     = 1
 move_rate     = 5
@@ -2748,7 +2748,7 @@ uk_happy      = 1
 uk_shield     = 1
 uk_food       = 1
 uk_gold       = 1
-flags         = "BadCityDefender", "Corvette"
+flags         = "BadCityDefender", "Corvette", "Ship"
 roles         = ""
 helptext      = _("TODO")
 
@@ -2768,11 +2768,11 @@ sound_fight   = "f_destroyer"
 sound_fight_alt = "f_generic"
 build_cost    = 40
 pop_cost      = 0
-attack        = 3
-defense       = 4
-hitpoints     = 20
+attack        = 4
+defense       = 2
+hitpoints     = 10
 firepower     = 1
-move_rate     = 6
+move_rate     = 5
 vision_radius_sq = 2
 transport_cap = 0
 fuel          = 0
@@ -2780,7 +2780,11 @@ uk_happy      = 1
 uk_shield     = 1
 uk_food       = 1
 uk_gold       = 1
-flags         = "BadCityDefender"
+bonuses       =
+   { "flag", "type", "value"
+     "Submarine", "DefenseMultiplier", 1
+   }
+flags         = "BadCityDefender", "Corvette", "Ship"
 roles         = ""
 helptext      = _("\
 The Patrol Corvette is a Cold War-era coastal patrol vessel, \
@@ -2792,7 +2796,7 @@ cheap and effective for littoral defense.\
 name          = _("Escort Corvette")
 class         = "Trireme"
 tech_req      = "Sonar"
-obsolete_by   = "Patrol Corvette"
+obsolete_by   = "Missile Corvette"
 graphic       = "u.frigate"
 graphic_alt   = "-"
 sound_move    = "m_frigate"
@@ -2801,7 +2805,7 @@ sound_fight   = "f_frigate"
 sound_fight_alt = "f_generic"
 build_cost    = 35
 pop_cost      = 0
-attack        = 3
+attack        = 4
 defense       = 3
 hitpoints     = 10
 firepower     = 1
@@ -2839,11 +2843,11 @@ sound_fight   = "f_destroyer"
 sound_fight_alt = "f_generic"
 build_cost    = 40
 pop_cost      = 0
-attack        = 3
-defense       = 4
-hitpoints     = 20
+attack        = 5
+defense       = 3
+hitpoints     = 10
 firepower     = 1
-move_rate     = 6
+move_rate     = 5
 vision_radius_sq = 2
 transport_cap = 0
 fuel          = 0
@@ -2851,6 +2855,10 @@ uk_happy      = 1
 uk_shield     = 1
 uk_food       = 1
 uk_gold       = 1
+bonuses       =
+   { "flag", "type", "value"
+     "Submarine", "DefenseMultiplier", 1
+   }
 flags         = "BadCityDefender", "Corvette", "Ship"
 roles         = ""
 helptext      = _("\
@@ -2872,11 +2880,11 @@ sound_fight   = "f_destroyer"
 sound_fight_alt = "f_generic"
 build_cost    = 45
 pop_cost      = 0
-attack        = 4
+attack        = 5
 defense       = 4
-hitpoints     = 20
+hitpoints     = 10
 firepower     = 1
-move_rate     = 7
+move_rate     = 5
 vision_radius_sq = 2
 transport_cap = 0
 fuel          = 0
@@ -2884,6 +2892,10 @@ uk_happy      = 1
 uk_shield     = 1
 uk_food       = 1
 uk_gold       = 1
+bonuses       =
+   { "flag", "type", "value"
+     "Submarine", "DefenseMultiplier", 1
+   }
 flags         = "BadCityDefender", "Corvette", "Ship"
 roles         = ""
 helptext      = _("\
@@ -2906,9 +2918,9 @@ sound_fight   = "f_destroyer"
 sound_fight_alt = "f_generic"
 build_cost    = 45
 pop_cost      = 0
-attack        = 4
-defense       = 4
-hitpoints     = 20
+attack        = 5
+defense       = 5
+hitpoints     = 10
 firepower     = 1
 move_rate     = 7
 vision_radius_sq = 2
@@ -2918,9 +2930,163 @@ uk_happy      = 1
 uk_shield     = 1
 uk_food       = 1
 uk_gold       = 1
+bonuses       =
+   { "flag", "type", "value"
+     "Submarine", "DefenseMultiplier", 1
+   }
 flags         = "BadCityDefender", "Corvette", "Ship"
 roles         = ""
 helptext      = _("TODO")
+
+
+; 1800 - https://en.wikipedia.org/wiki/HMS_Trincomalee
+[unit_sailing_frigate]
+name          = _("Sailing Frigate")
+class         = "Sea"
+tech_req      = "Navigation"
+obsolete_by   = "Steam Frigate"
+graphic       = "u.frigate"
+graphic_alt   = "-"
+sound_move    = "m_frigate"
+sound_move_alt = "m_generic"
+sound_fight   = "f_frigate"
+sound_fight_alt = "f_generic"
+build_cost    = 40
+pop_cost      = 0
+attack        = 3
+defense       = 2
+hitpoints     = 12
+firepower     = 1
+move_rate     = 3
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 0
+uk_happy      = 0
+uk_shield     = 0
+uk_food       = 0
+uk_gold       = 1
+flags         = "BadCityDefender", "Frigate", "Ship"
+roles         = "Hunter"
+helptext      = _("\
+The Frigate is a specialized ship with a strong offensive value,\
+ and can attack units on land, but it cannot transport units.\
+")
+
+; 1860 - 
+; TODO Graphics
+[unit_steam_frigate]
+name          = _("Steam Frigate")
+class         = "Sea"
+tech_req      = "Navigation"
+obsolete_by   = "None"
+graphic       = "u.frigate"
+graphic_alt   = "-"
+sound_move    = "m_frigate"
+sound_move_alt = "m_generic"
+sound_fight   = "f_frigate"
+sound_fight_alt = "f_generic"
+build_cost    = 40
+pop_cost      = 0
+attack        = 3
+defense       = 2
+hitpoints     = 12
+firepower     = 1
+move_rate     = 4
+vision_radius_sq = 2
+transport_cap = 0
+fuel          = 0
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 1
+uk_gold       = 1
+flags         = "BadCityDefender", "Frigate", "Ship"
+roles         = "Hunter"
+helptext      = _("\
+The Frigate is a specialized ship with a strong offensive value,\
+ and can attack units on land, but it cannot transport units.\
+")
+
+
+; 1941 - https://en.wikipedia.org/wiki/River-class_frigate
+[unit_frigate_ww2]
+name          = _("Frigate")
+rule_name     = "WW2 Frigate"
+class         = "Sea"
+tech_req      = "Sonar"
+obsolete_by   = "Modern Frigate"
+graphic       = "u.frigate"
+graphic_alt   = "-"
+sound_move    = "m_frigate"
+sound_move_alt = "m_generic"
+sound_fight   = "f_frigate"
+sound_fight_alt = "f_generic"
+build_cost    = 50
+pop_cost      = 0
+attack        = 4
+defense       = 5
+hitpoints     = 25
+firepower     = 1
+move_rate     = 6
+vision_radius_sq = 8
+transport_cap = 0
+fuel          = 0
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 1
+uk_gold       = 1
+bonuses       =
+   { "flag", "type", "value"
+     "Submarine", "DefenseMultiplier", 1
+   }
+bonuses       =
+   { "flag", "type", "value"
+     "Submarine", "DefenseMultiplier", 1
+   }
+flags         = "BadCityDefender", "Frigate", "Ship"
+roles         = ""
+helptext      = _("\
+The Frigate is a purpose-built ASW escort, replacing improvised \
+corvette designs. Its sonar and depth charges double defense against \
+Submarines. An ocean-going vessel unlike corvettes.\
+")
+
+; 1977 - https://en.wikipedia.org/wiki/Oliver_Hazard_Perry-class_frigate
+[unit_modern_frigate]
+name          = _("Modern Frigate")
+class         = "Sea"
+tech_req      = "Cold War Doctrine"
+obsolete_by   = "None"
+graphic       = "u.destroyer"
+graphic_alt   = "u.frigate"
+sound_move    = "m_destroyer"
+sound_move_alt = "m_generic"
+sound_fight   = "f_destroyer"
+sound_fight_alt = "f_generic"
+build_cost    = 55
+pop_cost      = 0
+attack        = 5
+defense       = 5
+hitpoints     = 25
+firepower     = 1
+move_rate     = 7
+vision_radius_sq = 8
+transport_cap = 0
+fuel          = 0
+uk_happy      = 1
+uk_shield     = 1
+uk_food       = 1
+uk_gold       = 1
+bonuses       =
+   { "flag", "type", "value"
+     "Submarine", "DefenseMultiplier", 1
+   }
+flags         = "BadCityDefender", "Frigate", "Ship"
+roles         = ""
+helptext      = _("\
+The Modern Frigate is a multi-role escort vessel specialized in \
+anti-submarine warfare. Its sonar and ASW weapons double defense \
+against Submarines.\
+")
 
 
 ; 1800 - https://en.wikipedia.org/wiki/HMS_Victory
@@ -3016,73 +3182,6 @@ uk_gold       = 1
 flags         = "BadCityDefender", "Destroyer", "Ship"
 roles         = ""
 helptext      = _("TODO")
-
-; 1800 - https://en.wikipedia.org/wiki/HMS_Trincomalee
-[unit_sailing_frigate]
-name          = _("Sailing Frigate")
-class         = "Sea"
-tech_req      = "Navigation"
-obsolete_by   = "Steam Frigate"
-graphic       = "u.frigate"
-graphic_alt   = "-"
-sound_move    = "m_frigate"
-sound_move_alt = "m_generic"
-sound_fight   = "f_frigate"
-sound_fight_alt = "f_generic"
-build_cost    = 40
-pop_cost      = 0
-attack        = 3
-defense       = 2
-hitpoints     = 20
-firepower     = 1
-move_rate     = 4
-vision_radius_sq = 2
-transport_cap = 0
-fuel          = 0
-uk_happy      = 0
-uk_shield     = 0
-uk_food       = 0
-uk_gold       = 1
-flags         = "BadCityDefender", "Frigate", "Ship"
-roles         = "Hunter"
-helptext      = _("\
-The Frigate is a specialized ship with a strong offensive value,\
- and can attack units on land, but it cannot transport units.\
-")
-
-; 1860 - 
-; TODO Graphics
-[unit_steam_frigate]
-name          = _("Steam Frigate")
-class         = "Sea"
-tech_req      = "Navigation"
-obsolete_by   = "None"
-graphic       = "u.frigate"
-graphic_alt   = "-"
-sound_move    = "m_frigate"
-sound_move_alt = "m_generic"
-sound_fight   = "f_frigate"
-sound_fight_alt = "f_generic"
-build_cost    = 40
-pop_cost      = 0
-attack        = 3
-defense       = 2
-hitpoints     = 10
-firepower     = 1
-move_rate     = 4
-vision_radius_sq = 2
-transport_cap = 0
-fuel          = 0
-uk_happy      = 1
-uk_shield     = 1
-uk_food       = 1
-uk_gold       = 1
-flags         = "BadCityDefender"
-roles         = "Hunter"
-helptext      = _("\
-The Frigate is a specialized ship with a strong offensive value,\
- and can attack units on land, but it cannot transport units.\
-")
 
 ; 1892 - https://en.wikipedia.org/wiki/Royal_Sovereign-class_battleship
 [unit_pre_dreadnought]
@@ -3290,45 +3389,6 @@ helptext      = _("\
 The Fleet Destroyer is a fast, heavily-armed warship designed to \
 screen the battle fleet and launch torpedo attacks. Its anti-submarine \
 weapons double defense against Submarines.\
-")
-
-; 1941 - https://en.wikipedia.org/wiki/River-class_frigate
-[unit_frigate_ww2]
-name          = _("Frigate")
-rule_name     = "WW2 Frigate"
-class         = "Sea"
-tech_req      = "Sonar"
-obsolete_by   = "Modern Frigate"
-graphic       = "u.frigate"
-graphic_alt   = "-"
-sound_move    = "m_frigate"
-sound_move_alt = "m_generic"
-sound_fight   = "f_frigate"
-sound_fight_alt = "f_generic"
-build_cost    = 50
-pop_cost      = 0
-attack        = 4
-defense       = 5
-hitpoints     = 25
-firepower     = 1
-move_rate     = 6
-vision_radius_sq = 8
-transport_cap = 0
-fuel          = 0
-uk_happy      = 1
-uk_shield     = 1
-uk_food       = 1
-uk_gold       = 1
-bonuses       =
-   { "flag", "type", "value"
-     "Submarine", "DefenseMultiplier", 1
-   }
-flags         = "BadCityDefender"
-roles         = ""
-helptext      = _("\
-The Frigate is a purpose-built ASW escort, replacing improvised \
-corvette designs. Its sonar and depth charges double defense against \
-Submarines. An ocean-going vessel unlike corvettes.\
 ")
 
 ; 1941 - https://en.wikipedia.org/wiki/Yamato-class_battleship
@@ -3576,44 +3636,6 @@ helptext      = _("\
 The Guided Missile Cruiser is armed with surface-to-air and \
 surface-to-surface missiles, bridging the gap between conventional \
 cruisers and the advanced AEGIS system.\
-")
-
-; 1977 - https://en.wikipedia.org/wiki/Oliver_Hazard_Perry-class_frigate
-[unit_modern_frigate]
-name          = _("Modern Frigate")
-class         = "Sea"
-tech_req      = "Cold War Doctrine"
-obsolete_by   = "None"
-graphic       = "u.destroyer"
-graphic_alt   = "u.frigate"
-sound_move    = "m_destroyer"
-sound_move_alt = "m_generic"
-sound_fight   = "f_destroyer"
-sound_fight_alt = "f_generic"
-build_cost    = 55
-pop_cost      = 0
-attack        = 5
-defense       = 5
-hitpoints     = 25
-firepower     = 1
-move_rate     = 7
-vision_radius_sq = 8
-transport_cap = 0
-fuel          = 0
-uk_happy      = 1
-uk_shield     = 1
-uk_food       = 1
-uk_gold       = 1
-bonuses       =
-   { "flag", "type", "value"
-     "Submarine", "DefenseMultiplier", 1
-   }
-flags         = "BadCityDefender"
-roles         = ""
-helptext      = _("\
-The Modern Frigate is a multi-role escort vessel specialized in \
-anti-submarine warfare. Its sonar and ASW weapons double defense \
-against Submarines.\
 ")
 
 ; 1991 - https://en.wikipedia.org/wiki/Arleigh_Burke-class_destroyer
