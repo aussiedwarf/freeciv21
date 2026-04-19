@@ -2905,7 +2905,7 @@ advanced sensors and weapons. Effective in littoral operations.\
 
 ; 2030 - 
 ; TODO graphic, tech
-[unit_modern_corvette]
+[unit_stealth_corvette]
 name          = _("Stealth Corvette")
 class         = "Trireme"
 tech_req      = "Smart Weapons"
@@ -3034,10 +3034,6 @@ uk_happy      = 1
 uk_shield     = 1
 uk_food       = 1
 uk_gold       = 1
-bonuses       =
-   { "flag", "type", "value"
-     "Submarine", "DefenseMultiplier", 1
-   }
 bonuses       =
    { "flag", "type", "value"
      "Submarine", "DefenseMultiplier", 1
