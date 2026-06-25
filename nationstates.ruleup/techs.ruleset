@@ -1,0 +1,1476 @@
+; Modifying this file:
+; You should not modify this file except to make bugfixes or
+; for other "maintenance".  If you want to make custom changes,
+; you should create a new datadir subdirectory and copy this file
+; into that directory, and then modify that copy.  Then use the
+; command "rulesetdir <mysubdir>" in the server to have freeciv
+; use your new customized file.
+
+; Note that the freeciv AI may not cope well with anything more
+; than minor changes.
+
+
+[datafile]
+description="Nationstates ruleset tech data for Freeciv21"
+ruledit="3.2-dev.2"
+options="+Freeciv-ruleset-Devel-2017.Jan.02 HP_Regen_Min Bombard_Limit_Pct Wonder_Visible Vision_Layer Nation_Intelligence Per_Citizen_Unhappy_Pct"
+format_version=20
+
+; /* <-- avoid gettext warnings
+;
+; Tech classes:
+;
+; First one is the default one.
+; If there is none, tech classes feature is disabled
+;
+; name                    = translatable name as seen by user
+; rule_name               = (optional) internal name for savegames, rulesets
+;                           etc; if not present, "name" is used for this
+;                           purpose too. Since the name used in savegames must
+;                           not change, if you want to rename an item after a
+;                           ruleset has been released, you should set
+;                           "rule_name" to the original value of "name".
+; cost_pct                = how much techs of the class cost compared
+;                           to normal. Default is 100%.
+;
+; */ <-- avoid gettext warnings
+
+
+; /* <-- avoid gettext warnings
+;
+; Below: The individual advances, one per section.
+; The number can be variable, up to 250.
+;
+; The actual tag used (the * in [advance_*]) does not matter, except
+; it must be unique within this file, and it may be used in debug
+; output when reading this file.
+;
+; Notes:
+;
+; name          = translatable name as seen by user
+; rule_name     = (optional) internal name for savegames, rulesets etc; if
+;                 not present, "name" is used for this purpose too. Since
+;                 the name used in savegames must not change, if you want
+;                 to rename an item after a ruleset has been released, you
+;                 should set "rule_name" to the original value of "name".
+; class         = tech class this tech belongs to, if they have been defined.
+;                 Default is first one defined above.
+; req1, req2    = advances required before researching this one
+; root_req      = tech required before acquiring this tech, by any means.
+;                 All techs with any direct or indirect dependency on this
+;                 one will *also* have this root_req, as well as their own
+;                 and any others they inherit.
+;                 Giving "None" explicitly here prevents a tech from
+;                 inheriting root_reqs in this way, and stops root_req
+;                 inheritance through that tech.
+;                 Specifying a tech's root_req as itself means that the tech
+;                 can only be acquired by special means (nation's init_techs,
+;                 scripting, etc).
+; research_reqs = requirements before researching this one. Can have non
+;                 tech requirements because it is a requirement vector.
+;                 See doc/README.effects to learn more about requirement
+;                 vectors.
+;                 Requireing a tech here in stead of in req1, req2 or
+;                 root_req is not supported yet.
+;                 Requirements that may become fulfilled during the game
+;                 when they weren't at the start of the game is not
+;                 supported yet.
+; flags         = special flag strings
+; graphic       = icon for technology
+; graphic_alt   = alternate icon
+; helptext      = optional help text string (set units ruleset for examples)
+; bonus_message = text seen when a player is the first to discover
+;                 an bonus tech. Must contain '%s' to mark place of the tech
+;                 gained.
+; cost          = if tech_cost_style is set to "Classic+" or "Experimental+",
+;                 this field is read for information on how much a tech
+;                 costs.
+;
+; Special values for req1 and req2 are "None" (first section below)
+; and "Never" (never available).  If only one tech is required,
+; it should be listed as req1.
+;
+; As well as custom flags defined above, the following flag strings are
+; possible:
+;
+; "Bonus_Tech"          = player gets extra tech if reached first
+; "Bridge"              = "Settler" unit types can build roads with
+;                         "RequiresBridge" flag over roads with
+;                         "PreventsOtherRoads" flag (rivers)
+; "Build_Airborne"      = from now on can build air units (for use by AI)
+; "Claim_Ocean"         = Player claims ocean tiles even if they are not
+;                         adjacent to border source
+; "Claim_Ocean_Limited" = Oceanic border sources claim ocean tiles even if
+;                         they are not adjacent to border source
+;
+; */ <-- avoid gettext warnings
+
+
+[advance_0]
+name=_("Advanced Flight")
+req1="Radio"
+req2="Machine Tools"
+graphic="a.advanced_flight"
+helptext="Enables movement of nuclear units."
+
+[advance_1]
+name=_("Alphabet")
+req1="None"
+req2="None"
+graphic="a.alphabet"
+
+[advance_2]
+name=_("Amphibious Warfare")
+req1="Engineering"
+req2="Tactics"
+graphic="a.amphibious_warfare"
+
+[advance_3]
+name=_("Astronomy")
+req1="Mysticism"
+req2="Mathematics"
+graphic="a.astronomy"
+helptext="Increases units' vision when in fortresses."
+
+[advance_4]
+name=_("Atomic Theory")
+req1="Chemistry"
+req2="Physics"
+graphic="a.atomic_theory"
+
+[advance_5]
+name=_("Automobile")
+req1="Combustion"
+req2="Steel"
+graphic="a.automobile"
+
+[advance_6]
+name=_("Banking")
+req1="Trade"
+req2="The Republic"
+graphic="a.banking"
+
+[advance_7]
+name=_("Bridge Building")
+req1="The Wheel"
+req2="Construction"
+graphic="a.bridge_building"
+flags="Bridge"
+helptext="Allows roads to be built on river tiles."
+
+[advance_8]
+name=_("Bronze Working")
+req1="None"
+req2="None"
+graphic="a.bronze_working"
+
+[advance_9]
+name=_("Ceremonial Burial")
+req1="None"
+req2="None"
+graphic="a.ceremonial_burial"
+
+[advance_10]
+name=_("Chemistry")
+req1="University"
+req2="Medicine"
+graphic="a.chemistry"
+
+[advance_11]
+name=_("Chivalry")
+req1="Feudalism"
+req2="Horseback Riding"
+graphic="a.chivalry"
+
+[advance_12]
+name=_("Code of Laws")
+req1="Alphabet"
+req2="None"
+graphic="a.code_of_laws"
+
+[advance_13]
+name=_("Combined Arms")
+req1="Mobile Warfare"
+req2="Advanced Flight"
+graphic="a.combined_arms"
+
+[advance_14]
+name=_("Combustion")
+req1="Refining"
+req2="Thermodynamics"
+graphic="a.combustion"
+
+[advance_15]
+name=_("Communism")
+req1="Theology"
+req2="Industrialization"
+graphic="a.communism"
+helptext="Reduces the effect of Cathedrals."
+
+[advance_16]
+name=_("Computers")
+req1="Electronics"
+req2="Cryptography"
+graphic="a.computers"
+
+[advance_17]
+name=_("Conscription")
+req1="Democracy"
+req2="Metallurgy"
+graphic="a.conscription"
+
+[advance_18]
+name=_("Construction")
+req1="Masonry"
+req2="Iron Working"
+graphic="a.construction"
+helptext="Allows Settlers, Migrants, Workers and Engineers to build forts and fortresses."
+
+[advance_19]
+name=_("Currency")
+req1="Bronze Working"
+req2="None"
+graphic="a.currency"
+
+[advance_20]
+name=_("Democracy")
+req1="Banking"
+req2="Invention"
+graphic="a.democracy"
+
+[advance_21]
+name=_("Economics")
+req1="Banking"
+req2="University"
+graphic="a.economics"
+
+[advance_22]
+name=_("Electricity")
+req1="Metallurgy"
+req2="Theory of Gravity"
+graphic="a.electricity"
+helptext="Allows irrigation without an adjacent water source, improves the effect of Amphitheaters, and increases city vision radius."
+
+[advance_23]
+name=_("Electronics")
+req1="The Corporation"
+req2="Electricity"
+graphic="a.electronics"
+
+[advance_24]
+name=_("Engineering")
+req1="Electricity"
+req2="Steam Engine"
+graphic="a.engineering"
+
+[advance_25]
+name=_("Environmentalism")
+req1="Ecology"
+req2="Space Flight"
+graphic="a.environmentalism"
+
+[advance_26]
+name=_("Espionage")
+req1="Communism"
+req2="Democracy"
+graphic="a.espionage"
+
+[advance_27]
+name=_("Explosives")
+req1="Gunpowder"
+req2="Chemistry"
+graphic="a.explosives"
+
+[advance_28]
+name=_("Feudalism")
+req1="Iron Working"
+req2="Monarchy"
+graphic="a.feudalism"
+
+[advance_29]
+name=_("Flight")
+req1="Combustion"
+req2="Aerodynamics"
+graphic="a.flight"
+flags="Build_Airborne"
+
+[advance_30]
+name=_("Fusion Power")
+req1="Superconductors"
+req2="Plasma Physics"
+graphic="a.fusion_power"
+helptext="Makes it possible for Engineers to transform terrains."
+
+[advance_31]
+name=_("Genetic Engineering")
+req1="Molecular Biology"
+req2="Computers"
+graphic="a.genetic_engineering"
+
+[advance_32]
+name=_("Guerilla Warfare")
+req1="Nationalism"
+req2="Tactics"
+graphic="a.guerilla_warfare"
+
+[advance_33]
+name=_("Gunpowder")
+req1="Invention"
+req2="Feudalism"
+graphic="a.gunpowder"
+
+[advance_34]
+name=_("Horseback Riding")
+req1="None"
+req2="None"
+graphic="a.horseback_riding"
+
+[advance_35]
+name=_("Industrialization")
+req1="Steam Engine"
+req2="Banking"
+graphic="a.industrialization"
+
+[advance_36]
+name=_("Invention")
+req1="Bridge Building"
+req2="Literacy"
+graphic="a.invention"
+helptext="Halves the upgrade cost of your units."
+
+[advance_37]
+name=_("Iron Working")
+req1="Bronze Working"
+req2="Warrior Code"
+graphic="a.iron_working"
+
+[advance_38]
+name=_("Labor Union")
+req1="Labor Movement"
+req2="Industrialization"
+graphic="a.labor_union"
+
+[advance_39]
+name=_("Laser")
+req1="Quantum Theory"
+req2="Semiconductor"
+graphic="a.laser"
+
+[advance_40]
+name=_("Leadership")
+req1="Chivalry"
+req2="Gunpowder"
+graphic="a.leadership"
+
+[advance_41]
+name=_("Literacy")
+req1="Writing"
+req2="Code of Laws"
+graphic="a.literacy"
+
+[advance_42]
+name=_("Machine Tools")
+req1="Metallurgy"
+req2="Tactics"
+graphic="a.machine_tools"
+
+[advance_43]
+name=_("Magnetism")
+req1="Seafaring"
+req2="Astronomy"
+graphic="a.magnetism"
+
+[advance_44]
+name=_("Map Making")
+req1="Alphabet"
+req2="None"
+graphic="a.map_making"
+
+[advance_45]
+name=_("Masonry")
+req1="None"
+req2="None"
+graphic="a.masonry"
+
+[advance_46]
+name=_("Mass Production")
+req1="Automobile"
+req2="The Corporation"
+graphic="a.mass_production"
+
+[advance_47]
+name=_("Mathematics")
+req1="Alphabet"
+req2="Masonry"
+graphic="a.mathematics"
+
+[advance_48]
+name=_("Medicine")
+req1="Philosophy"
+req2="Trade"
+graphic="a.medicine"
+helptext="Reduces the risk of plague in your cities by 30% of the base chance. This is additive with the benefits of any buildings."
+
+[advance_49]
+name=_("Metallurgy")
+req1="Gunpowder"
+req2="Mathematics"
+graphic="a.metallurgy"
+
+[advance_50]
+name=_("Miniaturization")
+req1="Electronics"
+req2="Precision Manufacturing"
+graphic="a.miniaturization"
+helptext="Allows Settlers, Migrants, Workers, Engineers, and Transports to build oil platforms on Deep Ocean, required to get the bonus from Offshore Platforms."
+
+[advance_51]
+name=_("Mobile Warfare")
+req1="Automobile"
+req2="Machine Tools"
+graphic="a.mobile_warfare"
+
+[advance_52]
+name=_("Monarchy")
+req1="Ceremonial Burial"
+req2="Code of Laws"
+graphic="a.monarchy"
+
+[advance_53]
+name=_("Monotheism")
+req1="Astronomy"
+req2="Polytheism"
+graphic="a.monotheism"
+
+[advance_54]
+name=_("Mysticism")
+req1="Ceremonial Burial"
+req2="None"
+graphic="a.mysticism"
+helptext="Improves the effect of Temples."
+
+[advance_55]
+name=_("Navigation")
+req1="Invention"
+req2="Physics"
+graphic="a.navigation"
+
+[advance_56]
+name=_("Nuclear Fission")
+req1="Quantum Theory"
+req2="Mass Production"
+graphic="a.nuclear_fission"
+
+[advance_57]
+name=_("Nuclear Power")
+req1="Nuclear Fission"
+req2="Electronics"
+graphic="a.nuclear_power"
+helptext="Gives sea units one extra movepoint."
+
+[advance_58]
+name=_("Philosophy")
+req1="Mysticism"
+req2="Literacy"
+graphic="a.philosophy"
+bonus_message="Great philosophers from all the world join your civilization: you learn %s immediately."
+flags="Bonus_Tech"
+
+[advance_59]
+name=_("Physics")
+req1="The Wheel"
+req2="Magnetism"
+graphic="a.physics"
+
+[advance_60]
+name=_("Plastics")
+req1="Organic Chemistry"
+req2="Industrialization"
+graphic="a.plastics"
+
+[advance_61]
+name=_("Polytheism")
+req1="Horseback Riding"
+req2="Ceremonial Burial"
+graphic="a.polytheism"
+
+[advance_62]
+name=_("Pottery")
+req1="None"
+req2="None"
+graphic="a.pottery"
+
+[advance_63]
+name=_("Radio")
+req1="Flight"
+req2="Electrical Engineering"
+graphic="a.radio"
+helptext="Allows Workers and Engineers to build airstrips, airbases and buoys."
+
+[advance_64]
+name=_("?tech:Railroad")
+req1="Steam Engine"
+req2="Metallurgy"
+graphic="a.railroad"
+helptext="Allows Settlers, Migrants, Workers and Engineers to upgrade roads to railroads.","For Despotism or Tribal governments, cancels the penalty to worked tiles with output greater than 2 (as if all your cities were always celebrating)."
+
+[advance_65]
+name=_("Recycling")
+req1="Plastics"
+req2="Ecology"
+graphic="a.recycling"
+
+[advance_66]
+name=_("Refining")
+req1="Chemistry"
+req2="Industrialization"
+graphic="a.refining"
+helptext="Allows Settlers, Migrants, Workers and Engineers to upgrade mines to oil wells on Desert and Glacier tiles, for an extra production point."
+
+[advance_67]
+name=_("Refrigeration")
+req1="Chemistry"
+req2="Electricity"
+graphic="a.refrigeration"
+helptext="Allows Settlers, Migrants, Workers and Engineers to upgrade irrigation systems to farmland."
+
+[advance_68]
+name=_("Robotics")
+req1="Computers"
+req2="Automation"
+graphic="a.robotics"
+
+[advance_69]
+name=_("Rocketry")
+req1="Jet Propulsion"
+req2="Guided Missiles"
+graphic="a.rocketry"
+helptext="Doubles movement of nuclear units."
+
+[advance_70]
+name=_("Sanitation")
+req1="Bridge Building"
+req2="Medicine"
+graphic="a.sanitation"
+
+[advance_71]
+name=_("Seafaring")
+req1="Pottery"
+req2="Map Making"
+graphic="a.seafaring"
+
+[advance_72]
+name=_("Space Flight")
+req1="Computers"
+req2="Rocketry"
+graphic="a.space_flight"
+
+[advance_73]
+name=_("Stealth")
+req1="Advanced Composites"
+req2="Radar"
+graphic="a.stealth"
+
+[advance_74]
+name=_("Steam Engine")
+req1="Chemistry"
+req2="Navigation"
+graphic="a.steam_engine"
+
+[advance_75]
+name=_("Steel")
+req1="Railroad"
+req2="Industrialization"
+graphic="a.steel"
+
+[advance_76]
+name=_("Superconductors")
+req1="Laser"
+req2="Cryogenics"
+graphic="a.superconductors"
+helptext="Allows Settlers, Migrants, Workers and Engineers to upgrade railroads with maglev."
+
+[advance_77]
+name=_("Tactics")
+req1="Conscription"
+req2="Leadership"
+graphic="a.tactics"
+
+[advance_78]
+name=_("The Corporation")
+req1="Economics"
+req2="Industrialization"
+graphic="a.the_corporation"
+helptext="Halves the corruption of trade related to distance from the capital (or eliminates it for Federation governments)."
+
+[advance_79]
+name=_("The Republic")
+req1="Code of Laws"
+req2="Literacy"
+graphic="a.the_republic"
+
+[advance_80]
+name=_("The Wheel")
+req1="Horseback Riding"
+req2="None"
+graphic="a.the_wheel"
+
+[advance_81]
+name=_("Theology")
+req1="Philosophy"
+req2="Monotheism"
+graphic="a.theology"
+helptext="Improves the effect of Cathedrals."
+
+[advance_82]
+name=_("Theory of Gravity")
+req1="Physics"
+req2="University"
+graphic="a.theory_of_gravity"
+
+[advance_83]
+name=_("Trade")
+req1="Currency"
+req2="Pottery"
+graphic="a.trade"
+helptext="Halves the waste of production related to distance from the capital."
+
+[advance_84]
+name=_("University")
+req1="Mathematics"
+req2="Philosophy"
+graphic="a.university"
+
+[advance_85]
+name=_("Warrior Code")
+req1="None"
+req2="None"
+graphic="a.warrior_code"
+
+[advance_86]
+name=_("Writing")
+req1="Alphabet"
+req2="None"
+graphic="a.writing"
+
+[advance_87]
+name=_("Aerodynamics")
+req1="Physics"
+req2="Mathematics"
+graphic="a.aerodynamics"
+
+[advance_88]
+name=_("Agricultural Chemistry")
+req1="Chemistry"
+req2="Trade"
+graphic="a.agricultural_chemistry"
+
+[advance_89]
+name=_("Advanced Naval Warfare")
+req1="Naval Aviation"
+req2="Sonar"
+graphic="a.advanced_naval_warfare"
+
+[advance_90]
+name=_("Anesthesia")
+req1="Medicine"
+req2="Organic Chemistry"
+graphic="a.anesthesia"
+
+[advance_91]
+name=_("Antibiotics")
+req1="Epidemiology"
+req2="Organic Chemistry"
+graphic="a.antibiotics"
+
+[advance_92]
+name=_("Antiseptics")
+req1="Microbiology"
+req2="Organic Chemistry"
+graphic="a.antiseptics"
+
+[advance_93]
+name=_("Armor Plate")
+req1="Metallurgical Science"
+req2="Navigation"
+graphic="a.armor_plate"
+
+[advance_94]
+name=_("Assembly Line")
+req1="Mass Production"
+req2="Electrical Engineering"
+graphic="a.assembly_line"
+
+[advance_95]
+name=_("Aviation Industry")
+req1="Flight"
+req2="Mass Production"
+graphic="a.aviation_industry"
+
+[advance_96]
+name=_("Ballistics")
+req1="Explosives"
+req2="Mathematics"
+graphic="a.ballistics"
+
+[advance_97]
+name=_("Chemical Warfare")
+req1="Trench Warfare"
+req2="Organic Chemistry"
+graphic="a.chemical_warfare"
+
+[advance_98]
+name=_("Cinema")
+req1="Photography"
+req2="Electrification"
+graphic="a.cinema"
+
+[advance_99]
+name=_("Civil Service")
+req1="Democracy"
+req2="Literacy"
+graphic="a.civil_service"
+
+[advance_100]
+name=_("Cryptography")
+req1="Mathematics"
+req2="Radio"
+graphic="a.cryptography"
+
+[advance_101]
+name=_("Dreadnought")
+req1="Armor Plate"
+req2="Steam Turbine"
+graphic="a.dreadnought"
+
+[advance_102]
+name=_("Electrical Engineering")
+req1="Electromagnetism"
+req2="Engineering"
+graphic="a.electrical_engineering"
+
+[advance_103]
+name=_("Electrification")
+req1="Electrical Engineering"
+req2="Industrialization"
+graphic="a.electrification"
+
+[advance_104]
+name=_("Electromagnetism")
+req1="Electricity"
+req2="Theory of Gravity"
+graphic="a.electromagnetism"
+
+[advance_105]
+name=_("Epidemiology")
+req1="Public Health"
+req2="Mathematics"
+graphic="a.epidemiology"
+
+[advance_106]
+name=_("Fascism")
+req1="Nationalism"
+req2="Propaganda"
+graphic="a.fascism"
+
+[advance_107]
+name=_("Fertilizers")
+req1="Agricultural Chemistry"
+req2="Industrialization"
+graphic="a.fertilizers"
+
+[advance_108]
+name=_("Food Preservation")
+req1="Chemistry"
+req2="Trade"
+graphic="a.food_preservation"
+
+[advance_109]
+name=_("International Law")
+req1="Democracy"
+req2="Telegraph"
+graphic="a.international_law"
+
+[advance_110]
+name=_("Journalism")
+req1="Literacy"
+req2="Telegraph"
+graphic="a.journalism"
+
+[advance_111]
+name=_("Labor Movement")
+req1="Socialism"
+req2="Industrialization"
+graphic="a.labor_movement"
+
+[advance_112]
+name=_("Logistics")
+req1="Railroad"
+req2="Tactics"
+graphic="a.logistics"
+
+[advance_113]
+name=_("Materials Science")
+req1="Organic Chemistry"
+req2="Steel"
+graphic="a.materials_science"
+
+[advance_114]
+name=_("Mechanized Agriculture")
+req1="Combustion"
+req2="Agricultural Chemistry"
+graphic="a.mechanized_agriculture"
+
+[advance_115]
+name=_("Metallurgical Science")
+req1="Metallurgy"
+req2="Thermodynamics"
+graphic="a.metallurgical_science"
+
+[advance_116]
+name=_("Microbiology")
+req1="Optics"
+req2="Medicine"
+graphic="a.microbiology"
+
+[advance_117]
+name=_("Military Aviation")
+req1="Flight"
+req2="Machine Tools"
+graphic="a.military_aviation"
+
+[advance_118]
+name=_("Mine Warfare")
+req1="Torpedo"
+req2="Explosives"
+graphic="a.mine_warfare"
+
+[advance_119]
+name=_("Modern Artillery")
+req1="Ballistics"
+req2="Steel"
+graphic="a.modern_artillery"
+
+[advance_120]
+name=_("Motorized Transport")
+req1="Automobile"
+req2="Logistics"
+graphic="a.motorized_transport"
+
+[advance_121]
+name=_("Nationalism")
+req1="Philosophy"
+req2="Literacy"
+graphic="a.nationalism"
+
+[advance_122]
+name=_("Naval Aviation")
+req1="Military Aviation"
+req2="Dreadnought"
+graphic="a.naval_aviation"
+
+[advance_123]
+name=_("Optics")
+req1="Physics"
+req2="Mathematics"
+graphic="a.optics"
+
+[advance_124]
+name=_("Organic Chemistry")
+req1="Chemistry"
+req2="Thermodynamics"
+graphic="a.organic_chemistry"
+
+[advance_125]
+name=_("Paratrooper Doctrine")
+req1="Advanced Flight"
+req2="Trench Warfare"
+graphic="a.paratrooper_doctrine"
+
+[advance_126]
+name=_("Petrochemicals")
+req1="Petroleum Industry"
+req2="Organic Chemistry"
+graphic="a.petrochemicals"
+
+[advance_127]
+name=_("Petroleum Industry")
+req1="Refining"
+req2="The Corporation"
+graphic="a.petroleum_industry"
+
+[advance_128]
+name=_("Photography")
+req1="Optics"
+req2="Chemistry"
+graphic="a.photography"
+
+[advance_129]
+name=_("Precision Manufacturing")
+req1="Machine Tools"
+req2="Industrialization"
+graphic="a.precision_manufacturing"
+
+[advance_130]
+name=_("Propaganda")
+req1="Cinema"
+req2="Journalism"
+graphic="a.propaganda"
+
+[advance_131]
+name=_("Public Education")
+req1="Civil Service"
+req2="University"
+graphic="a.public_education"
+
+[advance_132]
+name=_("Public Health")
+req1="Vaccination"
+req2="Medicine"
+graphic="a.public_health"
+
+[advance_133]
+name=_("Quantum Theory")
+req1="Atomic Theory"
+req2="Electromagnetism"
+graphic="a.quantum_theory"
+
+[advance_134]
+name=_("Radar")
+req1="Radio"
+req2="Electrical Engineering"
+graphic="a.radar"
+
+[advance_135]
+name=_("Reinforced Concrete")
+req1="Steel"
+req2="Construction"
+graphic="a.reinforced_concrete"
+
+[advance_136]
+name=_("Rifling")
+req1="Metallurgy"
+req2="Ballistics"
+graphic="a.rifling"
+
+[advance_137]
+name=_("Rubber Processing")
+req1="Chemistry"
+req2="Trade"
+graphic="a.rubber_processing"
+
+[advance_138]
+name=_("Selective Breeding")
+req1="Agricultural Chemistry"
+req2="Medicine"
+graphic="a.selective_breeding"
+
+[advance_139]
+name=_("Socialism")
+req1="Economics"
+req2="Nationalism"
+graphic="a.socialism"
+
+[advance_140]
+name=_("Sonar")
+req1="Submarine Warfare"
+req2="Electromagnetism"
+graphic="a.sonar"
+
+[advance_141]
+name=_("Steam Turbine")
+req1="Thermodynamics"
+req2="Steel"
+graphic="a.steam_turbine"
+
+[advance_142]
+name=_("Strategic Bombing")
+req1="Aviation Industry"
+req2="Military Aviation"
+graphic="a.strategic_bombing"
+
+[advance_143]
+name=_("Submarine Warfare")
+req1="Torpedo"
+req2="Steel"
+graphic="a.submarine_warfare"
+
+[advance_144]
+name=_("Suffrage")
+req1="Democracy"
+req2="Public Education"
+graphic="a.suffrage"
+
+[advance_145]
+name=_("Surgery")
+req1="Anesthesia"
+req2="Antiseptics"
+graphic="a.surgery"
+
+[advance_146]
+name=_("Synthetic Materials")
+req1="Organic Chemistry"
+req2="Industrialization"
+graphic="a.synthetic_materials"
+
+[advance_147]
+name=_("Telegraph")
+req1="Electricity"
+req2="Railroad"
+graphic="a.telegraph"
+
+[advance_148]
+name=_("Telephone")
+req1="Telegraph"
+req2="Electromagnetism"
+graphic="a.telephone"
+
+[advance_149]
+name=_("Thermodynamics")
+req1="Physics"
+req2="Chemistry"
+graphic="a.thermodynamics"
+
+[advance_150]
+name=_("Torpedo")
+req1="Explosives"
+req2="Steam Engine"
+graphic="a.torpedo"
+
+[advance_151]
+name=_("Total War Doctrine")
+req1="War Economy"
+req2="Fascism"
+graphic="a.total_war_doctrine"
+
+[advance_152]
+name=_("Trench Warfare")
+req1="Modern Artillery"
+req2="Conscription"
+graphic="a.trench_warfare"
+
+[advance_153]
+name=_("Tropical Medicine")
+req1="Epidemiology"
+req2="Microbiology"
+graphic="a.tropical_medicine"
+
+[advance_154]
+name=_("Vaccination")
+req1="Medicine"
+req2="Chemistry"
+graphic="a.vaccination"
+
+[advance_155]
+name=_("War Economy")
+req1="Assembly Line"
+req2="Conscription"
+graphic="a.war_economy"
+
+[advance_156]
+name=_("Jet Propulsion")
+req1="Aerodynamics"
+req2="Combustion"
+graphic="a.jet_propulsion"
+
+[advance_157]
+name=_("Transistors")
+req1="Electronics"
+req2="Quantum Theory"
+graphic="a.transistors"
+
+[advance_158]
+name=_("Guided Missiles")
+req1="Ballistics"
+req2="Radar"
+graphic="a.guided_missiles"
+
+[advance_159]
+name=_("Helicopters")
+req1="Advanced Flight"
+req2="Combustion"
+graphic="a.helicopters"
+
+[advance_160]
+name=_("Television")
+req1="Radio"
+req2="Electronics"
+graphic="a.television"
+
+[advance_161]
+name=_("Nuclear Weapons")
+req1="Nuclear Fission"
+req2="Rocketry"
+graphic="a.nuclear_weapons"
+
+[advance_162]
+name=_("Jet Aviation")
+req1="Jet Propulsion"
+req2="Military Aviation"
+graphic="a.jet_aviation"
+
+[advance_163]
+name=_("Automation")
+req1="Computers"
+req2="Mass Production"
+graphic="a.automation"
+
+[advance_164]
+name=_("Pharmaceutical Industry")
+req1="Antibiotics"
+req2="Mass Production"
+graphic="a.pharmaceutical_industry"
+
+[advance_165]
+name=_("Decolonization")
+req1="International Law"
+req2="Nationalism"
+graphic="a.decolonization"
+
+[advance_166]
+name=_("United Nations")
+req1="International Law"
+req2="Suffrage"
+graphic="a.united_nations"
+
+[advance_167]
+name=_("Suburban Development")
+req1="Automobile"
+req2="Reinforced Concrete"
+graphic="a.suburban_development"
+
+[advance_168]
+name=_("Cold War Doctrine")
+req1="Nuclear Weapons"
+req2="Espionage"
+graphic="a.cold_war_doctrine"
+
+[advance_169]
+name=_("Petrochemical Industry")
+req1="Petrochemicals"
+req2="Mass Production"
+graphic="a.petrochemical_industry"
+
+[advance_170]
+name=_("Turbofan")
+req1="Jet Propulsion"
+req2="Thermodynamics"
+graphic="a.turbofan"
+
+[advance_171]
+name=_("Semiconductor")
+req1="Transistors"
+req2="Materials Science"
+graphic="a.semiconductor"
+
+[advance_172]
+name=_("Civil Aviation")
+req1="Turbofan"
+req2="Radar"
+graphic="a.civil_aviation"
+
+[advance_173]
+name=_("Containment")
+req1="Cold War Doctrine"
+req2="Propaganda"
+graphic="a.containment"
+
+[advance_174]
+name=_("Integrated Circuits")
+req1="Semiconductor"
+req2="Miniaturization"
+graphic="a.integrated_circuits"
+
+[advance_175]
+name=_("Satellites")
+req1="Space Flight"
+req2="Radar"
+graphic="a.satellites"
+
+[advance_176]
+name=_("ICBM")
+req1="Guided Missiles"
+req2="Nuclear Weapons"
+graphic="a.icbm"
+
+[advance_177]
+name=_("Telecommunications")
+req1="Television"
+req2="Telephone"
+graphic="a.telecommunications"
+
+[advance_178]
+name=_("Nuclear Submarine")
+req1="Nuclear Power"
+req2="Submarine Warfare"
+graphic="a.nuclear_submarine"
+
+[advance_179]
+name=_("Green Revolution")
+req1="Fertilizers"
+req2="Selective Breeding"
+graphic="a.green_revolution"
+
+[advance_180]
+name=_("Ecology")
+req1="Pharmaceutical Industry"
+req2="Public Health"
+graphic="a.ecology"
+
+[advance_181]
+name=_("Molecular Biology")
+req1="Microbiology"
+req2="Quantum Theory"
+graphic="a.molecular_biology"
+
+[advance_182]
+name=_("Optoelectronics")
+req1="Laser"
+req2="Semiconductor"
+graphic="a.optoelectronics"
+
+[advance_183]
+name=_("Aerospace Engineering")
+req1="Space Flight"
+req2="Jet Aviation"
+graphic="a.aerospace_engineering"
+
+[advance_184]
+name=_("Cryogenics")
+req1="Thermodynamics"
+req2="Quantum Theory"
+graphic="a.cryogenics"
+
+[advance_185]
+name=_("Nuclear Strategy")
+req1="ICBM"
+req2="Cold War Doctrine"
+graphic="a.nuclear_strategy"
+
+[advance_186]
+name=_("Television Broadcasting")
+req1="Television"
+req2="Telecommunications"
+graphic="a.television_broadcasting"
+
+[advance_187]
+name=_("Counterinsurgency")
+req1="Guerilla Warfare"
+req2="Helicopters"
+graphic="a.counterinsurgency"
+
+[advance_188]
+name=_("Containerization")
+req1="Logistics"
+req2="Automation"
+graphic="a.containerization"
+
+[advance_189]
+name=_("Plastics Industry")
+req1="Plastics"
+req2="Petrochemical Industry"
+graphic="a.plastics_industry"
+
+[advance_190]
+name=_("Desalination")
+req1="Nuclear Power"
+req2="Ecology"
+graphic="a.desalination"
+
+[advance_191]
+name=_("Microprocessor")
+req1="Integrated Circuits"
+req2="Computers"
+graphic="a.microprocessor"
+
+[advance_192]
+name=_("Fiber Optics")
+req1="Optoelectronics"
+req2="Telecommunications"
+graphic="a.fiber_optics"
+
+[advance_193]
+name=_("Personal Computers")
+req1="Microprocessor"
+req2="Television Broadcasting"
+graphic="a.personal_computers"
+
+[advance_194]
+name=_("GPS")
+req1="Satellites"
+req2="Microprocessor"
+graphic="a.gps"
+
+[advance_195]
+name=_("Smart Weapons")
+req1="GPS"
+req2="Guided Missiles"
+graphic="a.smart_weapons"
+
+[advance_196]
+name=_("Mobile Telephony")
+req1="Personal Computers"
+req2="Telecommunications"
+graphic="a.mobile_telephony"
+
+[advance_197]
+name=_("Internet")
+req1="Fiber Optics"
+req2="Personal Computers"
+graphic="a.internet"
+
+[advance_198]
+name=_("Biotechnology")
+req1="Molecular Biology"
+req2="Computers"
+graphic="a.biotechnology"
+
+[advance_199]
+name=_("Renewable Energy")
+req1="Ecology"
+req2="Electrical Engineering"
+graphic="a.renewable_energy"
+
+[advance_200]
+name=_("Advanced Composites")
+req1="Materials Science"
+req2="Plastics"
+graphic="a.advanced_composites"
+
+[advance_201]
+name=_("Cruise Missile Technology")
+req1="Smart Weapons"
+req2="Jet Aviation"
+graphic="a.cruise_missile_technology"
+
+[advance_202]
+name=_("Space Station")
+req1="Aerospace Engineering"
+req2="Space Flight"
+graphic="a.space_station"
+
+[advance_203]
+name=_("Plasma Physics")
+req1="Nuclear Power"
+req2="Quantum Theory"
+graphic="a.plasma_physics"
+
+[advance_204]
+name=_("Digital Electronics")
+req1="Microprocessor"
+req2="Fiber Optics"
+graphic="a.digital_electronics"
+
+[advance_205]
+name=_("Globalization")
+req1="Internet"
+req2="Containerization"
+graphic="a.globalization"
+
+[advance_206]
+name=_("Genetic Modification")
+req1="Genetic Engineering"
+req2="Biotechnology"
+graphic="a.genetic_modification"
+
+[advance_207]
+name=_("Ballistic Missile Defense")
+req1="Nuclear Strategy"
+req2="Satellites"
+graphic="a.ballistic_missile_defense"
+
+[advance_208]
+name=_("Information Warfare")
+req1="Internet"
+req2="Espionage"
+graphic="a.information_warfare"
+
+[advance_209]
+name=_("Unmanned Vehicles")
+req1="Robotics"
+req2="GPS"
+graphic="a.unmanned_vehicles"
+
+[advance_210]
+name=_("Cell Biology")
+req1="Biotechnology"
+req2="Surgery"
+graphic="a.cell_biology"
+
+[advance_211]
+name=_("Artificial Intelligence")
+req1="Internet"
+req2="Robotics"
+graphic="a.artificial_intelligence"
+
+[advance_212]
+name=_("Drones")
+req1="Unmanned Vehicles"
+req2="Smart Weapons"
+graphic="a.drones"
+
+[advance_213]
+name=_("Cyber Warfare")
+req1="Information Warfare"
+req2="Cryptography"
+graphic="a.cyber_warfare"
+
+[advance_214]
+name=_("Social Media")
+req1="Internet"
+req2="Mobile Telephony"
+graphic="a.social_media"
+
+[advance_215]
+name=_("Advanced Renewable Energy")
+req1="Renewable Energy"
+req2="Superconductors"
+graphic="a.advanced_renewable_energy"
+
+[advance_216]
+name=_("Nanotechnology")
+req1="Molecular Biology"
+req2="Advanced Composites"
+graphic="a.nanotechnology"
+
+[advance_217]
+name=_("Genomics")
+req1="Genetic Modification"
+req2="Personal Computers"
+graphic="a.genomics"
+
+[advance_218]
+name=_("Quantum Computing")
+req1="Artificial Intelligence"
+req2="Quantum Theory"
+graphic="a.quantum_computing"
+
+[advance_219]
+name=_("Directed Energy Weapons")
+req1="Laser"
+req2="Advanced Composites"
+graphic="a.directed_energy_weapons"
+
+[advance_220]
+name=_("Autonomous Weapons")
+req1="Drones"
+req2="Artificial Intelligence"
+graphic="a.autonomous_weapons"
+
+[advance_221]
+name=_("5G Networks")
+req1="Mobile Telephony"
+req2="Fiber Optics"
+graphic="a.5g_networks"
+
+[advance_222]
+name=_("Space Commercialization")
+req1="Space Station"
+req2="The Corporation"
+graphic="a.space_commercialization"
+
+[advance_223]
+name=_("Hypersonic Weapons")
+req1="Jet Propulsion"
+req2="Advanced Composites"
+graphic="a.hypersonic_weapons"

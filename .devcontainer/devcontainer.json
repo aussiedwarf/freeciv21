@@ -1,0 +1,32 @@
+{
+  "name": "space82",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": "."
+  },
+  "workspaceFolder": "/workspace",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind",
+  "mounts": [
+    "source=/tmp/.X11-unix,target=/tmp/.X11-unix,type=bind,consistency=cached",
+    "source=/run/user/1000/pulse,target=/run/user/1000/pulse,type=bind,consistency=cached"
+  ],
+  "remoteEnv": {
+    "DISPLAY": "${localEnv:DISPLAY}",
+    "PULSE_SERVER": "unix:/run/user/1000/pulse/native",
+    "XDG_RUNTIME_DIR": "/run/user/1000"
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        //"openai.chatgpt",
+        "anthropic.claude-code",
+        "bierner.markdown-mermaid", // not needed when inbuilt vscode mermaid prreview works
+        "mhutchie.git-graph",
+        "ms-vscode.cpptools",
+        "streetsidesoftware.code-spell-checker",
+        "vadimcn.vscode-lldb"
+        
+      ]
+    }
+  }
+}
